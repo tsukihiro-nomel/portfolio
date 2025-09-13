@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomel ESMEL – Portfolio 3D</title>
+  <!--
+    Cette page est une reconstruction simple de votre site Wix à
+    l'aide de HTML et CSS. Elle utilise une mise en page moderne
+    responsive avec des sections distinctes pour le héros, les
+    catégories de projets, la démo reel, la section "À propos"
+    et les informations de contact. Les sections d'image emploient
+    des blocs de couleur comme substituts ; remplacez‑les par vos
+    propres visuels pour personnaliser davantage la page.
+  -->
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome est utilisé pour les icônes des réseaux sociaux -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-dPz8HI9VXcbzKRL+y+zwXJpAabLupuJzfXpY3Pv+MQEhgyDyFZ9B9VK3YCu/kn0/+9fYGn2tj9Lhzj55mki7zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="logo">Nomel ESMEL</div>
+    <nav>
+      <a href="#projects">Projets</a>
+      <a href="#about">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Section Héro principale -->
+  <section class="hero">
+    <p class="subtitle">Portfolio 3D</p>
+    <h1>Nomel ESMEL</h1>
+    <p class="tagline">Généraliste 3D — Étudiant M2 IIM</p>
+    <div class="stack-tags">
+      <span>Blender</span><span>Substance 3D Painter</span><span>Maya</span><span>ZBrush</span><span>3ds Max</span><span>Unreal Engine</span>
+    </div>
+    <div class="buttons">
+      <a href="#showreel" class="primary shimmer pulse">Voir la Demo Reel</a>
+      <a href="#projects" class="secondary shimmer pulse">Voir les projets</a>
+    </div>
+  </section>
+
+  <!-- Section des catégories et projets -->
+  <section id="projects" class="categories">
+    <h2>Projets</h2>
+    <p class="categories-intro">Sélection de travaux en All Aspects, Textures, Modélisation et Animation.</p>
+    <div class="category-grid">
+      <div class="category-card">
+        <div class="image-placeholder">
+          <!-- Vidéo principale pour la catégorie All Aspects -->
+          <video src="media/trainMarche.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+        <h3>All Aspects</h3>
+        <p>3 projets</p>
+        <a href="#all-aspects" class="shimmer pulse">Voir les projets</a>
+      </div>
+      <div class="category-card">
+        <div class="image-placeholder">
+          <!-- Vidéo principale pour la catégorie Textures 3D -->
+          <video src="media/CYC__FUSIL__CYCLO.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+        <h3>Textures 3D</h3>
+        <p>3 projets</p>
+        <a href="#textures" class="shimmer pulse">Voir les projets</a>
+      </div>
+      <div class="category-card">
+        <div class="image-placeholder">
+          <!-- Vidéo principale pour la catégorie Modélisations 3D -->
+          <video src="media/2025-01-29%2009-03-52.mkv" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+        <h3>Modélisations 3D</h3>
+        <p>3 projets</p>
+        <a href="#modeling" class="shimmer pulse">Voir les projets</a>
+      </div>
+      <div class="category-card">
+        <div class="image-placeholder">
+          <!-- Vidéo principale pour la catégorie Animations 3D -->
+          <video src="media/fly.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+        </div>
+        <h3>Animations 3D</h3>
+        <p>3 projets</p>
+        <a href="#animation" class="shimmer pulse">Voir les projets</a>
+      </div>
+    </div>
+    <!-- Section Demo Reel -->
+    <div id="showreel" class="showreel">
+      <h3>Demo Reel</h3>
+      <div class="video-placeholder">En cours</div>
+    </div>
+
+    <!-- Sections de détails des catégories pour les ancres -->
+    <div class="project-details">
+      <div id="all-aspects" class="project-category">
+        <h3>All Aspects</h3>
+        <div class="project-media">
+          <!-- Vidéos pour la catégorie All Aspects -->
+          <video src="media/trainMarche.mp4" controls></video>
+          <video src="media/base_tryccicle.mp4" controls></video>
+          <video src="media/COSMETIQUE.mp4" controls></video>
+        </div>
+      </div>
+      <div id="textures" class="project-category">
+        <h3>Textures 3D</h3>
+        <div class="project-media">
+          <!-- Vidéos pour la catégorie Textures 3D -->
+          <video src="media/CYC__FUSIL__CYCLO.mp4" controls></video>
+          <video src="media/chevalier.mp4" controls></video>
+          <video src="media/bill.mp4" controls></video>
+        </div>
+      </div>
+      <div id="modeling" class="project-category">
+        <h3>Modélisations 3D</h3>
+        <div class="project-media">
+          <!-- Vidéos et images pour la catégorie Modélisations 3D -->
+          <video src="media/2025-01-29%2009-03-52.mkv" controls></video>
+          <img src="media/Capture%20d%27%C3%A9cran_20221025_220813.png" alt="Projet de modélisation 1">
+          <img src="media/Capture%20d%27%C3%A9cran_20221129_221008.png" alt="Projet de modélisation 2">
+        </div>
+      </div>
+      <div id="animation" class="project-category">
+        <h3>Animations 3D</h3>
+        <div class="project-media">
+          <!-- Vidéos pour la catégorie Animations 3D -->
+          <video src="media/fly.mp4" controls></video>
+          <video src="media/acting.mp4" controls></video>
+          <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" controls></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section À propos -->
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>À propos</h2>
+      <p>Bonjour, je m'appelle <strong>ESMEL Nomel</strong> et je suis un généraliste 3D passionné. Après avoir obtenu mon BAC en Côte d'Ivoire, j'ai décidé de poursuivre mes études en m'inscrivant à l'IIM. C'est là que j'ai découvert ma passion pour la 3D, et je suis maintenant en troisième année d'animation 3D.</p>
+      <p>Je suis fier de mes compétences générales en 3D. En dehors de mes compétences techniques, j'ai également acquis des compétences de soft skills telles que l'organisation, la rigueur et l'efficacité, qui sont des qualités que j'apprécie chez moi. J'ai pu travailler sur des modèles 3D complexes et créer des textures réalistes et stylisées pour des environnements et des personnages. À court terme, mon objectif professionnel est de participer à un projet qui me permettra d'affiner mes compétences et de faire avancer ma carrière.</p>
+      <p>Je vous invite à consulter mes pages projets pour voir certaines de mes créations et à me contacter si vous êtes intéressé par mes compétences. En somme, je suis un généraliste 3D passionné et motivé prêt à relever de nouveaux défis. Si vous êtes à la recherche d'un stagiaire organisé et rigoureux, n'hésitez pas à me contacter.</p>
+    </div>
+    <div class="about-side">
+      <div class="about-image">
+        <!-- Photo personnelle -->
+        <img src="media/6A3A4101.png" alt="Nomel ESMEL">
+      </div>
+      <div class="about-cv">
+        <h3>Mon CV</h3>
+        <p>Vous pouvez télécharger mon CV ou me contacter pour plus d'informations.</p>
+        <div class="cv-buttons">
+          <a href="media/CV%20Septembre%202025.pdf" class="btn-download" download>Télécharger le CV</a>
+          <a href="#contact" class="btn-contact">Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section de contact -->
+  <section id="contact" class="contact">
+    <h3>Contact</h3>
+    <p><a href="mailto:Nomel.ESMEL.3d@gmail.com">Nomel.ESMEL.3d@gmail.com</a></p>
+    <p>+33 6 34 21 89 39</p>
+    <div class="social-links">
+      <!-- Utilisez des liens textuels simples pour les réseaux sociaux afin de ne pas dépendre de ressources externes. -->
+      <a href="https://www.linkedin.com/in/nomel-esmel/" target="_blank">LinkedIn</a>
+      <a href="https://www.artstation.com/paulesmel7" target="_blank">ArtStation</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Nomel ESMEL.</p>
+  </footer>
+</body>
+</html>
