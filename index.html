@@ -130,6 +130,57 @@
     </div>
   </section>
 
+  <section id="gallery" class="carousel-gallery" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Galerie du projet résidentiel</h2>
+    <p class="gallery-intro">Découvrez une sélection d'ambiances intérieures et extérieures pour un projet de résidence.</p>
+    <div class="carousel" aria-label="Galerie du projet résidentiel">
+      <button class="carousel-control prev" type="button" aria-label="Faire défiler vers la gauche">
+        <span aria-hidden="true">&#10094;</span>
+      </button>
+      <div class="carousel-track" tabindex="0">
+        <figure class="carousel-slide">
+          <img src="media/residence-01-exterieur.png" alt="Vue extérieure de la résidence" loading="lazy" decoding="async">
+          <figcaption>Vue extérieure</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/residence-04-salon.png" alt="Salon open space baigné de lumière" loading="lazy" decoding="async">
+          <figcaption>Salon open space baigné de lumière</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/residence-06-salle-a-manger.png" alt="Salle à manger conviviale" loading="lazy" decoding="async">
+          <figcaption>Salle à manger conviviale</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/5.png" alt="Salle à manger conviviale" loading="lazy" decoding="async">
+          <figcaption>Salle à manger conviviale</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/6.png" alt="Cuisine contemporaine avec îlot central" loading="lazy" decoding="async">
+          <figcaption>Cuisine contemporaine avec îlot central</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/residence-05-cuisine.png" alt="Cuisine contemporaine avec îlot central" loading="lazy" decoding="async">
+          <figcaption>Cuisine contemporaine avec îlot central</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/residence-07-suite-parentale.png" alt="Suite parentale avec éclairage doux" loading="lazy" decoding="async">
+          <figcaption>Suite parentale avec éclairage doux</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/9.png" alt="Suite parentale armoire" loading="lazy" decoding="async">
+          <figcaption>Suite parentale armoire</figcaption>
+        </figure>
+        <figure class="carousel-slide">
+          <img src="media/10.png" alt="2e Chambre" loading="lazy" decoding="async">
+          <figcaption>2e Chambre</figcaption>
+        </figure>
+      </div>
+      <button class="carousel-control next" type="button" aria-label="Faire défiler vers la droite">
+        <span aria-hidden="true">&#10095;</span>
+      </button>
+    </div>
+  </section>
+
   <!-- Section À propos -->
   <section id="about" class="about">
     <div class="about-text">
@@ -169,5 +220,71 @@
   <footer class="footer">
     <p>&copy; 2025 Nomel ESMEL.</p>
   </footer>
+
+    <script>
+    (function () {
+      const gallery = document.querySelector('#gallery');
+      if (!gallery) return;
+      const track = gallery.querySelector('.carousel-track');
+      const slides = Array.from(gallery.querySelectorAll('.carousel-slide'));
+      const prev = gallery.querySelector('.carousel-control.prev');
+      const next = gallery.querySelector('.carousel-control.next');
+      if (!track || !slides.length) return;
+
+      const getStep = () => {
+        const slide = slides[0];
+        const slideWidth = slide ? slide.getBoundingClientRect().width : track.clientWidth;
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.columnGap || style.gap || '0');
+        return slideWidth + gap;
+      };
+
+      const scrollByStep = (direction) => {
+        track.scrollBy({ left: direction * getStep(), behavior: 'smooth' });
+      };
+
+      const handleClick = (direction) => () => scrollByStep(direction);
+
+      prev?.addEventListener('click', handleClick(-1));
+      next?.addEventListener('click', handleClick(1));
+
+      [prev, next].forEach((button) => {
+        if (!button) return;
+        button.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            button.click();
+          }
+        });
+      });
+
+      const toggleDisabled = () => {
+        const maxScrollLeft = track.scrollWidth - track.clientWidth;
+        if (prev) prev.disabled = track.scrollLeft <= 0;
+        if (next) next.disabled = track.scrollLeft >= maxScrollLeft - 1;
+      };
+
+      track.addEventListener('scroll', () => {
+        window.requestAnimationFrame(toggleDisabled);
+      });
+
+      window.addEventListener('resize', () => {
+        window.requestAnimationFrame(toggleDisabled);
+      });
+
+      track.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          scrollByStep(1);
+        } else if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          scrollByStep(-1);
+        }
+      });
+
+      toggleDisabled();
+    })();
+  </script>
+
 </body>
 </html>
