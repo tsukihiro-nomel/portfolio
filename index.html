@@ -49,7 +49,17 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie All Aspects -->
-          <video src="media/trainMarche.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video
+            data-src="media/trainMarche.mp4"
+            poster="placeholder.png"
+            muted
+            loop
+            autoplay
+            playsinline
+            preload="none"
+            class="lazy-video"
+            style="width:100%;height:100%;object-fit:cover;"
+          ></video>
         </div>
         <h3>All Aspects</h3>
         <p>3 projets</p>
@@ -58,7 +68,17 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie Textures 3D -->
-          <video src="media/CYC__FUSIL__CYCLO.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video
+            data-src="media/CYC__FUSIL__CYCLO.mp4"
+            poster="placeholder.png"
+            muted
+            loop
+            autoplay
+            playsinline
+            preload="none"
+            class="lazy-video"
+            style="width:100%;height:100%;object-fit:cover;"
+          ></video>
         </div>
         <h3>Textures 3D</h3>
         <p>3 projets</p>
@@ -67,7 +87,17 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie Modélisations 3D -->
-          <video src="media/2025-01-29%2009-03-52.mkv" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video
+            data-src="media/2025-01-29%2009-03-52.mkv"
+            poster="placeholder.png"
+            muted
+            loop
+            autoplay
+            playsinline
+            preload="none"
+            class="lazy-video"
+            style="width:100%;height:100%;object-fit:cover;"
+          ></video>
         </div>
         <h3>Modélisations 3D</h3>
         <p>3 projets</p>
@@ -76,7 +106,17 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie Animations 3D -->
-          <video src="media/fly.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video
+            data-src="media/fly.mp4"
+            poster="placeholder.png"
+            muted
+            loop
+            autoplay
+            playsinline
+            preload="none"
+            class="lazy-video"
+            style="width:100%;height:100%;object-fit:cover;"
+          ></video>
         </div>
         <h3>Animations 3D</h3>
         <p>3 projets</p>
@@ -95,25 +135,25 @@
         <h3>All Aspects</h3>
         <div class="project-media">
           <!-- Vidéos pour la catégorie All Aspects -->
-          <video src="media/trainMarche.mp4" controls preload="metadata" playsinline></video>
-          <video src="media/base_tryccicle.mp4" controls preload="metadata" playsinline></video>
-          <video src="media/COSMETIQUE.mp4" controls preload="metadata" playsinline></video>
+          <video data-src="media/trainMarche.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
+          <video data-src="media/base_tryccicle.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
+          <video data-src="media/COSMETIQUE.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
         </div>
       </div>
       <div id="textures" class="project-category">
         <h3>Textures 3D</h3>
         <div class="project-media">
           <!-- Vidéos pour la catégorie Textures 3D -->
-          <video src="media/CYC__FUSIL__CYCLO.mp4" controls preload="metadata" playsinline></video>
-          <video src="media/chevalier.mp4" controls preload="metadata" playsinline></video>
-          <video src="media/bill.mp4" controls preload="metadata" playsinline></video>
+          <video data-src="media/CYC__FUSIL__CYCLO.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
+          <video data-src="media/chevalier.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
+          <video data-src="media/bill.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
         </div>
       </div>
       <div id="modeling" class="project-category">
         <h3>Modélisations 3D</h3>
         <div class="project-media">
           <!-- Vidéos et images pour la catégorie Modélisations 3D -->
-          <video src="media/2025-01-29%2009-03-52.mkv" controls preload="metadata" playsinline></video>
+          <video data-src="media/2025-01-29%2009-03-52.mkv" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
           <img src="media/Capture%20d%27%C3%A9cran_20221025_220813.png" alt="Projet de modélisation 1">
           <img src="media/Capture%20d%27%C3%A9cran_20221129_221008.png" alt="Projet de modélisation 2">
         </div>
@@ -122,9 +162,9 @@
         <h3>Animations 3D</h3>
         <div class="project-media">
           <!-- Vidéos pour la catégorie Animations 3D -->
-          <video src="media/fly.mp4" controls preload="metadata" playsinline></video>
-          <video src="media/acting.mp4" controls preload="metadata" playsinline></video>
-          <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" controls preload="metadata" playsinline></video>
+          <video data-src="media/fly.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
+          <video data-src="media/acting.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
+          <video data-src="media/B2_ESMEL_Nomel_anime_maya.mp4" poster="placeholder.png" controls preload="none" playsinline class="lazy-video"></video>
         </div>
       </div>
     </div>
@@ -222,6 +262,52 @@
   </footer>
 
     <script>
+    (function () {
+      const videos = Array.from(document.querySelectorAll('video.lazy-video[data-src]'));
+      if (!videos.length) return;
+
+      const loadVideo = (video) => {
+        const src = video.getAttribute('data-src');
+        if (!src) return;
+        video.src = src;
+        video.removeAttribute('data-src');
+        video.load();
+
+        if (video.autoplay) {
+          const tryPlay = () => {
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+              playPromise.catch(() => {});
+            }
+          };
+
+          if (video.readyState >= 2) {
+            tryPlay();
+          } else {
+            video.addEventListener('canplay', tryPlay, { once: true });
+          }
+        }
+      };
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const video = entry.target;
+              loadVideo(video);
+              obs.unobserve(video);
+            });
+          },
+          { rootMargin: '200px 0px' }
+        );
+
+        videos.forEach((video) => observer.observe(video));
+      } else {
+        videos.forEach((video) => loadVideo(video));
+      }
+    })();
+
     (function () {
       const gallery = document.querySelector('#gallery');
       if (!gallery) return;
