@@ -680,6 +680,21 @@ nav a:hover {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+.video-center-button svg,
+.control-button svg {
+  fill: currentColor;
+}
+
+.video-center-button svg {
+  width: 42px;
+  height: 42px;
+}
+
+.control-button svg {
+  width: 18px;
+  height: 18px;
+}
+
 .video-center-button:hover,
 .video-center-button:focus-visible {
   transform: scale(1.06);
