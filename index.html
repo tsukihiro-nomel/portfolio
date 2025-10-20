@@ -49,7 +49,7 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie All Aspects -->
-          <video src="media/trainMarche.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="media/trainMarche.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
         <h3>All Aspects</h3>
         <p>3 projets</p>
@@ -58,7 +58,7 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie Textures 3D -->
-          <video src="media/CYC__FUSIL__CYCLO.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="media/CYC__FUSIL__CYCLO.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
         <h3>Textures 3D</h3>
         <p>3 projets</p>
@@ -67,7 +67,7 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie Modélisations 3D -->
-          <video src="media/2025-01-29%2009-03-52.mkv" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="media/2025-01-29%2009-03-52.mkv" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
         <h3>Modélisations 3D</h3>
         <p>3 projets</p>
@@ -76,7 +76,7 @@
       <div class="category-card">
         <div class="image-placeholder">
           <!-- Vidéo principale pour la catégorie Animations 3D -->
-          <video src="media/fly.mp4" muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="media/fly.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
         <h3>Animations 3D</h3>
         <p>3 projets</p>
@@ -95,25 +95,25 @@
         <h3>All Aspects</h3>
         <div class="project-media">
           <!-- Vidéos pour la catégorie All Aspects -->
-          <video src="media/trainMarche.mp4" controls></video>
-          <video src="media/base_tryccicle.mp4" controls></video>
-          <video src="media/COSMETIQUE.mp4" controls></video>
+          <video src="media/trainMarche.mp4" controls preload="metadata" playsinline></video>
+          <video src="media/base_tryccicle.mp4" controls preload="metadata" playsinline></video>
+          <video src="media/COSMETIQUE.mp4" controls preload="metadata" playsinline></video>
         </div>
       </div>
       <div id="textures" class="project-category">
         <h3>Textures 3D</h3>
         <div class="project-media">
           <!-- Vidéos pour la catégorie Textures 3D -->
-          <video src="media/CYC__FUSIL__CYCLO.mp4" controls></video>
-          <video src="media/chevalier.mp4" controls></video>
-          <video src="media/bill.mp4" controls></video>
+          <video src="media/CYC__FUSIL__CYCLO.mp4" controls preload="metadata" playsinline></video>
+          <video src="media/chevalier.mp4" controls preload="metadata" playsinline></video>
+          <video src="media/bill.mp4" controls preload="metadata" playsinline></video>
         </div>
       </div>
       <div id="modeling" class="project-category">
         <h3>Modélisations 3D</h3>
         <div class="project-media">
           <!-- Vidéos et images pour la catégorie Modélisations 3D -->
-          <video src="media/2025-01-29%2009-03-52.mkv" controls></video>
+          <video src="media/2025-01-29%2009-03-52.mkv" controls preload="metadata" playsinline></video>
           <img src="media/Capture%20d%27%C3%A9cran_20221025_220813.png" alt="Projet de modélisation 1">
           <img src="media/Capture%20d%27%C3%A9cran_20221129_221008.png" alt="Projet de modélisation 2">
         </div>
@@ -122,9 +122,9 @@
         <h3>Animations 3D</h3>
         <div class="project-media">
           <!-- Vidéos pour la catégorie Animations 3D -->
-          <video src="media/fly.mp4" controls></video>
-          <video src="media/acting.mp4" controls></video>
-          <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" controls></video>
+          <video src="media/fly.mp4" controls preload="metadata" playsinline></video>
+          <video src="media/acting.mp4" controls preload="metadata" playsinline></video>
+          <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" controls preload="metadata" playsinline></video>
         </div>
       </div>
     </div>
@@ -245,8 +245,12 @@
 
       const handleClick = (direction) => () => scrollByStep(direction);
 
-      prev?.addEventListener('click', handleClick(-1));
-      next?.addEventListener('click', handleClick(1));
+      if (prev) {
+        prev.addEventListener('click', handleClick(-1));
+      }
+      if (next) {
+        next.addEventListener('click', handleClick(1));
+      }
 
       [prev, next].forEach((button) => {
         if (!button) return;
@@ -264,13 +268,38 @@
         if (next) next.disabled = track.scrollLeft >= maxScrollLeft - 1;
       };
 
-      track.addEventListener('scroll', () => {
-        window.requestAnimationFrame(toggleDisabled);
+      const requestToggle = () => window.requestAnimationFrame(toggleDisabled);
+
+      track.addEventListener('scroll', requestToggle);
+
+      window.addEventListener('resize', requestToggle);
+
+      const mediaElements = slides
+        .map((slide) => slide.querySelector('img, video'))
+        .filter((media) => media instanceof HTMLElement);
+
+      const onMediaReady = () => requestToggle();
+
+      mediaElements.forEach((media) => {
+        if (media instanceof HTMLImageElement) {
+          if (media.complete) {
+            onMediaReady();
+          } else {
+            media.addEventListener('load', onMediaReady, { once: true });
+            media.addEventListener('error', onMediaReady, { once: true });
+          }
+        } else if (media instanceof HTMLVideoElement) {
+          const video = media;
+          if (video.readyState > 0) {
+            onMediaReady();
+          } else {
+            video.addEventListener('loadedmetadata', onMediaReady, { once: true });
+            video.addEventListener('error', onMediaReady, { once: true });
+          }
+        }
       });
 
-      window.addEventListener('resize', () => {
-        window.requestAnimationFrame(toggleDisabled);
-      });
+      window.addEventListener('load', requestToggle);
 
       track.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowRight') {
