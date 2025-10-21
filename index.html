@@ -84,6 +84,14 @@
       <a href="#projects" class="secondary shimmer pulse">Voir les projets</a>
     </div>
   </section>
+  <section id="showreel" class="showreel">
+    <div class="showreel-inner">
+      <h2>Demo Reel</h2>
+      <p class="showreel-intro">Aperçu de mes réalisations 3D les plus récentes et de mes compétences en animation.</p>
+      <div class="video-placeholder">En cours</div>
+    </div>
+  </section>
+
   <section id="projects" class="categories">
     <h2>Projets</h2>
     <p class="categories-intro">Sélection de travaux en All Aspects, Textures, Modélisation et Animation.</p>
@@ -120,10 +128,6 @@
         <p>3 projets</p>
         <a href="#animation" class="shimmer pulse">Voir les projets</a>
       </div>
-    </div>
-    <div id="showreel" class="showreel">
-      <h3>Demo Reel</h3>
-      <div class="video-placeholder">En cours</div>
     </div>
     <div class="project-details">
       <div id="all-aspects" class="project-category">
@@ -684,8 +688,8 @@
         particle.className = 'floating-particle pointer-trail';
         particle.style.left = `${pointerX * 100}%`;
         particle.style.top = `${pointerY * 100}%`;
-        particle.style.setProperty('--particle-size', randomRange(3.5, 6.5).toFixed(2));
-        particle.style.setProperty('--particle-distance', `${randomRange(6, 16).toFixed(2)}%`);
+        particle.style.setProperty('--particle-size', randomRange(5.2, 8.4).toFixed(2));
+        particle.style.setProperty('--particle-distance', `${randomRange(10, 22).toFixed(2)}%`);
         particlesContainer.appendChild(particle);
 
         particle.addEventListener('animationend', () => {

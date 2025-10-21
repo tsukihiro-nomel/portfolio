@@ -545,29 +545,46 @@ nav a:focus-visible::after {
 
 /* Demo Reel */
 .showreel {
-  margin-top: 40px;
+  padding: clamp(60px, 10vw, 96px) 20px clamp(42px, 7vw, 80px);
   border-top: 1px solid var(--border-color);
-  padding-top: 40px;
+  background: linear-gradient(180deg, rgba(10, 14, 30, 0.7) 0%, rgba(5, 6, 18, 0.45) 100%);
 }
 
-.showreel h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.showreel-inner {
+  max-width: min(1080px, 94vw);
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  gap: clamp(24px, 5vw, 40px);
+}
+
+.showreel h2 {
+  font-size: clamp(2.1rem, 1.4rem + 2.2vw, 3rem);
+  margin: 0;
+}
+
+.showreel-intro {
+  margin: 0 auto;
+  max-width: clamp(420px, 60vw, 680px);
+  font-size: clamp(0.95rem, 0.85rem + 0.28vw, 1.1rem);
+  opacity: 0.8;
 }
 
 /* Contrainte de la taille de la vidéo : largeur maximale et ratio 16:9 */
 .video-placeholder {
   width: 100%;
-  max-width: 800px;
+  max-width: clamp(860px, 70vw, 1040px);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   background-color: #222;
   border: 1px dashed var(--border-color);
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.5);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
 }
 
 /* Galerie en carrousel */
@@ -612,20 +629,20 @@ nav a:focus-visible::after {
 
 .carousel {
   position: relative;
-  max-width: min(1100px, 96vw);
+  max-width: min(1000px, 95vw);
   margin: 0 auto;
-  padding-inline: clamp(12px, 4vw, 60px);
+  padding-inline: clamp(10px, 3.5vw, 48px);
 }
 
 .carousel-viewport {
   position: relative;
-  perspective: 1600px;
-  padding: clamp(24px, 5vw, 56px) 0 clamp(22px, 4vw, 44px);
+  perspective: 1400px;
+  padding: clamp(18px, 4.5vw, 40px) 0 clamp(18px, 4vw, 36px);
 }
 
 .carousel-track {
   position: relative;
-  height: clamp(280px, 55vw, 480px);
+  height: clamp(240px, 48vw, 420px);
   pointer-events: none;
 }
 
@@ -633,7 +650,7 @@ nav a:focus-visible::after {
   --offset: 0;
   --abs-offset: 0;
   --direction: 0;
-  --slide-width: clamp(260px, 60vw, 640px);
+  --slide-width: clamp(240px, 56vw, 600px);
   position: absolute;
   inset: 0 auto auto 50%;
   width: var(--slide-width);
@@ -646,8 +663,8 @@ nav a:focus-visible::after {
   background: linear-gradient(140deg, rgba(30, 41, 59, 0.65), rgba(15, 23, 42, 0.35));
   box-shadow: 0 25px 60px rgba(2, 6, 23, 0.55);
   transform-origin: center;
-  transform: translateX(calc(-50% + var(--offset) * 54%)) rotateY(calc(var(--offset) * -14deg))
-    scale(calc(1 - min(var(--abs-offset), 2) * 0.18));
+  transform: translateX(calc(-50% + var(--offset) * 48%)) rotateY(calc(var(--offset) * -12deg))
+    scale(calc(1 - min(var(--abs-offset), 2) * 0.16));
   opacity: calc(1 - min(var(--abs-offset), 3) * 0.22);
   filter: brightness(calc(1 - min(var(--abs-offset), 2) * 0.18));
   transition: transform 0.7s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.4s ease, filter 0.4s ease;
