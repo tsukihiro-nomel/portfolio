@@ -1128,9 +1128,11 @@
         slides.forEach((slide, index) => {
           const offset = index - activeIndex;
           const absOffset = Math.abs(offset);
+          const zIndex = 10 - Math.min(absOffset, 4);
           slide.style.setProperty('--offset', String(offset));
           slide.style.setProperty('--abs-offset', String(Math.min(absOffset, 3)));
           slide.style.setProperty('--direction', String(Math.sign(offset)));
+          slide.style.zIndex = String(zIndex);
           slide.classList.toggle('is-active', absOffset === 0);
           slide.classList.toggle('is-adjacent', absOffset === 1);
           slide.classList.toggle('is-far', absOffset > 2);
