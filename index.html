@@ -16,28 +16,15 @@
     </nav>
   </header>
   <section class="hero">
-    <div class="hero-visuals" aria-hidden="true">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg" alt="" class="hero-sky" loading="lazy">
-      <div class="gradient-sphere sphere-1"><div class="sphere-core"></div></div>
-      <div class="gradient-sphere sphere-2"><div class="sphere-core"></div></div>
-      <div class="gradient-sphere sphere-3"><div class="sphere-core"></div></div>
-      <div class="hero-glow"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-noise"></div>
-      <div class="hero-stars" id="hero-stars"></div>
-      <div class="hero-particles" id="hero-particles"></div>
+    <p class="subtitle">Portfolio 3D</p>
+    <h1>Nomel ESMEL</h1>
+    <p class="tagline">Généraliste 3D — Étudiant M2 IIM</p>
+    <div class="stack-tags">
+      <span>Blender</span><span>Substance 3D Painter</span><span>Maya</span><span>ZBrush</span><span>3ds Max</span><span>Unreal Engine</span>
     </div>
-    <div class="hero-content">
-      <p class="subtitle">Portfolio 3D</p>
-      <h1>Nomel ESMEL</h1>
-      <p class="tagline">Généraliste 3D — Étudiant M2 IIM</p>
-      <div class="stack-tags">
-        <span>Blender</span><span>Substance 3D Painter</span><span>Maya</span><span>ZBrush</span><span>3ds Max</span><span>Unreal Engine</span>
-      </div>
-      <div class="buttons">
-        <a href="#showreel" class="primary shimmer pulse">Voir la Demo Reel</a>
-        <a href="#projects" class="secondary shimmer pulse">Voir les projets</a>
-      </div>
+    <div class="buttons">
+      <a href="#showreel" class="primary shimmer pulse">Voir la Demo Reel</a>
+      <a href="#projects" class="secondary shimmer pulse">Voir les projets</a>
     </div>
   </section>
   <section id="projects" class="categories">
@@ -556,149 +543,6 @@
   <footer class="footer">
     <p>&copy; 2025 Nomel ESMEL.</p>
   </footer>
-
-  <script>
-    (function () {
-      const hero = document.querySelector('.hero');
-      const starsContainer = document.getElementById('hero-stars');
-      const particlesContainer = document.getElementById('hero-particles');
-
-      if (!hero || !starsContainer || !particlesContainer) {
-        return;
-      }
-
-      const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const allowMotion = !reduceMotionQuery.matches;
-
-      const randomInRange = (min, max) => Math.random() * (max - min) + min;
-      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-
-      if (allowMotion) {
-        const STAR_COUNT = 120;
-        for (let i = 0; i < STAR_COUNT; i += 1) {
-          const star = document.createElement('span');
-          star.className = 'star';
-          const starSize = randomInRange(1.2, 3.8);
-          star.style.width = `${starSize.toFixed(2)}px`;
-          star.style.height = `${starSize.toFixed(2)}px`;
-          const startX = `${randomInRange(0, 100).toFixed(2)}vw`;
-          const endX = `${randomInRange(0, 100).toFixed(2)}vw`;
-          const startY = `${randomInRange(110, 160).toFixed(2)}vh`;
-          const endY = `${(-1 * randomInRange(8, 24)).toFixed(2)}vh`;
-          star.style.setProperty('--star-start-x', startX);
-          star.style.setProperty('--star-end-x', endX);
-          star.style.setProperty('--star-start-y', startY);
-          star.style.setProperty('--star-end-y', endY);
-          star.style.setProperty('--star-duration', `${randomInRange(24, 40).toFixed(2)}s`);
-          star.style.setProperty('--star-delay', `${(-1 * randomInRange(0, 28)).toFixed(2)}s`);
-          star.style.setProperty('--star-scale', randomInRange(0.35, 1.1).toFixed(2));
-          star.style.setProperty('--star-opacity', randomInRange(0.35, 0.9).toFixed(2));
-          starsContainer.appendChild(star);
-        }
-
-        const FLOATING_PARTICLES = 60;
-        for (let i = 0; i < FLOATING_PARTICLES; i += 1) {
-          const particle = document.createElement('span');
-          particle.className = 'particle';
-          particle.dataset.floating = 'true';
-          const size = randomInRange(1.4, 3.6);
-          particle.style.width = `${size.toFixed(2)}px`;
-          particle.style.height = `${size.toFixed(2)}px`;
-          particle.style.left = `${randomInRange(0, 100).toFixed(2)}%`;
-          particle.style.top = `${randomInRange(0, 100).toFixed(2)}%`;
-          particle.style.setProperty('--particle-duration', `${randomInRange(16, 32).toFixed(2)}s`);
-          particle.style.setProperty('--particle-delay', `${(-1 * randomInRange(0, 24)).toFixed(2)}s`);
-          particle.style.setProperty('--particle-opacity', randomInRange(0.12, 0.32).toFixed(2));
-          particle.style.setProperty('--particle-drift-x', `${randomInRange(-36, 36).toFixed(2)}px`);
-          particle.style.setProperty('--particle-drift-y', `${randomInRange(80, 180).toFixed(2)}px`);
-          particlesContainer.appendChild(particle);
-        }
-
-        const pointerFine = window.matchMedia('(pointer: fine)').matches;
-        if (pointerFine) {
-          const liveTrailParticles = [];
-          let lastTrailTime = 0;
-
-          const updatePointer = (event) => {
-            const bounds = hero.getBoundingClientRect();
-            const xRatio = clamp((event.clientX - bounds.left) / bounds.width, 0, 1);
-            const yRatio = clamp((event.clientY - bounds.top) / bounds.height, 0, 1);
-            const offsetX = (xRatio - 0.5) * 2;
-            const offsetY = (yRatio - 0.5) * 2;
-            hero.style.setProperty('--pointer-x', offsetX.toFixed(3));
-            hero.style.setProperty('--pointer-y', offsetY.toFixed(3));
-            return { xRatio, yRatio };
-          };
-
-          const spawnTrail = (event) => {
-            const { xRatio, yRatio } = updatePointer(event);
-            const particle = document.createElement('span');
-            particle.className = 'particle';
-            const size = randomInRange(3, 5.5);
-            particle.style.width = `${size.toFixed(2)}px`;
-            particle.style.height = `${size.toFixed(2)}px`;
-            particle.style.left = `${(xRatio * 100).toFixed(2)}%`;
-            particle.style.top = `${(yRatio * 100).toFixed(2)}%`;
-            particle.style.opacity = '0';
-            particle.style.transition = 'transform 2.4s ease-out, opacity 2.4s ease-out';
-            const driftX = randomInRange(-18, 18).toFixed(2);
-            const driftY = randomInRange(-18, 18).toFixed(2);
-            particlesContainer.appendChild(particle);
-
-            requestAnimationFrame(() => {
-              particle.style.opacity = '0.55';
-              particle.style.transform = `translate3d(${driftX}px, ${driftY}px, 0) scale(0.4)`;
-            });
-
-            window.setTimeout(() => {
-              particle.style.opacity = '0';
-              particle.style.transform = `translate3d(${driftX}px, ${driftY}px, 0) scale(0.05)`;
-            }, 1400);
-
-            window.setTimeout(() => {
-              particle.remove();
-              const index = liveTrailParticles.indexOf(particle);
-              if (index >= 0) {
-                liveTrailParticles.splice(index, 1);
-              }
-            }, 2400);
-
-            liveTrailParticles.push(particle);
-            if (liveTrailParticles.length > 80) {
-              const stale = liveTrailParticles.shift();
-              if (stale) {
-                stale.remove();
-              }
-            }
-          };
-
-          hero.addEventListener('mousemove', (event) => {
-            const now = performance.now();
-            if (now - lastTrailTime > 45) {
-              spawnTrail(event);
-              lastTrailTime = now;
-            } else {
-              updatePointer(event);
-            }
-          });
-
-          hero.addEventListener('mouseleave', () => {
-            hero.style.setProperty('--pointer-x', '0');
-            hero.style.setProperty('--pointer-y', '0');
-          });
-
-          window.addEventListener('blur', () => {
-            hero.style.setProperty('--pointer-x', '0');
-            hero.style.setProperty('--pointer-y', '0');
-          });
-        }
-      } else {
-        hero.classList.add('hero--reduced-motion');
-        hero.style.setProperty('--pointer-x', '0');
-        hero.style.setProperty('--pointer-y', '0');
-      }
-    })();
-  </script>
 
   <script>
     (function () {
