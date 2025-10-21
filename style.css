@@ -370,20 +370,29 @@ nav a:focus-visible::after {
 }
 
 .stack-tags {
-  margin-top: 20px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 8px 14px;
 }
 
 .stack-tags span {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.06);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 0.9;
+}
+
+.stack-tags span img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
 }
 
 .buttons {
@@ -1505,6 +1514,20 @@ body.has-lightbox {
 
   .fullscreen-toggle {
     margin-left: 0;
+  }
+  
+  .stack-tags {
+    gap: 6px 10px;
+  }
+
+  .stack-tags span {
+    font-size: 0.64rem;
+    gap: 5px;
+  }
+
+  .stack-tags span img {
+    width: 14px;
+    height: 14px;
   }
 }
 
