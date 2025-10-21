@@ -4,9 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nomel ESMEL – Portfolio 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  >
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="background-scene" aria-hidden="true">
+    <img
+      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg"
+      alt=""
+      class="background-sky"
+      loading="lazy"
+      decoding="async"
+    >
+    <div
+      class="gradient-sphere sphere-1"
+      data-base-x="-22"
+      data-base-y="-20"
+      data-amplitude-x="10"
+      data-amplitude-y="6"
+      data-speed="0.06"
+      data-scale="1.15"
+      data-depth="6"
+      data-phase="0"
+      style="transform: translate3d(-22%, -20%, 0) scale(1.15);"
+    ></div>
+    <div
+      class="gradient-sphere sphere-2"
+      data-base-x="28"
+      data-base-y="32"
+      data-amplitude-x="9"
+      data-amplitude-y="7"
+      data-speed="0.08"
+      data-scale="1.2"
+      data-depth="8"
+      data-phase="1.3"
+      style="transform: translate3d(28%, 32%, 0) scale(1.2);"
+    ></div>
+    <div
+      class="gradient-sphere sphere-3"
+      data-base-x="-4"
+      data-base-y="58"
+      data-amplitude-x="7"
+      data-amplitude-y="10"
+      data-speed="0.1"
+      data-scale="1"
+      data-depth="4"
+      data-phase="2.4"
+      style="transform: translate3d(-4%, 58%, 0) scale(1);"
+    ></div>
+    <div class="background-glow"></div>
+    <div class="background-grid"></div>
+    <div class="background-noise"></div>
+    <div class="starfield" id="starfield"></div>
+    <div class="interactive-particles" id="interactive-particles"></div>
+  </div>
+  <div class="page-shell">
   <header>
     <div class="logo">Nomel ESMEL</div>
     <nav>
@@ -543,6 +600,169 @@
   <footer class="footer">
     <p>&copy; 2025 Nomel ESMEL.</p>
   </footer>
+  </div>
+
+  <script>
+    (function () {
+      const starfield = document.getElementById('starfield');
+      const particlesContainer = document.getElementById('interactive-particles');
+      const spheres = Array.from(document.querySelectorAll('.gradient-sphere'));
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const randomRange = (min, max) => Math.random() * (max - min) + min;
+
+      if (starfield) {
+        const starCount = prefersReducedMotion ? 40 : 120;
+        for (let i = 0; i < starCount; i += 1) {
+          const star = document.createElement('span');
+          star.className = 'star';
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.setProperty('--star-size', randomRange(0.6, 1.8).toFixed(2));
+          star.style.setProperty('--star-duration', `${randomRange(26, 52).toFixed(2)}s`);
+          star.style.setProperty('--star-delay', `${randomRange(-60, 0).toFixed(2)}s`);
+          starfield.appendChild(star);
+        }
+      }
+
+      if (particlesContainer) {
+        const ambientCount = prefersReducedMotion ? 20 : 50;
+
+        const spawnAmbientParticle = () => {
+          if (!particlesContainer) return;
+          const particle = document.createElement('span');
+          particle.className = 'floating-particle';
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.setProperty('--particle-size', randomRange(2.4, 6).toFixed(2));
+          particle.style.setProperty('--particle-duration', `${randomRange(10, 16).toFixed(2)}s`);
+          particle.style.setProperty('--particle-delay', `${randomRange(-16, 0).toFixed(2)}s`);
+          particle.style.setProperty('--particle-drift-x', `${randomRange(-6, 6).toFixed(2)}%`);
+          particle.style.setProperty('--particle-drift-y', `${randomRange(-24, -10).toFixed(2)}%`);
+          particlesContainer.appendChild(particle);
+
+          particle.addEventListener(
+            'animationend',
+            () => {
+              particle.remove();
+              if (!prefersReducedMotion) {
+                spawnAmbientParticle();
+              }
+            },
+            { once: true }
+          );
+        };
+
+        for (let i = 0; i < ambientCount; i += 1) {
+          spawnAmbientParticle();
+        }
+      }
+
+      if (!spheres.length) {
+        return;
+      }
+
+      let pointerX = 0.5;
+      let pointerY = 0.5;
+      let lastPointerParticle = 0;
+
+      const updatePointer = (event) => {
+        pointerX = event.clientX / window.innerWidth;
+        pointerY = event.clientY / window.innerHeight;
+
+        if (!particlesContainer || prefersReducedMotion) {
+          return;
+        }
+
+        const now = performance.now();
+        if (now - lastPointerParticle < 80) {
+          return;
+        }
+
+        lastPointerParticle = now;
+
+        const particle = document.createElement('span');
+        particle.className = 'floating-particle pointer-trail';
+        particle.style.left = `${pointerX * 100}%`;
+        particle.style.top = `${pointerY * 100}%`;
+        particle.style.setProperty('--particle-size', randomRange(3.5, 6.5).toFixed(2));
+        particle.style.setProperty('--particle-distance', `${randomRange(6, 16).toFixed(2)}%`);
+        particlesContainer.appendChild(particle);
+
+        particle.addEventListener('animationend', () => {
+          particle.remove();
+        });
+      };
+
+      document.addEventListener('pointermove', updatePointer);
+
+      if (prefersReducedMotion) {
+        spheres.forEach((sphere) => {
+          const baseX = parseFloat(sphere.dataset.baseX || '0');
+          const baseY = parseFloat(sphere.dataset.baseY || '0');
+          const scale = parseFloat(sphere.dataset.scale || '1');
+          sphere.style.transform = `translate3d(${baseX}%, ${baseY}%, 0) scale(${scale})`;
+        });
+        return;
+      }
+
+      let animationFrameId = null;
+
+      const animate = (time) => {
+        const t = time * 0.001;
+
+        spheres.forEach((sphere, index) => {
+          const baseX = parseFloat(sphere.dataset.baseX || '0');
+          const baseY = parseFloat(sphere.dataset.baseY || '0');
+          const amplitudeX = parseFloat(sphere.dataset.amplitudeX || '0');
+          const amplitudeY = parseFloat(sphere.dataset.amplitudeY || '0');
+          const speed = parseFloat(sphere.dataset.speed || '0.08');
+          const scale = parseFloat(sphere.dataset.scale || '1');
+          const depth = parseFloat(sphere.dataset.depth || '6');
+          const phase = parseFloat(sphere.dataset.phase || index);
+
+          const offsetX = Math.sin((t + phase) * (speed * 6)) * amplitudeX;
+          const offsetY = Math.cos((t + phase) * (speed * 6)) * amplitudeY;
+          const pointerOffsetX = (pointerX - 0.5) * (12 / depth);
+          const pointerOffsetY = (pointerY - 0.5) * (10 / depth);
+
+          sphere.style.transform = `translate3d(${baseX + offsetX + pointerOffsetX}%, ${baseY + offsetY + pointerOffsetY}%, 0) scale(${scale})`;
+        });
+
+        if (starfield) {
+          const starParallaxX = (pointerX - 0.5) * 10;
+          const starParallaxY = (pointerY - 0.5) * 8;
+          starfield.style.transform = `translate3d(${starParallaxX}px, ${starParallaxY}px, 0)`;
+        }
+
+        animationFrameId = requestAnimationFrame(animate);
+      };
+
+      animationFrameId = requestAnimationFrame(animate);
+
+      const handleVisibility = () => {
+        if (!animationFrameId) {
+          return;
+        }
+
+        if (document.hidden) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        } else {
+          animationFrameId = requestAnimationFrame(animate);
+        }
+      };
+
+      document.addEventListener('visibilitychange', handleVisibility);
+
+      window.addEventListener('pagehide', () => {
+        document.removeEventListener('pointermove', updatePointer);
+        document.removeEventListener('visibilitychange', handleVisibility);
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+      });
+    })();
+  </script>
 
   <script>
     (function () {
