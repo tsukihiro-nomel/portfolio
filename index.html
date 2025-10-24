@@ -34,9 +34,9 @@
   <style>
     :root {
       --plyr-color-main: #ff4d00;
-      --plyr-video-control-background-hover: rgba(255, 77, 0, 0.18);
+      --plyr-video-control-background-hover: rgba(255, 77, 0, 0.2);
       --plyr-video-control-color: #f5f5f5;
-      --plyr-video-controls-background: rgba(12, 12, 16, 0.7);
+      --plyr-video-controls-background: transparent;
       --plyr-video-progress-buffered-background: rgba(255, 255, 255, 0.28);
       --plyr-video-range-track-background: rgba(255, 255, 255, 0.18);
       --plyr-range-fill-background: linear-gradient(90deg, #ff4d00, #ff8a33);
@@ -61,9 +61,15 @@
     }
 
     .plyr__controls {
-      background: linear-gradient(180deg, rgba(12, 12, 16, 0.7), rgba(12, 12, 16, 0.38));
-      backdrop-filter: blur(14px);
+      background: none;
       border-top: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .plyr__controls::before,
+    .plyr__controls::after {
+      display: none;
     }
 
     .plyr__control[aria-pressed="true"],
