@@ -43,10 +43,8 @@
     }
 
     .plyr {
-      border-radius: 8px;
+      border-radius: inherit;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-      max-width: 100%;
     }
 
     .plyr--video {
@@ -276,11 +274,9 @@
       <p class="showreel-intro">Aperçu de mes réalisations 3D les plus récentes et de mes compétences.</p>
       <div class="video-player" data-video-player>
         <video
-          id="player"
           playsinline
           controls
           preload="metadata"
-          poster="placeholder.png"
         >
           <source src="media/demoreel_112025_light.mp4" type="video/mp4">
         </video>
@@ -322,16 +318,24 @@
         <h3>All Aspects</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/trainMarche.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/trainMarche.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/fusil.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/fusil.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/hopital_1.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/hopital_1.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/COSMETIQUE.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/COSMETIQUE.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -339,13 +343,19 @@
         <h3>Textures 3D</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/chevalier.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/chevalier.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/bill.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/bill.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/base_tryccicle.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/base_tryccicle.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -353,13 +363,19 @@
         <h3>Animations 3D</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/fly.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/fly.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/acting.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/acting.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -713,13 +729,20 @@
 
   <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
   <script>
-    const player = new Plyr('#player', {
-      ratio: '16:9',
-      settings: ['quality', 'speed']
-    });
+    (function () {
+      const options = {
+        ratio: '16:9',
+        settings: ['quality', 'speed']
+      };
+
+      const videos = document.querySelectorAll('[data-video-player] video');
+      videos.forEach((video) => {
+        new Plyr(video, options);
+      });
+    })();
   </script>
 
-    <script>
+  <script>
     (function () {
       const gallery = document.querySelector('#gallery');
       if (!gallery) return;
