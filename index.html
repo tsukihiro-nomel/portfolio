@@ -31,6 +31,46 @@
     href="https://cdn.plyr.io/3.7.8/plyr.css"
   >
   <link rel="stylesheet" href="style.css?v=2024-02-24">
+  <style>
+    :root {
+      --plyr-color-main: #ff4d00;
+      --plyr-video-control-background-hover: rgba(255, 77, 0, 0.18);
+      --plyr-video-control-color: #f5f5f5;
+      --plyr-video-controls-background: rgba(12, 12, 16, 0.7);
+      --plyr-video-progress-buffered-background: rgba(255, 255, 255, 0.28);
+      --plyr-video-range-track-background: rgba(255, 255, 255, 0.18);
+      --plyr-range-fill-background: linear-gradient(90deg, #ff4d00, #ff8a33);
+      --plyr-tooltip-background: rgba(12, 12, 16, 0.9);
+      --plyr-tooltip-color: #f5f5f5;
+      --plyr-menu-background: rgba(12, 12, 16, 0.95);
+      --plyr-menu-border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+    }
+
+    .plyr {
+      border-radius: inherit;
+      overflow: hidden;
+    }
+
+    .plyr--video {
+      background: #000;
+    }
+
+    .plyr__controls {
+      background: linear-gradient(180deg, rgba(12, 12, 16, 0.7), rgba(12, 12, 16, 0.38));
+      backdrop-filter: blur(14px);
+      border-top: none;
+    }
+
+    .plyr__control[aria-pressed="true"],
+    .plyr__control:hover {
+      background-color: rgba(255, 77, 0, 0.25);
+    }
+  </style>
 </head>
 <body>
   <script>
@@ -243,7 +283,13 @@
       <h2>Demo Reel</h2>
       <p class="showreel-intro">Aperçu de mes réalisations 3D les plus récentes et de mes compétences.</p>
       <div class="video-player" data-video-player>
-        <video src="media/demoreel_112025_light.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+        <video
+          playsinline
+          controls
+          preload="metadata"
+        >
+          <source src="media/demoreel_112025_light.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </section>
@@ -282,16 +328,24 @@
         <h3>All Aspects</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/trainMarche.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/trainMarche.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/fusil.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/fusil.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/hopital_1.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/hopital_1.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/COSMETIQUE.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/COSMETIQUE.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -299,13 +353,19 @@
         <h3>Textures 3D</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/chevalier.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/chevalier.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/bill.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/bill.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/base_tryccicle.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/base_tryccicle.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -313,13 +373,19 @@
         <h3>Animations 3D</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/fly.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/fly.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/acting.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/acting.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -671,108 +737,22 @@
     })();
   </script>
 
-  <script defer src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-
-  <script defer>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
     (function () {
-      const videos = Array.from(document.querySelectorAll('[data-video-player] video'));
-      if (!videos.length) {
-        return;
-      }
-
-      const coarseQuery = window.matchMedia('(pointer: coarse)');
-
-      const listenToMediaQuery = (media, callback) => {
-        if (typeof media.addEventListener === 'function') {
-          media.addEventListener('change', callback);
-        } else if (typeof media.addListener === 'function') {
-          media.addListener(callback);
-        }
+      const options = {
+        ratio: '16:9',
+        settings: ['quality', 'speed']
       };
 
-      const ensureNativeControls = () => {
-        videos.forEach((video) => {
-          const instance = video._plyr;
-          if (instance && typeof instance.destroy === 'function') {
-            instance.destroy();
-          }
-          video._plyr = undefined;
-          if (!video.hasAttribute('controls')) {
-            video.setAttribute('controls', '');
-          }
-        });
-      };
-
-      const initPlyr = () => {
-        if (typeof Plyr !== 'function' || coarseQuery.matches) {
-          ensureNativeControls();
-          return;
-        }
-
-        videos.forEach((video) => {
-          if (video._plyr) {
-            return;
-          }
-
-          video.removeAttribute('controls');
-
-          const instance = new Plyr(video, {
-            loadSprite: false,
-            controls: [
-              'play-large',
-              'play',
-              'progress',
-              'current-time',
-              'duration',
-              'mute',
-              'volume',
-              'fullscreen'
-            ],
-            i18n: {
-              restart: 'Recommencer',
-              rewind: 'Retour de {seektime}s',
-              play: 'Lecture',
-              pause: 'Pause',
-              fastForward: 'Avance de {seektime}s',
-              seek: 'Chercher',
-              seekLabel: '{currentTime} sur {duration}',
-              played: 'Temps écoulé',
-              buffered: 'Temps mis en mémoire tampon',
-              currentTime: 'Temps actuel',
-              duration: 'Durée',
-              volume: 'Volume',
-              mute: 'Couper le son',
-              unmute: 'Activer le son',
-              enableCaptions: 'Activer les sous-titres',
-              disableCaptions: 'Désactiver les sous-titres',
-              enterFullscreen: 'Plein écran',
-              exitFullscreen: 'Quitter le plein écran'
-            }
-          });
-
-          video._plyr = instance;
-        });
-      };
-
-      const syncPlayerMode = () => {
-        if (coarseQuery.matches) {
-          ensureNativeControls();
-        } else {
-          initPlyr();
-        }
-      };
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', syncPlayerMode, { once: true });
-      } else {
-        syncPlayerMode();
-      }
-
-      listenToMediaQuery(coarseQuery, syncPlayerMode);
+      const videos = document.querySelectorAll('[data-video-player] video');
+      videos.forEach((video) => {
+        new Plyr(video, options);
+      });
     })();
   </script>
 
-    <script>
+  <script>
     (function () {
       const gallery = document.querySelector('#gallery');
       if (!gallery) return;
