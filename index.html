@@ -26,6 +26,10 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
   >
+  <link
+    rel="stylesheet"
+    href="https://cdn.plyr.io/3.7.8/plyr.css"
+  >
   <link rel="stylesheet" href="style.css?v=2024-02-24">
 </head>
 <body>
@@ -239,34 +243,7 @@
       <h2>Demo Reel</h2>
       <p class="showreel-intro">Aperçu de mes réalisations 3D les plus récentes et de mes compétences.</p>
       <div class="video-player" data-video-player>
-        <video src="media/demoreel_112025_light.mp4" preload="metadata" playsinline webkit-playsinline></video>
-        <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-          <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-        </button>
-        <div class="video-controls">
-          <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-            <div class="video-progress-fill"></div>
-          </div>
-          <div class="video-control-row">
-            <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-time">
-              <span class="time-current">00:00</span>
-              <span class="time-separator">/</span>
-              <span class="time-duration">00:00</span>
-            </div>
-            <div class="video-volume">
-              <button class="control-button mute" type="button" aria-label="Couper le son">
-                <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-              </button>
-              <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-            </div>
-            <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-              <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-            </button>
-          </div>
-        </div>
+        <video src="media/demoreel_112025_light.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
       </div>
     </div>
   </section>
@@ -305,124 +282,16 @@
         <h3>All Aspects</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/trainMarche.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/trainMarche.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/fusil.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/fusil.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/hopital_1.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/hopital_1.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/COSMETIQUE.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/COSMETIQUE.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
         </div>
       </div>
@@ -430,94 +299,13 @@
         <h3>Textures 3D</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/chevalier.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/chevalier.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/bill.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/bill.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/base_tryccicle.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/base_tryccicle.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
         </div>
       </div>
@@ -525,94 +313,13 @@
         <h3>Animations 3D</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/fly.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/fly.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/acting.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/acting.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" preload="metadata" playsinline webkit-playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
+            <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" preload="metadata" playsinline webkit-playsinline controls></video>
           </div>
         </div>
       </div>
@@ -634,7 +341,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la vue extérieure en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Vue extérieure</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -643,7 +350,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher le salon open space en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Salon open space baigné de lumière</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -652,7 +359,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la salle à manger conviviale en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Salle à manger conviviale</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -661,7 +368,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher cette salle à manger en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Salle à manger conviviale</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -670,7 +377,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la cuisine contemporaine en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Cuisine contemporaine avec îlot central</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -679,7 +386,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la cuisine contemporaine en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Cuisine contemporaine avec îlot central</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -688,7 +395,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la suite parentale en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Suite parentale avec éclairage doux</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -697,7 +404,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la suite parentale avec dressing en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>Suite parentale armoire</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -706,7 +413,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la deuxième chambre en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-            </div>
+          </div>
             <figcaption>2e Chambre</figcaption>
           </figure>
         </div>
@@ -796,20 +503,13 @@
         const isLargeViewport = largeViewportMedia
           ? largeViewportMedia.matches
           : window.innerWidth >= LARGE_VIEWPORT_MIN_WIDTH;
+        const pointerInfoAvailable = Boolean(finePointerMedia || hoverCapableMedia || coarsePointerMedia);
 
-        if (isLargeViewport) {
-          return false;
-        }
+        const isLikelyDesktop = pointerInfoAvailable
+          ? isLargeViewport && (hasFinePointer || canHover) && !hasCoarsePointer && !hasTouchInput
+          : isLargeViewport && !hasTouchInput;
 
-        if (hasFinePointer || canHover) {
-          return false;
-        }
-
-        if (hasCoarsePointer) {
-          return true;
-        }
-
-        return hasTouchInput;
+        return !isLikelyDesktop;
       };
       const isCoarsePointer = coarsePointerMedia ? coarsePointerMedia.matches : false;
       const enableDynamicAnimation = !prefersReducedMotion && !isCoarsePointer;
@@ -971,323 +671,104 @@
     })();
   </script>
 
-  <script>
-    (function () {
-      const ICONS = {
-        play: `<svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>`,
-        pause: `<svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 5h4v14H6z"></path><path d="M14 5h4v14h-4z"></path></svg>`,
-        volumeHigh: `<svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>`,
-        volumeLow: `<svg class="icon icon-volume-low" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M17 12c0 1.56-.64 2.98-1.68 3.99V8.01A5.98 5.98 0 0117 12z"></path></svg>`,
-        volumeMute: `<svg class="icon icon-volume-mute" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M21 8.59 19.41 7 16 10.41 12.59 7 11 8.59 14.41 12 11 15.41 12.59 17 16 13.59 19.41 17 21 15.41 17.59 12z"></path></svg>`,
-        enterFullscreen: `<svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>`,
-        exitFullscreen: `<svg class="icon icon-fullscreen-exit" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 16h3v3h2v-5H5zm0-7h5V4H8v3H5zm9 10h2v-3h3v-2h-5zm2-10V4h-2v5h5V7z"></path></svg>`
-      };
+  <script defer src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
 
-      const setButtonIcon = (button, icon, label) => {
-        if (!button || !ICONS[icon]) return;
-        button.innerHTML = ICONS[icon];
-        if (label) {
-          button.setAttribute('aria-label', label);
+  <script defer>
+    (function () {
+      const videos = Array.from(document.querySelectorAll('[data-video-player] video'));
+      if (!videos.length) {
+        return;
+      }
+
+      const coarseQuery = window.matchMedia('(pointer: coarse)');
+
+      const listenToMediaQuery = (media, callback) => {
+        if (typeof media.addEventListener === 'function') {
+          media.addEventListener('change', callback);
+        } else if (typeof media.addListener === 'function') {
+          media.addListener(callback);
         }
       };
 
-      const setSliderFill = (slider, value) => {
-        if (!slider) return;
-        const safeValue = Number.isFinite(value) ? value : 0;
-        const percent = Math.min(100, Math.max(0, Math.round(safeValue * 100)));
-        slider.style.setProperty('--volume-fill', `${percent}%`);
+      const ensureNativeControls = () => {
+        videos.forEach((video) => {
+          const instance = video._plyr;
+          if (instance && typeof instance.destroy === 'function') {
+            instance.destroy();
+          }
+          video._plyr = undefined;
+          if (!video.hasAttribute('controls')) {
+            video.setAttribute('controls', '');
+          }
+        });
       };
 
-      const players = document.querySelectorAll('[data-video-player]');
-      if (!players.length) return;
-
-      const coarsePointerMedia = window.matchMedia('(pointer: coarse)');
-
-      const formatTime = (time) => {
-        if (!Number.isFinite(time) || time < 0) return '00:00';
-        const totalSeconds = Math.floor(time);
-        const minutes = Math.floor(totalSeconds / 60)
-          .toString()
-          .padStart(2, '0');
-        const seconds = (totalSeconds % 60).toString().padStart(2, '0');
-        return `${minutes}:${seconds}`;
-      };
-
-      players.forEach((player) => {
-        const video = player.querySelector('video');
-        if (!video) return;
-
-        const useNativeControls = shouldUseNativeControls();
-
-        const centerButton = player.querySelector('.video-center-button');
-        const playPauseButton = player.querySelector('.play-pause');
-        const muteButton = player.querySelector('.mute');
-        const progressBar = player.querySelector('.video-progress');
-        const progressFill = player.querySelector('.video-progress-fill');
-        const currentTimeEl = player.querySelector('.time-current');
-        const durationEl = player.querySelector('.time-duration');
-        const volumeSlider = player.querySelector('.volume-slider');
-        const fullscreenButton = player.querySelector('.fullscreen-toggle');
-        const supportsFullscreen = Boolean(
-          player.requestFullscreen ||
-            player.webkitRequestFullscreen ||
-            player.mozRequestFullScreen ||
-            player.msRequestFullscreen
-        );
-
-        if (useNativeControls) {
-          video.setAttribute('controls', '');
-          video.controls = true;
-          player.classList.add('video-player--native');
-          if (centerButton) {
-            centerButton.remove();
-          }
-          const customControls = player.querySelector('.video-controls');
-          if (customControls) {
-            customControls.remove();
-          }
+      const initPlyr = () => {
+        if (typeof Plyr !== 'function' || coarseQuery.matches) {
+          ensureNativeControls();
           return;
         }
 
-        video.removeAttribute('controls');
-        video.controls = false;
-
-        let lastVolume = video.volume || 0.5;
-
-        const updatePlayState = () => {
-          const isPlaying = !video.paused && !video.ended;
-          player.classList.toggle('is-playing', isPlaying);
-          const iconKey = isPlaying ? 'pause' : 'play';
-          const playLabel = isPlaying ? 'Mettre la vidéo en pause' : 'Lire la vidéo';
-
-          setButtonIcon(playPauseButton, iconKey, playLabel);
-          setButtonIcon(centerButton, iconKey, playLabel);
-        };
-
-        const updateTimeAndProgress = () => {
-          if (currentTimeEl) currentTimeEl.textContent = formatTime(video.currentTime);
-          if (video.duration && durationEl) {
-            durationEl.textContent = formatTime(video.duration);
+        videos.forEach((video) => {
+          if (video._plyr) {
+            return;
           }
-          if (progressBar && progressFill && video.duration) {
-            const percent = (video.currentTime / video.duration) * 100;
-            progressFill.style.width = `${percent}%`;
-            progressBar.setAttribute('aria-valuenow', percent.toFixed(1));
-            progressBar.setAttribute(
-              'aria-valuetext',
-              `${formatTime(video.currentTime)} sur ${formatTime(video.duration)}`
-            );
-          }
-        };
 
-        const updateVolumeState = () => {
-          const effectiveVolume = video.muted ? 0 : video.volume;
-          if (volumeSlider) {
-            const clamped = Math.round(effectiveVolume * 100) / 100;
-            volumeSlider.value = String(clamped);
-            setSliderFill(volumeSlider, effectiveVolume);
-          }
-          if (muteButton) {
-            let iconKey = 'volumeHigh';
-            if (effectiveVolume === 0) {
-              iconKey = 'volumeMute';
-            } else if (effectiveVolume < 0.5) {
-              iconKey = 'volumeLow';
+          video.removeAttribute('controls');
+
+          const instance = new Plyr(video, {
+            loadSprite: false,
+            controls: [
+              'play-large',
+              'play',
+              'progress',
+              'current-time',
+              'duration',
+              'mute',
+              'volume',
+              'fullscreen'
+            ],
+            i18n: {
+              restart: 'Recommencer',
+              rewind: 'Retour de {seektime}s',
+              play: 'Lecture',
+              pause: 'Pause',
+              fastForward: 'Avance de {seektime}s',
+              seek: 'Chercher',
+              seekLabel: '{currentTime} sur {duration}',
+              played: 'Temps écoulé',
+              buffered: 'Temps mis en mémoire tampon',
+              currentTime: 'Temps actuel',
+              duration: 'Durée',
+              volume: 'Volume',
+              mute: 'Couper le son',
+              unmute: 'Activer le son',
+              enableCaptions: 'Activer les sous-titres',
+              disableCaptions: 'Désactiver les sous-titres',
+              enterFullscreen: 'Plein écran',
+              exitFullscreen: 'Quitter le plein écran'
             }
-            const label = video.muted || effectiveVolume === 0 ? 'Activer le son' : 'Couper le son';
-            setButtonIcon(muteButton, iconKey, label);
-          }
-        };
+          });
 
-        const togglePlay = () => {
-          if (video.paused || video.ended) {
-            void video.play();
-          } else {
-            video.pause();
-          }
-        };
-
-        const seekTo = (ratio) => {
-          if (!video.duration) return;
-          const clamped = Math.min(Math.max(ratio, 0), 1);
-          video.currentTime = clamped * video.duration;
-        };
-
-        if (centerButton) {
-          centerButton.addEventListener('click', togglePlay);
-        }
-        if (playPauseButton) {
-          playPauseButton.addEventListener('click', togglePlay);
-        }
-
-        video.addEventListener('click', togglePlay);
-        video.addEventListener('play', updatePlayState);
-        video.addEventListener('pause', updatePlayState);
-        video.addEventListener('ended', () => {
-          video.pause();
-          video.currentTime = 0;
-          updatePlayState();
-          updateTimeAndProgress();
+          video._plyr = instance;
         });
+      };
 
-        video.addEventListener('loadedmetadata', () => {
-          if (durationEl) durationEl.textContent = formatTime(video.duration);
-          updateTimeAndProgress();
-        });
-
-        video.addEventListener('timeupdate', updateTimeAndProgress);
-
-        if (progressBar) {
-          const handlePointer = (event) => {
-            const rect = progressBar.getBoundingClientRect();
-            const ratio = (event.clientX - rect.left) / rect.width;
-            seekTo(ratio);
-          };
-
-          progressBar.addEventListener('click', (event) => {
-            handlePointer(event);
-          });
-
-          progressBar.addEventListener('pointerdown', (event) => {
-            event.preventDefault();
-            handlePointer(event);
-            const moveListener = (moveEvent) => handlePointer(moveEvent);
-            const upListener = () => {
-              document.removeEventListener('pointermove', moveListener);
-              document.removeEventListener('pointerup', upListener);
-            };
-            document.addEventListener('pointermove', moveListener);
-            document.addEventListener('pointerup', upListener, { once: true });
-          });
-
-          progressBar.addEventListener('keydown', (event) => {
-            if (!video.duration) return;
-            const step = 5;
-            if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
-              event.preventDefault();
-              video.currentTime = Math.max(0, video.currentTime - step);
-            } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
-              event.preventDefault();
-              video.currentTime = Math.min(video.duration, video.currentTime + step);
-            } else if (event.key === 'Home') {
-              event.preventDefault();
-              video.currentTime = 0;
-            } else if (event.key === 'End') {
-              event.preventDefault();
-              video.currentTime = video.duration;
-            }
-          });
+      const syncPlayerMode = () => {
+        if (coarseQuery.matches) {
+          ensureNativeControls();
+        } else {
+          initPlyr();
         }
+      };
 
-        if (volumeSlider) {
-          volumeSlider.addEventListener('input', (event) => {
-            const value = Number(event.target.value);
-            video.volume = value;
-            if (value > 0) {
-              lastVolume = value;
-            }
-            video.muted = value === 0;
-            updateVolumeState();
-          });
-        }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncPlayerMode, { once: true });
+      } else {
+        syncPlayerMode();
+      }
 
-        if (muteButton) {
-          muteButton.addEventListener('click', () => {
-            if (video.muted || video.volume === 0) {
-              video.muted = false;
-              video.volume = lastVolume > 0 ? lastVolume : 0.5;
-            } else {
-              video.muted = true;
-            }
-            updateVolumeState();
-          });
-        }
-
-        const isFullscreen = () => {
-          const fullscreenElement =
-            document.fullscreenElement ||
-            document.webkitFullscreenElement ||
-            document.mozFullScreenElement ||
-            document.msFullscreenElement;
-          return fullscreenElement === player;
-        };
-
-        const requestPlayerFullscreen = () => {
-          const method =
-            player.requestFullscreen ||
-            player.webkitRequestFullscreen ||
-            player.mozRequestFullScreen ||
-            player.msRequestFullscreen;
-          if (method) {
-            method.call(player);
-          }
-        };
-
-        const exitPlayerFullscreen = () => {
-          const method =
-            document.exitFullscreen ||
-            document.webkitExitFullscreen ||
-            document.mozCancelFullScreen ||
-            document.msExitFullscreen;
-          if (method) {
-            method.call(document);
-          }
-        };
-
-        const updateFullscreenState = () => {
-          const active = isFullscreen();
-          player.classList.toggle('is-fullscreen', active);
-          if (fullscreenButton) {
-            const label = active ? 'Quitter le plein écran' : 'Passer en plein écran';
-            const iconKey = active ? 'exitFullscreen' : 'enterFullscreen';
-            setButtonIcon(fullscreenButton, iconKey, label);
-            fullscreenButton.setAttribute('aria-pressed', String(active));
-          }
-        };
-
-        if (fullscreenButton) {
-          if (!supportsFullscreen) {
-            fullscreenButton.hidden = true;
-            fullscreenButton.setAttribute('aria-hidden', 'true');
-          } else {
-            setButtonIcon(fullscreenButton, 'enterFullscreen', 'Passer en plein écran');
-            fullscreenButton.addEventListener('click', () => {
-              if (isFullscreen()) {
-                exitPlayerFullscreen();
-              } else {
-                requestPlayerFullscreen();
-              }
-            });
-          }
-        }
-
-        const handleFullscreenChange = () => {
-          updateFullscreenState();
-        };
-
-        if (supportsFullscreen) {
-          ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach((eventName) => {
-            document.addEventListener(eventName, handleFullscreenChange);
-          });
-        }
-
-        video.addEventListener('volumechange', () => {
-          if (!video.muted && video.volume > 0) {
-            lastVolume = video.volume;
-          }
-          updateVolumeState();
-        });
-
-        updatePlayState();
-        updateTimeAndProgress();
-        updateVolumeState();
-        if (volumeSlider) {
-          setSliderFill(volumeSlider, video.muted ? 0 : video.volume || lastVolume);
-        }
-        if (supportsFullscreen) {
-          updateFullscreenState();
-        }
-      });
+      listenToMediaQuery(coarseQuery, syncPlayerMode);
     })();
   </script>
 
