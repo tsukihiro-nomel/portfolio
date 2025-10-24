@@ -1356,8 +1356,8 @@ body.has-lightbox {
 
 .video-center-button {
   position: absolute;
-  width: 88px;
-  height: 88px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: none;
   display: grid;
@@ -1377,8 +1377,8 @@ body.has-lightbox {
 }
 
 .video-center-button svg {
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 28px;
 }
 
 .control-button svg {
@@ -1401,13 +1401,13 @@ body.has-lightbox {
 .video-controls {
   position: absolute;
   left: 50%;
-  bottom: 1.2rem;
+  bottom: 0.9rem;
   transform: translateX(-50%);
-  width: clamp(220px, 76%, 480px);
-  background: rgba(15, 23, 42, 0.88);
-  border-radius: 999px;
-  padding: 0.85rem 1.4rem 1.1rem;
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+  width: min(90%, 320px);
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 26px;
+  padding: 0.6rem 0.9rem 0.8rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.38);
   backdrop-filter: blur(12px);
   transition: opacity 0.2s ease;
   opacity: 0.95;
@@ -1419,10 +1419,10 @@ body.has-lightbox {
 
 .video-progress {
   position: relative;
-  height: 6px;
+  height: 5px;
   background: rgba(255, 255, 255, 0.18);
   border-radius: 999px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
@@ -1445,7 +1445,7 @@ body.has-lightbox {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -1453,8 +1453,8 @@ body.has-lightbox {
   border: none;
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 999px;
   display: grid;
   place-items: center;
@@ -1474,7 +1474,7 @@ body.has-lightbox {
   align-items: baseline;
   gap: 6px;
   font-variant-numeric: tabular-nums;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.82);
   flex-shrink: 0;
 }
@@ -1508,7 +1508,7 @@ body.has-lightbox {
 
 .volume-slider {
   --volume-fill: 100%;
-  width: 110px;
+  width: 96px;
   cursor: pointer;
   accent-color: #60a5fa;
   background: linear-gradient(
@@ -1520,8 +1520,8 @@ body.has-lightbox {
   );
   border-radius: 999px;
   appearance: none;
-  height: 26px;
-  padding: 0 6px;
+  height: 22px;
+  padding: 0 5px;
   transition: background 0.25s ease;
 }
 
@@ -1542,7 +1542,7 @@ body.has-lightbox {
   border-radius: 50%;
   background: #60a5fa;
   box-shadow: 0 2px 6px rgba(96, 165, 250, 0.45);
-  margin-top: -4.5px;
+  margin-top: -4px;
 }
 
 .volume-slider::-moz-range-track {
@@ -1617,7 +1617,7 @@ body.has-lightbox {
   height: 46px;
 }
 
-.video-player video::-webkit-media-controls {
+.video-player:not(.video-player--native) video::-webkit-media-controls {
   display: none !important;
 }
 
@@ -1703,23 +1703,33 @@ body.has-lightbox {
   }
 
   .video-center-button {
-    width: 72px;
-    height: 72px;
+    width: 56px;
+    height: 56px;
   }
 
   .video-center-button svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 
   .video-controls {
-    width: calc(100% - 1.5rem);
-    padding: 0.75rem 1rem 0.9rem;
-    bottom: 0.9rem;
+    width: min(96%, 280px);
+    padding: 0.55rem 0.7rem 0.7rem;
+    bottom: 0.7rem;
+    border-radius: 20px;
+  }
+
+  .video-progress {
+    height: 4px;
+    margin-bottom: 8px;
   }
 
   .video-control-row {
-    gap: 12px;
+    gap: 9px;
+  }
+
+  .video-time {
+    font-size: 0.76rem;
   }
 
   .video-time {
@@ -1727,8 +1737,8 @@ body.has-lightbox {
   }
 
   .volume-slider {
-    width: 70px;
-    height: 22px;
+    width: 80px;
+    height: 18px;
     padding: 0 4px;
   }
 
@@ -1774,16 +1784,22 @@ body.has-lightbox {
     margin-top: 0.75rem;
     width: 100%;
     bottom: auto;
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+    padding: 0.55rem 0.7rem 0.65rem;
+    border-radius: 18px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+  }
+
+  .video-progress {
+    margin-bottom: 8px;
   }
 
   .video-control-row {
-    gap: 10px;
+    gap: 7px;
   }
 
   .control-button {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
   }
 
   .video-time {
@@ -1791,13 +1807,14 @@ body.has-lightbox {
     width: 100%;
     display: flex;
     justify-content: center;
+    font-size: 0.74rem;
   }
 
   .video-volume {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     justify-content: space-between;
   }
 
@@ -1805,87 +1822,8 @@ body.has-lightbox {
     width: 100%;
     max-width: none;
     flex: 1;
-  }
-
-  .fullscreen-toggle {
-    margin-left: auto;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-
-  .buttons a {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 16px;
-  }
-
-  .hero {
-    padding: 72px 20px 82px;
-    margin: 32px auto 56px;
-  }
-
-  .hero h1 {
-    font-size: 1.9rem;
-  }
-
-  .hero .tagline {
-    font-size: 0.95rem;
-  }
-
-  .video-player {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .video-player video {
-    border-radius: 16px;
-  }
-
-  .video-controls {
-    position: static;
-    transform: none;
-    margin-top: 0.75rem;
-    width: 100%;
-    bottom: auto;
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
-  }
-
-  .video-control-row {
-    gap: 10px;
-  }
-
-  .control-button {
-    width: 36px;
-    height: 36px;
-  }
-
-  .video-time {
-    order: 3;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .video-volume {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    justify-content: space-between;
-  }
-
-  .volume-slider {
-    width: 100%;
-    max-width: none;
-    flex: 1;
+    height: 16px;
+    padding: 0 3px;
   }
 
   .fullscreen-toggle {
