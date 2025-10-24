@@ -1001,6 +1001,8 @@
       const players = document.querySelectorAll('[data-video-player]');
       if (!players.length) return;
 
+      const coarsePointerMedia = window.matchMedia('(pointer: coarse)');
+
       const formatTime = (time) => {
         if (!Number.isFinite(time) || time < 0) return '00:00';
         const totalSeconds = Math.floor(time);
