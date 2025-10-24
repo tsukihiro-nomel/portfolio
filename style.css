@@ -1821,6 +1821,87 @@ body.has-lightbox {
   }
 }
 
+@media (max-width: 480px) {
+  header {
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 72px 20px 82px;
+    margin: 32px auto 56px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero .tagline {
+    font-size: 0.95rem;
+  }
+
+  .video-player {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .video-player video {
+    border-radius: 16px;
+  }
+
+  .video-controls {
+    position: static;
+    transform: none;
+    margin-top: 0.75rem;
+    width: 100%;
+    bottom: auto;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .video-control-row {
+    gap: 10px;
+  }
+
+  .control-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .video-time {
+    order: 3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-volume {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  .volume-slider {
+    width: 100%;
+    max-width: none;
+    flex: 1;
+  }
+
+  .fullscreen-toggle {
+    margin-left: auto;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   header nav {
     position: fixed;
