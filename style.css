@@ -1732,6 +1732,10 @@ body.has-lightbox {
     font-size: 0.76rem;
   }
 
+  .video-time {
+    font-size: 0.85rem;
+  }
+
   .volume-slider {
     width: 80px;
     height: 18px;
