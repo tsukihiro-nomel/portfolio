@@ -26,7 +26,7 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
   >
-  <link rel="stylesheet" href="style.css?v=2024-02-23">
+  <link rel="stylesheet" href="style.css?v=2024-02-24">
 </head>
 <body>
   <script>
@@ -779,15 +779,27 @@
       const getMediaQuery = (query) =>
         typeof window.matchMedia === 'function' ? window.matchMedia(query) : null;
 
+      const LARGE_VIEWPORT_MIN_WIDTH = 992;
       const coarsePointerMedia = getMediaQuery('(pointer: coarse)');
       const finePointerMedia = getMediaQuery('(any-pointer: fine)');
       const hoverCapableMedia = getMediaQuery('(any-hover: hover)');
+      const largeViewportMedia = getMediaQuery(`(min-width: ${LARGE_VIEWPORT_MIN_WIDTH}px)`);
 
       const shouldUseNativeControls = () => {
         const hasFinePointer = finePointerMedia ? finePointerMedia.matches : false;
         const canHover = hoverCapableMedia ? hoverCapableMedia.matches : false;
         const hasCoarsePointer = coarsePointerMedia ? coarsePointerMedia.matches : false;
-        const hasTouchInput = navigator.maxTouchPoints > 0;
+        const hasTouchInput =
+          ('maxTouchPoints' in navigator && navigator.maxTouchPoints > 0) ||
+          ('msMaxTouchPoints' in navigator && navigator.msMaxTouchPoints > 0) ||
+          'ontouchstart' in window;
+        const isLargeViewport = largeViewportMedia
+          ? largeViewportMedia.matches
+          : window.innerWidth >= LARGE_VIEWPORT_MIN_WIDTH;
+
+        if (isLargeViewport) {
+          return false;
+        }
 
         if (hasFinePointer || canHover) {
           return false;
