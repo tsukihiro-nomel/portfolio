@@ -6,12 +6,12 @@
   <title>Nomel ESMEL - Portfolio 3D</title>
   <meta
     name="description"
-    content="Portfolio 3D de Nomel ESMEL, généraliste 3D et étudiant M2 IIM, présentant des projets d'animation, de modélisation et de textures."
+    content="Portfolio 3D de Nomel ESMEL, généraliste 3D et étudiant M2 IIM, présentant des projets d'animation, All Aspects et de textures."
   >
   <meta property="og:title" content="Nomel ESMEL - Portfolio 3D">
   <meta
     property="og:description"
-    content="Découvrez le portfolio 3D de Nomel ESMEL : projets All Aspects, Textures, Modélisations et Animations."
+    content="Découvrez le portfolio 3D de Nomel ESMEL : projets All Aspects, Textures et Animations."
   >
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://portfolio.esmel-production.fr/">
@@ -124,37 +124,58 @@
     <div class="showreel-inner">
       <h2>Demo Reel</h2>
       <p class="showreel-intro">Aperçu de mes réalisations 3D les plus récentes et de mes compétences en animation.</p>
-      <div class="video-placeholder">En cours</div>
+      <div class="video-player" data-video-player>
+        <video src="media/demoreel_112025.mp4" preload="metadata" playsinline></video>
+        <button class="video-center-button" type="button" aria-label="Lire la vidéo">
+          <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+        </button>
+        <div class="video-controls">
+          <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+            <div class="video-progress-fill"></div>
+          </div>
+          <div class="video-control-row">
+            <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
+            <div class="video-time">
+              <span class="time-current">00:00</span>
+              <span class="time-separator">/</span>
+              <span class="time-duration">00:00</span>
+            </div>
+            <div class="video-volume">
+              <button class="control-button mute" type="button" aria-label="Couper le son">
+                <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
+              </button>
+              <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
+            </div>
+            <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
+              <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="projects" class="categories">
     <h2>Projets</h2>
-    <p class="categories-intro">Sélection de travaux en All Aspects, Textures, Modélisation et Animation.</p>
+    <p class="categories-intro">Sélection de travaux en All Aspects, Textures et Animation.</p>
     <div class="category-grid">
       <div class="category-card">
         <div class="image-placeholder">
           <video src="media/trainMarche.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
         <h3>All Aspects</h3>
-        <p>3 projets</p>
+        <p>4 projets</p>
         <a href="#all-aspects" class="shimmer pulse">Voir les projets</a>
       </div>
       <div class="category-card">
         <div class="image-placeholder">
-          <video src="media/CYC__FUSIL__CYCLO.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+          <video src="media/chevalier.mp4" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
         <h3>Textures 3D</h3>
         <p>3 projets</p>
         <a href="#textures" class="shimmer pulse">Voir les projets</a>
-      </div>
-      <div class="category-card">
-        <div class="image-placeholder">
-          <video src="media/2025-01-29%2009-03-52.mkv" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
-        </div>
-        <h3>Modélisations 3D</h3>
-        <p>3 projets</p>
-        <a href="#modeling" class="shimmer pulse">Voir les projets</a>
       </div>
       <div class="category-card">
         <div class="image-placeholder">
@@ -200,7 +221,37 @@
             </div>
           </div>
           <div class="video-player" data-video-player>
-            <video src="media/base_tryccicle.mp4" preload="metadata" playsinline></video>
+            <video src="media/fusil.mp4" preload="metadata" playsinline></video>
+            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
+            <div class="video-controls">
+              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div class="video-progress-fill"></div>
+              </div>
+              <div class="video-control-row">
+                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
+                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+                </button>
+                <div class="video-time">
+                  <span class="time-current">00:00</span>
+                  <span class="time-separator">/</span>
+                  <span class="time-duration">00:00</span>
+                </div>
+                <div class="video-volume">
+                  <button class="control-button mute" type="button" aria-label="Couper le son">
+                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
+                  </button>
+                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
+                </div>
+                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
+                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="video-player" data-video-player>
+            <video src="media/hopital_1.mp4" preload="metadata" playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
               <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
             </button>
@@ -265,36 +316,6 @@
         <h3>Textures 3D</h3>
         <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/CYC__FUSIL__CYCLO.mp4" preload="metadata" playsinline></video>
-            <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-            </button>
-            <div class="video-controls">
-              <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-                <div class="video-progress-fill"></div>
-              </div>
-              <div class="video-control-row">
-                <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-                  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-                </button>
-                <div class="video-time">
-                  <span class="time-current">00:00</span>
-                  <span class="time-separator">/</span>
-                  <span class="time-duration">00:00</span>
-                </div>
-                <div class="video-volume">
-                  <button class="control-button mute" type="button" aria-label="Couper le son">
-                    <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
-                  </button>
-                  <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
-                </div>
-                <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-                  <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="video-player" data-video-player>
             <video src="media/chevalier.mp4" preload="metadata" playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
               <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
@@ -354,13 +375,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div id="modeling" class="project-category">
-        <h3>Modélisations 3D</h3>
-        <div class="project-media">
           <div class="video-player" data-video-player>
-            <video src="media/2025-01-29%2009-03-52.mkv" preload="metadata" playsinline></video>
+            <video src="media/base_tryccicle.mp4" preload="metadata" playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
               <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
             </button>
@@ -389,8 +405,6 @@
               </div>
             </div>
           </div>
-          <img src="media/Capture%20d%27%C3%A9cran_20221025_220813.png" alt="Projet de modélisation 1">
-          <img src="media/Capture%20d%27%C3%A9cran_20221129_221008.png" alt="Projet de modélisation 2">
         </div>
       </div>
       <div id="animation" class="project-category">
