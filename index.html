@@ -247,23 +247,25 @@
           <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
             <div class="video-progress-fill"></div>
           </div>
-          <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
-          <div class="video-time">
+          <div class="video-control-row">
+            <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
+            <div class="video-time">
               <span class="time-current">00:00</span>
               <span class="time-separator">/</span>
               <span class="time-duration">00:00</span>
-          </div>
-          <div class="video-volume">
-            <button class="control-button mute" type="button" aria-label="Couper le son">
+            </div>
+            <div class="video-volume">
+              <button class="control-button mute" type="button" aria-label="Couper le son">
                 <svg class="icon icon-volume-high" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9v6h4l5 5V4l-5 5H5z"></path><path d="M19 12c0 2.21-1.21 4.15-3 5.19V6.81c1.79 1.04 3 2.98 3 5.19z"></path><path d="M22 12c0 3.31-1.61 6.2-4 7.9v-2.35c1.2-1.09 2-3.12 2-5.55s-.8-4.46-2-5.55V4.1c2.39 1.7 4 4.59 4 7.9z"></path></svg>
               </button>
-            <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
+              <input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume de la vidéo">
+            </div>
+            <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
+              <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
+            </button>
           </div>
-          <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
-            <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
-          </button>
         </div>
       </div>
     </div>
@@ -305,13 +307,13 @@
           <div class="video-player" data-video-player>
             <video src="media/trainMarche.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -329,19 +331,19 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
           <div class="video-player" data-video-player>
             <video src="media/fusil.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -359,19 +361,19 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
           <div class="video-player" data-video-player>
             <video src="media/hopital_1.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -389,19 +391,19 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
           <div class="video-player" data-video-player>
             <video src="media/COSMETIQUE.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -419,8 +421,8 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -430,13 +432,13 @@
           <div class="video-player" data-video-player>
             <video src="media/chevalier.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -454,19 +456,19 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
           <div class="video-player" data-video-player>
             <video src="media/bill.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -484,19 +486,19 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
           <div class="video-player" data-video-player>
             <video src="media/base_tryccicle.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -514,8 +516,8 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -525,13 +527,13 @@
           <div class="video-player" data-video-player>
             <video src="media/fly.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -549,19 +551,19 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
           <div class="video-player" data-video-player>
             <video src="media/acting.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -579,19 +581,19 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
           <div class="video-player" data-video-player>
             <video src="media/B2_ESMEL_Nomel_anime_maya.mp4" preload="metadata" playsinline webkit-playsinline></video>
             <button class="video-center-button" type="button" aria-label="Lire la vidéo">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
-          </button>
+              <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+            </button>
             <div class="video-controls">
               <div class="video-progress" role="slider" aria-label="Progression de la vidéo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
                 <div class="video-progress-fill"></div>
               </div>
-
+              <div class="video-control-row">
                 <button class="control-button play-pause" type="button" aria-label="Lire la vidéo">
                   <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
                 </button>
@@ -609,8 +611,8 @@
                 <button class="control-button fullscreen-toggle" type="button" aria-label="Passer en plein écran" aria-pressed="false">
                   <svg class="icon icon-fullscreen-enter" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 4h-2v3h-3v2h5v-5zm-2-9v2h3v3h2V5h-5z"></path></svg>
                 </button>
-
-          </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -632,7 +634,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la vue extérieure en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Vue extérieure</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -641,7 +643,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher le salon open space en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Salon open space baigné de lumière</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -650,7 +652,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la salle à manger conviviale en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Salle à manger conviviale</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -659,7 +661,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher cette salle à manger en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Salle à manger conviviale</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -668,7 +670,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la cuisine contemporaine en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Cuisine contemporaine avec îlot central</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -677,7 +679,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la cuisine contemporaine en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Cuisine contemporaine avec îlot central</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -686,7 +688,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la suite parentale en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Suite parentale avec éclairage doux</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -695,7 +697,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la suite parentale avec dressing en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>Suite parentale armoire</figcaption>
           </figure>
           <figure class="carousel-slide">
@@ -704,7 +706,7 @@
               <button class="carousel-fullscreen" type="button" aria-label="Afficher la deuxième chambre en plein écran">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3H4a1 1 0 0 0-1 1v4.5a1 1 0 1 0 2 0V6.41l4.3 4.3a1 1 0 0 0 1.4-1.42L6.41 5H8.5a1 1 0 1 0 0-2zm7 18H20a1 1 0 0 0 1-1v-4.5a1 1 0 1 0-2 0v1.09l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.3H15.5a1 1 0 1 0 0 2zM4 16.5V20a1 1 0 0 0 1 1h3.5a1 1 0 1 0 0-2H6.41l4.3-4.29a1 1 0 0 0-1.42-1.42l-4.3 4.3V16.5a1 1 0 1 0-2 0zM20 7.5V4a1 1 0 0 0-1-1h-3.5a1 1 0 1 0 0 2h1.09l-4.3 4.29a1 1 0 1 0 1.42 1.42l4.3-4.3V7.5a1 1 0 0 0 2 0z"></path></svg>
               </button>
-          </div>
+            </div>
             <figcaption>2e Chambre</figcaption>
           </figure>
         </div>
@@ -794,13 +796,20 @@
         const isLargeViewport = largeViewportMedia
           ? largeViewportMedia.matches
           : window.innerWidth >= LARGE_VIEWPORT_MIN_WIDTH;
-        const pointerInfoAvailable = Boolean(finePointerMedia || hoverCapableMedia || coarsePointerMedia);
 
-        const isLikelyDesktop = pointerInfoAvailable
-          ? isLargeViewport && (hasFinePointer || canHover) && !hasCoarsePointer && !hasTouchInput
-          : isLargeViewport && !hasTouchInput;
+        if (isLargeViewport) {
+          return false;
+        }
 
-        return !isLikelyDesktop;
+        if (hasFinePointer || canHover) {
+          return false;
+        }
+
+        if (hasCoarsePointer) {
+          return true;
+        }
+
+        return hasTouchInput;
       };
       const isCoarsePointer = coarsePointerMedia ? coarsePointerMedia.matches : false;
       const enableDynamicAnimation = !prefersReducedMotion && !isCoarsePointer;
@@ -1027,7 +1036,6 @@
         );
 
         if (useNativeControls) {
-          player.classList.remove('video-player--enhanced');
           video.setAttribute('controls', '');
           video.controls = true;
           player.classList.add('video-player--native');
@@ -1043,7 +1051,6 @@
 
         video.removeAttribute('controls');
         video.controls = false;
-        player.classList.add('video-player--enhanced');
 
         let lastVolume = video.volume || 0.5;
 
