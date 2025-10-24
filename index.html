@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="theme-color" content="#05060f">
   <title>Nomel ESMEL - Portfolio 3D</title>
   <meta
     name="description"
@@ -22,9 +26,107 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
   >
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2024-02-15">
 </head>
 <body>
+  <script>
+    (function () {
+      const REFRESH_PARAM = 'refresh';
+
+      if ('URLSearchParams' in window && 'history' in window && typeof history.replaceState === 'function') {
+        try {
+          const currentUrl = new URL(window.location.href);
+          if (currentUrl.searchParams.has(REFRESH_PARAM)) {
+            currentUrl.searchParams.delete(REFRESH_PARAM);
+            history.replaceState(null, '', currentUrl.pathname + currentUrl.search + currentUrl.hash);
+          }
+        } catch (error) {
+          /* noop */
+        }
+      }
+
+      const getStorage = () => {
+        const factories = [
+          () => window.localStorage,
+          () => window.sessionStorage
+        ];
+        for (const factory of factories) {
+          try {
+            const store = factory();
+            const probeKey = '__portfolio-probe__';
+            store.setItem(probeKey, '1');
+            store.removeItem(probeKey);
+            return store;
+          } catch (error) {
+            // continue to next storage option
+          }
+        }
+        return null;
+      };
+
+      const storage = getStorage();
+      const VERSION_KEY = 'portfolio-version';
+      const CHECK_INTERVAL = 5 * 60 * 1000;
+
+      const refreshWithBypass = () => {
+        try {
+          if ('URL' in window) {
+            const nextUrl = new URL(window.location.href);
+            nextUrl.searchParams.set(REFRESH_PARAM, Date.now().toString(36));
+            window.location.replace(nextUrl.toString());
+          } else {
+            window.location.reload();
+          }
+        } catch (error) {
+          window.location.reload();
+        }
+      };
+
+      const handleLatestVersion = (latestVersion) => {
+        if (!latestVersion || !storage) {
+          return;
+        }
+
+        try {
+          const storedVersion = storage.getItem(VERSION_KEY);
+          if (!storedVersion) {
+            storage.setItem(VERSION_KEY, latestVersion);
+            return;
+          }
+
+          if (storedVersion !== latestVersion) {
+            storage.setItem(VERSION_KEY, latestVersion);
+            refreshWithBypass();
+          }
+        } catch (error) {
+          refreshWithBypass();
+        }
+      };
+
+      if (typeof fetch !== 'function') {
+        return;
+      }
+
+      const fetchLatestVersion = () => {
+        return fetch('version.json', { cache: 'no-store' })
+          .then((response) => (response.ok ? response.json() : null))
+          .then((payload) => {
+            if (payload && typeof payload.version === 'string') {
+              handleLatestVersion(payload.version);
+            }
+          })
+          .catch(() => {
+            /* ignore network errors */
+          });
+      };
+
+      fetchLatestVersion();
+
+      if (storage) {
+        window.setInterval(fetchLatestVersion, CHECK_INTERVAL);
+      }
+    })();
+  </script>
   <div class="background-scene" aria-hidden="true">
     <img
       src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg"
