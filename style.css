@@ -292,6 +292,14 @@ body::-webkit-scrollbar-thumb:hover {
   .page-shell {
     transform: none !important;
   }
+
+  .liquidGlass-wrapper,
+  .liquidGlass-text nav,
+  .burger-toggle,
+  .burger-toggle .burger-line {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
 }
 
 /* Barre de navigation */
@@ -301,11 +309,16 @@ body::-webkit-scrollbar-thumb:hover {
   left: 50%;
   transform: translateX(-50%);
   width: min(1100px, calc(100% - 48px));
-  height: 90px;
-  border-radius: 80px;
+  min-height: 90px;
+  padding: 0.45rem;
+  border-radius: 2.8rem;
+  display: flex;
+  align-items: stretch;
   overflow: hidden;
   z-index: 1000;
-  transition: transform 0.6s ease, width 0.6s ease, box-shadow 0.6s ease;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2), width 0.5s ease,
+    box-shadow 0.5s ease, min-height 0.35s ease, padding 0.35s ease, border-radius 0.35s ease;
 }
 
 .liquidGlass-effect,
@@ -313,32 +326,41 @@ body::-webkit-scrollbar-thumb:hover {
 .liquidGlass-shine {
   position: absolute;
   inset: 0;
+  border-radius: inherit;
 }
 
 .liquidGlass-effect {
-  backdrop-filter: blur(25px) saturate(200%);
-  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(26px) saturate(200%);
+  background: rgba(10, 12, 22, 0.35);
   filter: url(#glass-distortion);
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .liquidGlass-tint {
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.32));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.08));
+  mix-blend-mode: screen;
+  opacity: 0.9;
 }
 
 .liquidGlass-shine {
-  background: radial-gradient(circle at 40% 10%, rgba(255, 255, 255, 0.5), transparent 70%);
+  box-shadow: inset 2px 2px 1px rgba(255, 255, 255, 0.55), inset -1px -1px 1px rgba(255, 255, 255, 0.45);
+  background: radial-gradient(circle at 30% 8%, rgba(255, 255, 255, 0.35), transparent 65%),
+    radial-gradient(circle at 80% 18%, rgba(255, 255, 255, 0.18), transparent 70%);
   mix-blend-mode: screen;
 }
 
 .liquidGlass-text {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
-  height: 100%;
+  width: 100%;
   gap: 32px;
+  padding: clamp(0.2rem, 1vw, 0.35rem) clamp(28px, 5vw, 40px);
+  border-radius: 2.4rem;
+  color: var(--text-color);
 }
 
 .liquidGlass-text .logo {
@@ -412,7 +434,7 @@ body::-webkit-scrollbar-thumb:hover {
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.burger-toggle span {
+.burger-toggle .burger-line {
   display: block;
   width: 22px;
   height: 2px;
@@ -423,11 +445,11 @@ body::-webkit-scrollbar-thumb:hover {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.burger-toggle span:first-child {
+.burger-toggle .burger-line--top {
   top: 19px;
 }
 
-.burger-toggle span:last-child {
+.burger-toggle .burger-line--bottom {
   bottom: 19px;
 }
 
@@ -1833,7 +1855,7 @@ body.nav-open {
   }
 
   .liquidGlass-text {
-    padding: 0 28px;
+    padding: clamp(0.2rem, 1.4vw, 0.35rem) clamp(20px, 4vw, 28px);
   }
 
   .liquidGlass-text nav {
@@ -1847,22 +1869,43 @@ body.nav-open {
     left: 0;
     transform: none;
     width: 100%;
-    height: 70px;
+    min-height: 70px;
     border-radius: 0;
+    padding: 0.35rem 0.4rem;
+    box-shadow: 0 10px 30px rgba(5, 6, 18, 0.3);
+    --liquid-header-offset: calc(70px + 0.7rem);
+    transition: min-height 0.35s ease, padding 0.35s ease, border-radius 0.35s ease,
+      box-shadow 0.3s ease;
   }
 
   .liquidGlass-wrapper.sticky {
-    box-shadow: 0 14px 34px rgba(5, 6, 18, 0.35);
+    min-height: 60px;
+    box-shadow: 0 18px 40px rgba(5, 6, 18, 0.4);
+    padding: 0.25rem 0.35rem;
+    --liquid-header-offset: calc(60px + 0.5rem);
+  }
+
+  .liquidGlass-wrapper.sticky .liquidGlass-text {
+    padding: clamp(0.18rem, 1vw, 0.32rem) 16px;
+  }
+
+  .liquidGlass-wrapper.sticky .liquidGlass-effect {
+    backdrop-filter: blur(24px) saturate(190%);
+    background: rgba(10, 12, 22, 0.5);
+  }
+
+  .liquidGlass-wrapper.sticky .burger-line {
+    transition-duration: 0.25s;
   }
 
   .liquidGlass-text {
-    padding: 0 20px;
+    padding: clamp(0.2rem, 1vw, 0.32rem) 20px;
     gap: 16px;
   }
 
   .js-nav-ready .liquidGlass-text nav {
     position: fixed;
-    top: calc(70px + env(safe-area-inset-top, 0px));
+    top: calc(var(--liquid-header-offset, 70px) + env(safe-area-inset-top, 0px));
     left: 0;
     width: 100%;
     height: 0;
@@ -1886,6 +1929,7 @@ body.nav-open {
     opacity: 0;
     transform: translateY(-12px);
     letter-spacing: 0.12em;
+    font-size: 1.05rem;
   }
 
   .js-nav-ready .liquidGlass-text nav a::after {
@@ -1897,7 +1941,7 @@ body.nav-open {
   }
 
   .js-nav-ready .liquidGlass-wrapper.menu-open nav {
-    height: calc(100dvh - 70px);
+    height: calc(100dvh - var(--liquid-header-offset, 70px) - env(safe-area-inset-top, 0px));
     opacity: 1;
     pointer-events: auto;
     padding-top: calc(clamp(60px, 12vh, 120px) + env(safe-area-inset-top, 0px));
@@ -1914,12 +1958,12 @@ body.nav-open {
     background: rgba(255, 255, 255, 0.2);
   }
 
-  .js-nav-ready .liquidGlass-wrapper.menu-open .burger-toggle span:first-child {
+  .js-nav-ready .liquidGlass-wrapper.menu-open .burger-line--top {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
   }
 
-  .js-nav-ready .liquidGlass-wrapper.menu-open .burger-toggle span:last-child {
+  .js-nav-ready .liquidGlass-wrapper.menu-open .burger-line--bottom {
     top: 50%;
     bottom: auto;
     transform: translate(-50%, -50%) rotate(-45deg);
