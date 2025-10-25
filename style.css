@@ -281,7 +281,9 @@ body::-webkit-scrollbar-thumb:hover {
   .background-sky,
   .background-glow,
   .star,
-  .interactive-particles .floating-particle {
+  .interactive-particles .floating-particle,
+  .liquidGlass-effect::before,
+  .liquidGlass-effect::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
@@ -337,6 +339,34 @@ body::-webkit-scrollbar-thumb:hover {
   isolation: isolate;
 }
 
+.liquidGlass-effect::before,
+.liquidGlass-effect::after {
+  content: '';
+  position: absolute;
+  inset: -22%;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.48;
+  filter: url(#glass-distortion);
+  pointer-events: none;
+}
+
+.liquidGlass-effect::before {
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.35) 0, transparent 55%),
+    radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.28) 0, transparent 60%),
+    radial-gradient(circle at 50% 70%, rgba(90, 150, 255, 0.35) 0, transparent 62%);
+  background-size: 140% 140%;
+  animation: liquidGlassDrift 18s ease-in-out infinite;
+}
+
+.liquidGlass-effect::after {
+  background-image:
+    conic-gradient(from 120deg at 50% 50%, rgba(255, 255, 255, 0.18), rgba(255, 180, 255, 0.05) 45%, transparent 70%, rgba(120, 220, 255, 0.12) 90%, rgba(255, 255, 255, 0.18));
+  background-size: 180% 180%;
+  animation: liquidGlassRipple 22s cubic-bezier(0.66, 0, 0.34, 1) infinite;
+}
+
 .liquidGlass-tint {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.08));
   mix-blend-mode: screen;
@@ -348,6 +378,36 @@ body::-webkit-scrollbar-thumb:hover {
   background: radial-gradient(circle at 30% 8%, rgba(255, 255, 255, 0.35), transparent 65%),
     radial-gradient(circle at 80% 18%, rgba(255, 255, 255, 0.18), transparent 70%);
   mix-blend-mode: screen;
+}
+
+@keyframes liquidGlassDrift {
+  0% {
+    transform: translate3d(-3%, -4%, 0) scale(1.05) rotate(0deg);
+    background-position: 0% 0%;
+  }
+  45% {
+    transform: translate3d(3%, 2%, 0) scale(1.08) rotate(1.5deg);
+    background-position: 70% 30%;
+  }
+  100% {
+    transform: translate3d(-4%, -6%, 0) scale(1.03) rotate(-1deg);
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes liquidGlassRipple {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    background-position: 0% 0%;
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) scale(1.06);
+    background-position: 80% 60%;
+  }
+  100% {
+    transform: translate3d(-2%, 3%, 0) scale(1.02);
+    background-position: 10% 40%;
+  }
 }
 
 .liquidGlass-text {

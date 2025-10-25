@@ -291,6 +291,27 @@
             lighting-color="white"
             result="specLight"
           >
+            <animate
+              attributeName="baseFrequency"
+              dur="18s"
+              values="0.012 0.018;0.015 0.022;0.009 0.015;0.012 0.018"
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          <feComponentTransfer in="turbulence" result="mapped">
+            <feFuncR type="gamma" amplitude="1" exponent="8" offset="0.45" />
+            <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+            <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.45" />
+          </feComponentTransfer>
+          <feGaussianBlur in="mapped" stdDeviation="3" result="softMap" />
+          <feSpecularLighting
+            in="softMap"
+            surfaceScale="4"
+            specularConstant="1"
+            specularExponent="90"
+            lighting-color="white"
+            result="specLight"
+          >
             <fePointLight x="-180" y="-220" z="260" />
           </feSpecularLighting>
           <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="lit" />
@@ -300,7 +321,14 @@
             scale="150"
             xChannelSelector="R"
             yChannelSelector="G"
-          />
+          >
+            <animate
+              attributeName="scale"
+              dur="16s"
+              values="140;168;130;150"
+              repeatCount="indefinite"
+            />
+          </feDisplacementMap>
         </filter>
       </svg>
     </header>
