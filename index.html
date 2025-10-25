@@ -760,102 +760,24 @@
         return;
       }
 
-      const DEFAULT_AUTOPLAY = 5800;
-      const DEFAULT_ANIMATION_DURATION = 920;
-
-      const reduceMotionQuery =
-        typeof window.matchMedia === 'function'
-          ? window.matchMedia('(prefers-reduced-motion: reduce)')
-          : null;
-
-      const baseSettings = {
+      const glide = new Glide(gallery, {
         type: 'carousel',
         focusAt: 'center',
-        perView: 3,
-        gap: 0,
-        peek: {
-          before: 140,
-          after: 140
-        },
-        autoplay: DEFAULT_AUTOPLAY,
+        perView: 1,
+        gap: 32,
+        autoplay: 5200,
         hoverpause: true,
-        animationDuration: DEFAULT_ANIMATION_DURATION,
-        animationTimingFunc: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+        animationDuration: 600,
+        animationTimingFunc: 'cubic-bezier(0.33, 1, 0.68, 1)',
         keyboard: true,
-        perTouch: 1,
-        swipeThreshold: 60,
-        dragThreshold: 80,
         breakpoints: {
-          1440: {
-            peek: { before: 120, after: 120 }
-          },
-          1280: {
-            peek: { before: 100, after: 100 }
-          },
-          1024: {
-            perView: 1,
-            peek: { before: 0, after: 0 },
-            gap: 20,
-            animationDuration: 720
-          },
-          768: {
-            perView: 1,
-            gap: 18,
-            animationDuration: 680
-          },
-          560: {
-            perView: 1,
-            gap: 16,
-            animationDuration: 640
-          }
+          1024: { gap: 24 },
+          768: { gap: 20 },
+          560: { gap: 16 }
         }
-      };
-
-      if (reduceMotionQuery && reduceMotionQuery.matches) {
-        baseSettings.autoplay = false;
-        baseSettings.animationDuration = 0;
-      }
-
-      const glide = new Glide(gallery, baseSettings);
+      });
 
       glide.mount();
-
-      if (reduceMotionQuery) {
-        const toggleMotion = (event) => {
-          const prefersReduce = event.matches;
-          if (prefersReduce) {
-            glide.update({ autoplay: false, animationDuration: 0 });
-            if (typeof glide.pause === 'function') {
-              glide.pause();
-            }
-          } else {
-            glide.update({ autoplay: DEFAULT_AUTOPLAY, animationDuration: DEFAULT_ANIMATION_DURATION });
-            if (typeof glide.play === 'function') {
-              glide.play();
-            }
-          }
-        };
-
-        toggleMotion(reduceMotionQuery);
-
-        if (typeof reduceMotionQuery.addEventListener === 'function') {
-          reduceMotionQuery.addEventListener('change', toggleMotion);
-
-          window.addEventListener('pagehide', () => {
-            if (reduceMotionQuery) {
-              reduceMotionQuery.removeEventListener('change', toggleMotion);
-            }
-          });
-        } else if (typeof reduceMotionQuery.addListener === 'function') {
-          reduceMotionQuery.addListener(toggleMotion);
-
-          window.addEventListener('pagehide', () => {
-            if (reduceMotionQuery && typeof reduceMotionQuery.removeListener === 'function') {
-              reduceMotionQuery.removeListener(toggleMotion);
-            }
-          });
-        }
-      }
     })();
   </script>
 
