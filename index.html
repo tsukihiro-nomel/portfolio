@@ -276,6 +276,20 @@
             numOctaves="1"
             seed="14"
             result="turbulence"
+          />
+          <feComponentTransfer in="turbulence" result="mapped">
+            <feFuncR type="gamma" amplitude="1" exponent="8" offset="0.45" />
+            <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+            <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.45" />
+          </feComponentTransfer>
+          <feGaussianBlur in="mapped" stdDeviation="3" result="softMap" />
+          <feSpecularLighting
+            in="softMap"
+            surfaceScale="4"
+            specularConstant="1"
+            specularExponent="90"
+            lighting-color="white"
+            result="specLight"
           >
             <animate
               attributeName="baseFrequency"
