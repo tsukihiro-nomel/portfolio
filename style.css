@@ -80,6 +80,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-top: clamp(130px, 16vh, 190px);
 }
 
 .background-scene {
@@ -294,107 +295,87 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Barre de navigation */
-header {
-  --header-padding-y: clamp(16px, 4vw, 24px);
-  --header-padding-x: clamp(18px, 6vw, 48px);
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: var(--header-padding-y) var(--header-padding-x);
-  padding-top: calc(var(--header-padding-y) + env(safe-area-inset-top, 0px));
-  background: rgba(8, 10, 20, 0.78);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 1000;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 18px 42px rgba(5, 6, 18, 0.35);
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-body.nav-open {
+.liquidGlass-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100% - 48px));
+  height: 90px;
+  border-radius: 80px;
   overflow: hidden;
+  z-index: 1000;
+  transition: transform 0.6s ease, width 0.6s ease, box-shadow 0.6s ease;
 }
 
-header nav {
+.liquidGlass-effect,
+.liquidGlass-tint,
+.liquidGlass-shine {
+  position: absolute;
+  inset: 0;
+}
+
+.liquidGlass-effect {
+  backdrop-filter: blur(25px) saturate(200%);
+  background: rgba(255, 255, 255, 0.05);
+  filter: url(#glass-distortion);
+}
+
+.liquidGlass-tint {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.32));
+}
+
+.liquidGlass-shine {
+  background: radial-gradient(circle at 40% 10%, rgba(255, 255, 255, 0.5), transparent 70%);
+  mix-blend-mode: screen;
+}
+
+.liquidGlass-text {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
-  gap: clamp(14px, 3vw, 28px);
-  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 100%;
+  gap: 32px;
 }
 
-.nav-toggle {
-  display: none;
+.liquidGlass-text .logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.liquidGlass-text .logo:hover,
+.liquidGlass-text .logo:focus-visible {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.liquidGlass-text nav {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: inherit;
-  cursor: pointer;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  gap: 30px;
+  margin-left: auto;
 }
 
-.nav-toggle:hover,
-.nav-toggle:focus-visible {
-  background: rgba(82, 51, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.02);
-}
-
-.nav-toggle-bar {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: currentColor;
-  border-radius: 999px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.nav-toggle-bar + .nav-toggle-bar {
-  margin-top: 5px;
-}
-
-.nav-toggle.is-active .nav-toggle-bar:nth-of-type(2) {
-  opacity: 0;
-}
-
-.nav-toggle.is-active .nav-toggle-bar:first-of-type {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.nav-toggle.is-active .nav-toggle-bar:last-of-type {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-nav a {
+.liquidGlass-text nav a {
   color: var(--text-color);
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.45rem 1.1rem;
-  border-radius: 999px;
-  transition: color 0.3s ease, background 0.3s ease;
+  padding: 0.45rem 0;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-nav a::after {
+.liquidGlass-text nav a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -407,9 +388,62 @@ nav a::after {
   transition: transform 0.3s ease;
 }
 
-nav a:hover::after,
-nav a:focus-visible::after {
+.liquidGlass-text nav a:hover,
+.liquidGlass-text nav a:focus-visible {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.liquidGlass-text nav a:hover::after,
+.liquidGlass-text nav a:focus-visible::after {
   transform: scaleX(1);
+}
+
+.burger-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.burger-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.burger-toggle span:first-child {
+  top: 19px;
+}
+
+.burger-toggle span:last-child {
+  bottom: 19px;
+}
+
+.burger-toggle:hover,
+.burger-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+  transform: scale(1.04);
+}
+
+.liquidGlass-filter {
+  display: none;
+}
+
+body.nav-open {
+  overflow: hidden;
+  touch-action: none;
 }
 
 /* Section Héro */
@@ -1759,11 +1793,6 @@ nav a:focus-visible::after {
 }
 
 @media (max-width: 480px) {
-  header {
-    --header-padding-y: 14px;
-    --header-padding-x: clamp(16px, 6vw, 24px);
-  }
-
   .hero {
     padding: 64px 18px 72px;
     margin: 28px auto 60px;
@@ -1798,58 +1827,102 @@ nav a:focus-visible::after {
   }
 }
 
+@media (max-width: 1024px) {
+  .liquidGlass-wrapper {
+    width: min(100%, calc(100% - 32px));
+  }
+
+  .liquidGlass-text {
+    padding: 0 28px;
+  }
+
+  .liquidGlass-text nav {
+    gap: 20px;
+  }
+}
+
 @media (max-width: 768px) {
-  header nav {
-    position: fixed;
-    top: 76px;
-    top: calc(76px + env(safe-area-inset-top, 0px));
-    left: 50%;
-    right: auto;
-    width: min(420px, calc(100vw - 32px));
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    --nav-padding-x: clamp(18px, 6vw, 24px);
-    padding: 24px var(--nav-padding-x) 28px;
-    padding-top: calc(24px + env(safe-area-inset-top, 0px));
-    padding-left: calc(var(--nav-padding-x) + env(safe-area-inset-left, 0px));
-    padding-right: calc(var(--nav-padding-x) + env(safe-area-inset-right, 0px));
-    background: rgba(8, 10, 20, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
-    box-shadow: 0 24px 60px rgba(5, 6, 18, 0.55);
-    transform: translate3d(-50%, -12px, 0);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1200;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-
-  header nav.is-open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate3d(-50%, 0, 0);
-  }
-
-  header nav a {
+  .liquidGlass-wrapper {
+    top: 0;
+    left: 0;
+    transform: none;
     width: 100%;
-    text-align: center;
-    padding: 12px;
-    border-radius: 12px;
-    background: rgba(15, 23, 42, 0.6);
+    height: 70px;
+    border-radius: 0;
   }
 
-  header nav a::after {
+  .liquidGlass-wrapper.sticky {
+    box-shadow: 0 14px 34px rgba(5, 6, 18, 0.35);
+  }
+
+  .liquidGlass-text {
+    padding: 0 20px;
+    gap: 16px;
+  }
+
+  .js-nav-ready .liquidGlass-text nav {
+    position: fixed;
+    top: calc(70px + env(safe-area-inset-top, 0px));
+    left: 0;
+    width: 100%;
+    height: 0;
+    margin-left: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px;
+    padding-left: calc(24px + env(safe-area-inset-left, 0px));
+    padding-right: calc(24px + env(safe-area-inset-right, 0px));
+    background: rgba(5, 6, 15, 0.85);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: height 0.4s ease, opacity 0.3s ease;
+    z-index: 1200;
+  }
+
+  .js-nav-ready .liquidGlass-text nav a {
+    opacity: 0;
+    transform: translateY(-12px);
+    letter-spacing: 0.12em;
+  }
+
+  .js-nav-ready .liquidGlass-text nav a::after {
     display: none;
   }
 
-  header nav a:hover,
-  header nav a:focus-visible {
-    background: rgba(82, 51, 255, 0.25);
+  .js-nav-ready .burger-toggle {
+    display: inline-flex;
   }
 
-  .nav-toggle {
-    display: inline-flex;
+  .js-nav-ready .liquidGlass-wrapper.menu-open nav {
+    height: calc(100dvh - 70px);
+    opacity: 1;
+    pointer-events: auto;
+    padding-top: calc(clamp(60px, 12vh, 120px) + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(clamp(40px, 12vh, 80px) + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+  }
+
+  .js-nav-ready .liquidGlass-wrapper.menu-open nav a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .js-nav-ready .liquidGlass-wrapper.menu-open .burger-toggle {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .js-nav-ready .liquidGlass-wrapper.menu-open .burger-toggle span:first-child {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .js-nav-ready .liquidGlass-wrapper.menu-open .burger-toggle span:last-child {
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   .hero h1 {
@@ -1862,5 +1935,9 @@ nav a:focus-visible::after {
 
   .about {
     flex-direction: column;
+  }
+
+  .page-shell {
+    padding-top: calc(90px + env(safe-area-inset-top, 0px));
   }
 }
