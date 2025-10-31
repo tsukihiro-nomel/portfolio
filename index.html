@@ -877,7 +877,7 @@
       const navLinks = Array.from(nav.querySelectorAll('a'));
       const mobileQuery = window.matchMedia('(max-width: 768px)');
 
-      const isMobile = () => mobileQuery.matches;
+      const isOverlayMode = () => mobileQuery.matches || header.classList.contains('compact');
 
       const setAriaState = (expanded) => {
         toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
@@ -887,7 +887,7 @@
           srToggleText.textContent = label;
         }
 
-        if (expanded || !isMobile()) {
+        if (expanded || !isOverlayMode()) {
           nav.removeAttribute('aria-hidden');
         } else {
           nav.setAttribute('aria-hidden', 'true');
@@ -916,7 +916,7 @@
 
       const handleToggleClick = (event) => {
         event.preventDefault();
-        if (!isMobile()) {
+        if (!isOverlayMode()) {
           return;
         }
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
@@ -928,47 +928,87 @@
       };
 
       const handleLinkClick = () => {
-        if (isMobile()) {
+        if (isOverlayMode()) {
+          closeMenu();
+        }
+      };
+
+      const handleDocumentPointerDown = (event) => {
+        if (!header.contains(event.target) && isOverlayMode() && header.classList.contains('menu-open')) {
           closeMenu();
         }
       };
 
       const handleKeydown = (event) => {
-        if (event.key === 'Escape' && isMobile() && toggle.getAttribute('aria-expanded') === 'true') {
+        if (event.key === 'Escape' && isOverlayMode() && toggle.getAttribute('aria-expanded') === 'true') {
           event.preventDefault();
           closeMenu({ focusToggle: true });
         }
       };
 
       const syncForViewport = () => {
-        if (isMobile()) {
+        if (!mobileQuery.matches) {
+          header.classList.remove('sticky');
+        }
+
+        if (mobileQuery.matches) {
+          if (header.classList.contains('compact')) {
+            header.classList.remove('compact');
+          }
+
           closeMenu();
-        } else {
+          return;
+        }
+
+        if (!isOverlayMode()) {
           header.classList.remove('menu-open');
           body.classList.remove('nav-open');
+          setAriaState(false);
+          nav.scrollTop = 0;
+        } else if (!header.classList.contains('menu-open')) {
           setAriaState(false);
           nav.scrollTop = 0;
         }
       };
 
       const handleScroll = () => {
-        if (!isMobile()) {
-          header.classList.remove('sticky');
+        const isMobileViewport = mobileQuery.matches;
+
+        if (isMobileViewport) {
+          const shouldStick = window.scrollY > 30;
+          header.classList.toggle('sticky', shouldStick);
+
+          if (header.classList.contains('compact')) {
+            header.classList.remove('compact');
+            closeMenu();
+          }
+
           return;
         }
 
-        const shouldStick = window.scrollY > 30;
-        header.classList.toggle('sticky', shouldStick);
+        header.classList.remove('sticky');
+
+        const shouldCompact = window.scrollY > 120;
+        const isCompact = header.classList.contains('compact');
+
+        if (shouldCompact && !isCompact) {
+          header.classList.add('compact');
+          closeMenu();
+        } else if (!shouldCompact && isCompact) {
+          header.classList.remove('compact');
+          closeMenu();
+        }
       };
 
       toggle.addEventListener('click', handleToggleClick);
       navLinks.forEach((link) => link.addEventListener('click', handleLinkClick));
       document.addEventListener('keydown', handleKeydown);
+      document.addEventListener('pointerdown', handleDocumentPointerDown);
       window.addEventListener('resize', syncForViewport);
       window.addEventListener('orientationchange', syncForViewport);
       window.addEventListener('scroll', handleScroll, { passive: true });
       window.addEventListener('hashchange', () => {
-        if (isMobile()) {
+        if (isOverlayMode()) {
           closeMenu();
         }
       });
