@@ -946,6 +946,12 @@ body.nav-open {
   opacity: 0.8;
 }
 
+.showreel-hint {
+  margin: 0.5rem auto 0;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
 .showreel-links {
   margin-top: 1rem;
   text-align: center;
