@@ -75,7 +75,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
   >
-  <link rel="stylesheet" href="style.css?v=2024-05-15">
+  <link rel="stylesheet" href="style.css?v=2025-01-22">
   <style>
     :root {
       --plyr-color-main: #c2873b;
@@ -282,9 +282,11 @@
       <div class="liquidGlass-text">
         <a class="logo" href="#top" aria-label="Revenir à l'accueil">Nomel ESMEL</a>
         <nav id="site-navigation" aria-label="Navigation principale">
+          <a href="#demoreel">Demo Reel</a>
           <a href="#projects">Projets</a>
+          <a href="#residential">Résidentiel</a>
           <a href="#about">À propos</a>
-          <a href="#contact">Contact</a>
+          <a class="nav-contact" href="#contact">Contact</a>
         </nav>
         <a
           class="language-toggle"
@@ -383,7 +385,7 @@
     <section class="hero">
       <p class="subtitle">Portfolio 3D</p>
       <h1>Nomel ESMEL</h1>
-      <p class="tagline">Généraliste 3D — Étudiant M2 IIM</p>
+      <p class="tagline">Generalist 3D – Environnements &amp; Props • Étudiant M2 IIM, dispo stage 4–6 mois à partir de février 2026</p>
       <div class="stack-tags" aria-label="Logiciels maîtrisés">
         <span>
           <img src="media/tools/blender.png" alt="Logo Blender" loading="lazy" decoding="async">
@@ -411,8 +413,8 @@
         </span>
       </div>
       <div class="buttons">
-        <a href="#demoreel" class="primary shimmer pulse">Voir la Demo Reel</a>
-        <a href="#projects" class="secondary shimmer pulse">Voir les projets</a>
+        <a href="#demoreel" class="primary shimmer pulse">▶ Voir la Demo Reel</a>
+        <a href="media/CV%20novembre%202025%20Default.pdf" class="secondary shimmer pulse" download>↓ Télécharger le CV</a>
       </div>
     </section>
   <section id="demoreel" class="showreel">
@@ -440,49 +442,34 @@
     </div>
   </section>
 
-  <section id="projects" class="categories">
-    <h2>Projets</h2>
-    <p class="categories-intro">Sélection de travaux en All Aspects, Textures et Animation.</p>
-    <div class="category-grid">
-      <div class="category-card">
-        <div class="image-placeholder">
-          <video src="media/trainMarche.mp4" muted loop autoplay playsinline webkit-playsinline style="width:100%;height:100%;object-fit:cover;"></video>
-        </div>
-        <h3>All Aspects</h3>
-        <p>4 projets</p>
-        <a href="#all-aspects" class="shimmer pulse">Voir les projets</a>
+  <section id="projects" class="project-groups">
+    <div class="section-heading">
+      <p class="eyebrow">Sélection de travaux</p>
+      <div class="section-heading-text">
+        <h2>Projets</h2>
+        <p class="categories-intro">Classement rapide par typologie pour identifier mes forces sur les environnements, props et animations.</p>
       </div>
-      <div class="category-card">
-        <div class="image-placeholder">
-          <video src="media/chevalier.mp4" muted loop autoplay playsinline webkit-playsinline style="width:100%;height:100%;object-fit:cover;"></video>
-        </div>
-        <h3>Textures 3D</h3>
-        <p>3 projets</p>
-        <a href="#textures" class="shimmer pulse">Voir les projets</a>
-      </div>
-      <div class="category-card">
-        <div class="image-placeholder">
-          <video src="media/fly.mp4" muted loop autoplay playsinline webkit-playsinline style="width:100%;height:100%;object-fit:cover;"></video>
-        </div>
-        <h3>Animations 3D</h3>
-        <p>3 projets</p>
-        <a href="#animation" class="shimmer pulse">Voir les projets</a>
+      <div class="project-actions">
+        <a class="ghost-btn" href="sketchfab.html">Visionneuse 3D (Sketchfab)</a>
+        <a class="ghost-btn" href="#residential">Projet résidentiel</a>
       </div>
     </div>
-    <div class="project-details">
-      <div id="all-aspects" class="project-category">
-        <h3>All Aspects</h3>
-        <div class="project-media">
+
+    <div class="project-group">
+      <div class="group-heading">
+        <h3>Environnements</h3>
+        <p>Scènes complètes, modeling à rendu final.</p>
+      </div>
+      <div class="project-media-grid">
+        <figure class="project-tile">
           <div class="video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/trainMarche.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/fusil.mp4" type="video/mp4">
-            </video>
-          </div>
+          <figcaption>Wagon / train — all aspects</figcaption>
+        </figure>
+        <figure class="project-tile">
           <div class="video-player" data-video-player>
             <video
               preload="metadata"
@@ -494,57 +481,112 @@
               <source src="media/hopital_1.mp4" type="video/mp4">
             </video>
           </div>
+          <figcaption>Hopital — all aspects</figcaption>
+        </figure>
+        <figure class="project-tile">
           <div class="video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/COSMETIQUE.mp4" type="video/mp4">
             </video>
           </div>
+          <figcaption>Cosmétique — all aspects</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <div class="group-heading">
+        <h3>Props</h3>
+        <p>Accessoires détaillés, prêts à intégrer un décor ou une cinématique.</p>
+      </div>
+      <div class="project-subgroup">
+        <h4>All aspects</h4>
+        <div class="project-media-grid">
+          <figure class="project-tile">
+            <div class="video-player" data-video-player>
+              <video preload="metadata" playsinline webkit-playsinline controls>
+                <source src="media/fusil.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Fusil — modelage, textures et rendu</figcaption>
+          </figure>
+          <figure class="project-tile">
+            <div class="video-player" data-video-player>
+              <video preload="metadata" playsinline webkit-playsinline controls>
+                <source src="media/base_tryccicle.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Tricycle — all aspects</figcaption>
+          </figure>
         </div>
       </div>
-      <div id="textures" class="project-category">
-        <h3>Textures 3D</h3>
-        <div class="project-media">
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/chevalier.mp4" type="video/mp4">
-            </video>
-          </div>
+      <div class="project-subgroup">
+        <h4>Uniquement texture</h4>
+        <div class="project-media-grid">
+          <figure class="project-tile">
+            <div class="video-player" data-video-player>
+              <video preload="metadata" playsinline webkit-playsinline controls>
+                <source src="media/chevalier.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Chevalier — texturing &amp; lookdev</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <div class="group-heading">
+        <h3>Personnages &amp; portraits</h3>
+        <p>Traitement matière et rendu sur personnages stylisés.</p>
+      </div>
+      <div class="project-media-grid">
+        <figure class="project-tile">
           <div class="video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/bill.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/base_tryccicle.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
+          <figcaption>Bill — texturing uniquement</figcaption>
+        </figure>
       </div>
-      <div id="animation" class="project-category">
-        <h3>Animations 3D</h3>
-        <div class="project-media">
+    </div>
+
+    <div class="project-group">
+      <div class="group-heading">
+        <h3>Animations</h3>
+        <p>Jeux d'actings et créatures stylisées.</p>
+      </div>
+      <div class="project-media-grid">
+        <figure class="project-tile">
           <div class="video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/fly.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/acting.mp4" type="video/mp4">
-            </video>
-          </div>
+          <figcaption>Insecte fly</figcaption>
+        </figure>
+        <figure class="project-tile">
           <div class="video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
             </video>
           </div>
-        </div>
+          <figcaption>B2_ESMEL_Nomel_anime_maya</figcaption>
+        </figure>
+        <figure class="project-tile">
+          <div class="video-player" data-video-player>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/acting.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption>Acting</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="carousel-gallery" aria-labelledby="gallery-title">
+  <section id="residential" class="carousel-gallery" aria-labelledby="gallery-title">
     <h2 id="gallery-title">Galerie du projet résidentiel</h2>
     <p class="gallery-intro">Découvrez une sélection d'ambiances intérieures et extérieures pour un projet de résidence.</p>
     <div class="glide gallery-glide" data-gallery-glide aria-label="Galerie du projet résidentiel">
@@ -645,24 +687,29 @@
       </div>
     </div>
   </section>
-  <section id="about" class="about">
+  <section id="about" class="about recruiter-layout">
     <div class="about-text">
-  <h2>À propos</h2>
-      <p>Bonjour ! Je m'appelle <strong>Nomel ESMEL</strong>, généraliste 3D passionné — du genre à peaufiner un shader jusqu’à ce qu’il réagisse <em>exactement</em> comme je le veux. Originaire de Côte d’Ivoire, j’ai obtenu mon bac avant de rejoindre l’IIM Digital School, où j’ai découvert la 3D… et depuis, impossible de décrocher. Je poursuis aujourd’hui ma 5ᵉ année (Mastère 2 en Réalisation Animation 3D) avec la même envie : créer, apprendre et donner vie à des univers qui racontent quelque chose.</p>
+      <p class="eyebrow">Présentation rapide</p>
+      <h2>À propos</h2>
+      <p>Je m’appelle Nomel ESMEL, Generalist 3D en Mastère 2 à l’IIM Digital School (La Défense). Je me spécialise dans les environnements, props et l’animation stylisée, du modeling jusqu’au rendu final.</p>
 
-      <p>J’aime toucher à tout : <strong>modélisation, texturing, shading, animation</strong>… bref, le package complet du généraliste curieux. Je prends autant de plaisir à modéliser une tasse de café qu’un personnage complexe — l’important, c’est la cohérence et l’émotion qu’on y met. Ces expériences m’ont aussi appris à être rigoureux, réactif et à garder mon calme quand un rendu décide de planter à 2 h du matin.</p>
+      <p>Je recherche actuellement un stage de fin d’études de 4 à 6 mois à partir du 23 février 2026, en studio d’animation ou de 3D/CGI (cinéma, jeux, pub, archviz). Mon objectif : rejoindre une équipe où je peux contribuer sur la production tout en continuant à monter en niveau sur la mise en scène, le lighting et la narration visuelle.</p>
 
-      <p>En dehors des logiciels, je reste un créatif. Les <strong>mangas</strong> nourrissent mon sens du storytelling, la <strong>cuisine</strong> m’enseigne la patience et l’équilibre, et le <strong>piano</strong> développe mon sens du rythme. Ces passions alimentent ma créativité et m’aident à garder l’harmonie entre technique et émotion.</p>
-
-      <p>Aujourd’hui, je cherche à rejoindre une <strong>équipe dynamique</strong> où je pourrai contribuer à des projets concrets tout en affinant mon art. Si vous aimez les profils passionnés, impliqués et un brin obstinés (dans le bon sens du terme), je serais ravi d’échanger avec vous !</p>
+      <p>J’aime les pipelines propres, le travail en équipe et la recherche de solutions techniques. En dehors des études, je développe un projet personnel d’univers narratif (“Imaginarium”) et j’explore les workflows Blender / Unreal / Substance pour optimiser la prod.</p>
     </div>
     <div class="about-side">
       <div class="about-image">
         <img src="media/6A3A4101.png" alt="Nomel ESMEL">
       </div>
-      <div class="about-cv">
-        <h3>Mon CV</h3>
-        <p>Vous pouvez télécharger mon CV ou me contacter pour plus d'informations.</p>
+      <div class="about-summary">
+        <h3>Mini fiche</h3>
+        <ul>
+          <li><span class="label">🎯</span> Spécialités : Textures, environnements, props</li>
+          <li><span class="label">🛠</span> Logiciels : Blender, Substance 3D Painter, Unreal Engine, Photoshop…</li>
+          <li><span class="label">🌍</span> Basé à : Paris / Île-de-France</li>
+          <li><span class="label">📅</span> Dispo : stage mars–juil 2026</li>
+          <li><span class="label">🌐</span> Langues : français, anglais</li>
+        </ul>
         <div class="cv-buttons">
           <a href="media/CV%20novembre%202025%20Default.pdf" class="btn-download" download>Télécharger le CV</a>
           <a href="#contact" class="btn-contact">Me contacter</a>
@@ -670,18 +717,24 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="contact">
-    <h3>Contact</h3>
-    <p><a href="mailto:Nomel.ESMEL.3d@gmail.com">Nomel.ESMEL.3d@gmail.com</a></p>
-    <p>+33 6 34 21 89 39</p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/nomel-esmel/" target="_blank">LinkedIn</a>
-      <a href="https://www.artstation.com/paulesmel7" target="_blank">ArtStation</a>
+  <section id="contact" class="contact contact-panel">
+    <div class="contact-text">
+      <p class="eyebrow">Contact</p>
+      <h2>Contact</h2>
+      <p>Un projet, une opportunité de stage ou une question ?</p>
+      <p>N’hésite pas à m’écrire, je réponds rapidement.</p>
+      <div class="contact-actions">
+        <a class="primary shimmer" href="mailto:Nomel.ESMEL.3d@gmail.com">Me contacter par mail</a>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/nomel-esmel/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.artstation.com/paulesmel7" target="_blank" rel="noopener">ArtStation</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p>&copy; 2025 Nomel ESMEL</p>
+    <p>Mentions légales · Crédits</p>
   </footer>
   </div>
 
