@@ -895,6 +895,51 @@
               cta: 'Open video'
             };
 
+      const videoHydrator = (() => {
+        const hydrate = (video) => {
+          if (video.dataset.hydrated === 'true') {
+            return;
+          }
+
+          if (video.readyState === 0) {
+            try {
+              video.load();
+            } catch (error) {
+              // graceful degradation: let browser load naturally
+            }
+          }
+
+          video.dataset.hydrated = 'true';
+        };
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach(({ isIntersecting, target }) => {
+                if (isIntersecting) {
+                  hydrate(target);
+                  observer.unobserve(target);
+                }
+              });
+            },
+            {
+              rootMargin: '120px',
+              threshold: 0.25
+            }
+          );
+
+          return {
+            observe: (video) => observer.observe(video),
+            hydrate
+          };
+        }
+
+        return {
+          observe: hydrate,
+          hydrate
+        };
+      })();
+
       const attachFallback = (video) => {
         const container = video.closest('[data-video-player]');
         const source = video.querySelector('source');
@@ -916,6 +961,7 @@
         video.addEventListener('stalled', showFallback);
         video.addEventListener('loadeddata', hideFallback);
         video.addEventListener('canplay', hideFallback);
+        video.addEventListener('play', hideFallback);
 
         setTimeout(() => {
           if (video.readyState === 0) {
@@ -925,6 +971,7 @@
       };
 
       videos.forEach((video) => {
+        videoHydrator.observe(video);
         attachFallback(video);
         new Plyr(video, options);
       });
