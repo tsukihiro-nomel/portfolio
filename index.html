@@ -274,113 +274,51 @@
   </div>
 
   <div class="page-shell">
-    <header id="site-header" class="liquidGlass-wrapper">
-      <div class="liquidGlass-effect" aria-hidden="true"></div>
-      <div class="liquidGlass-tint" aria-hidden="true"></div>
-      <div class="liquidGlass-shine" aria-hidden="true"></div>
-
-      <div class="liquidGlass-text">
-        <a class="logo" href="#top" aria-label="Revenir à l'accueil">Nomel ESMEL</a>
-        <nav id="site-navigation" aria-label="Navigation principale">
-          <a href="#demoreel">Demo Reel</a>
-          <a href="#projects">Projets</a>
-          <a href="#residential">Résidentiel</a>
-          <a href="#about">À propos</a>
-          <a class="nav-contact" href="#contact">Contact</a>
-        </nav>
-        <a
-          class="language-toggle"
-          href="index-en.html"
-          hreflang="en"
-          lang="en"
-          aria-label="Basculer vers la version anglaise du site"
-        >EN</a>
-        <button
-          id="openmenu"
-          class="burger-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-navigation"
-          aria-haspopup="true"
-          aria-label="Ouvrir le menu"
-        >
-          <span class="sr-only">Ouvrir le menu</span>
-          <span aria-hidden="true" class="burger-line burger-line--top"></span>
-          <span aria-hidden="true" class="burger-line burger-line--bottom"></span>
-        </button>
+    <header id="site-header" class="nova-header">
+      <div class="glow-rail" aria-hidden="true"></div>
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-orb" aria-hidden="true"></span>
+          <div class="brand-meta">
+            <a class="logo" href="#top" aria-label="Revenir à l'accueil">Nomel ESMEL</a>
+            <p class="tagline">Portfolio 3D • All Aspects</p>
+          </div>
+        </div>
+        <div class="nav-shell">
+          <div class="nav-track">
+            <nav id="site-navigation" aria-label="Navigation principale">
+              <a href="#demoreel">Demo Reel</a>
+              <a href="#projects">Projets</a>
+              <a href="#residential">Résidentiel</a>
+              <a href="#about">À propos</a>
+              <a class="nav-contact" href="#contact">Contact</a>
+            </nav>
+          </div>
+        </div>
+        <div class="header-actions">
+          <span class="status-pill">Stage 2026</span>
+          <a
+            class="language-toggle"
+            href="index-en.html"
+            hreflang="en"
+            lang="en"
+            aria-label="Basculer vers la version anglaise du site"
+          >EN</a>
+          <button
+            id="openmenu"
+            class="burger-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+            aria-haspopup="true"
+            aria-label="Ouvrir le menu"
+          >
+            <span class="sr-only">Ouvrir le menu</span>
+            <span aria-hidden="true" class="burger-line burger-line--top"></span>
+            <span aria-hidden="true" class="burger-line burger-line--bottom"></span>
+          </button>
+        </div>
       </div>
-
-      <!-- Effet de verre inspiré du composant original -->
-      <svg aria-hidden="true" focusable="false" class="liquidGlass-filter">
-        <filter
-          id="glass-distortion"
-          x="0%"
-          y="0%"
-          width="100%"
-          height="100%"
-          filterUnits="objectBoundingBox"
-        >
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.01 0.01"
-            numOctaves="1"
-            seed="14"
-            result="turbulence"
-          />
-          <feComponentTransfer in="turbulence" result="mapped">
-            <feFuncR type="gamma" amplitude="1" exponent="8" offset="0.45" />
-            <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
-            <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.45" />
-          </feComponentTransfer>
-          <feGaussianBlur in="mapped" stdDeviation="3" result="softMap" />
-          <feSpecularLighting
-            in="softMap"
-            surfaceScale="4"
-            specularConstant="1"
-            specularExponent="90"
-            lighting-color="white"
-            result="specLight"
-          >
-            <animate
-              attributeName="baseFrequency"
-              dur="18s"
-              values="0.012 0.018;0.015 0.022;0.009 0.015;0.012 0.018"
-              repeatCount="indefinite"
-            />
-          </feTurbulence>
-          <feComponentTransfer in="turbulence" result="mapped">
-            <feFuncR type="gamma" amplitude="1" exponent="8" offset="0.45" />
-            <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
-            <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.45" />
-          </feComponentTransfer>
-          <feGaussianBlur in="mapped" stdDeviation="3" result="softMap" />
-          <feSpecularLighting
-            in="softMap"
-            surfaceScale="4"
-            specularConstant="1"
-            specularExponent="90"
-            lighting-color="white"
-            result="specLight"
-          >
-            <fePointLight x="-180" y="-220" z="260" />
-          </feSpecularLighting>
-          <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="lit" />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="softMap"
-            scale="150"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          >
-            <animate
-              attributeName="scale"
-              dur="16s"
-              values="140;168;130;150"
-              repeatCount="indefinite"
-            />
-          </feDisplacementMap>
-        </filter>
-      </svg>
     </header>
     <section class="hero">
       <p class="subtitle">Portfolio 3D</p>
@@ -424,6 +362,7 @@
       <div class="video-player" data-video-player>
         <video
           playsinline
+          webkit-playsinline
           controls
           preload="metadata"
         >
@@ -944,7 +883,98 @@
       };
 
       const videos = document.querySelectorAll('[data-video-player] video');
+      const isFrench = document.documentElement.lang === 'fr';
+
+      const getFallbackCopy = () =>
+        isFrench
+          ? {
+              text: 'La vidéo tarde à charger ? Ouvrez-la directement.',
+              cta: 'Ouvrir la vidéo'
+            }
+          : {
+              text: 'Video not loading? Open it directly.',
+              cta: 'Open video'
+            };
+
+      const videoHydrator = (() => {
+        const hydrate = (video) => {
+          if (video.dataset.hydrated === 'true') {
+            return;
+          }
+
+          if (video.readyState === 0) {
+            try {
+              video.load();
+            } catch (error) {
+              // graceful degradation: let browser load naturally
+            }
+          }
+
+          video.dataset.hydrated = 'true';
+        };
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach(({ isIntersecting, target }) => {
+                if (isIntersecting) {
+                  hydrate(target);
+                  observer.unobserve(target);
+                }
+              });
+            },
+            {
+              rootMargin: '120px',
+              threshold: 0.25
+            }
+          );
+
+          return {
+            observe: (video) => observer.observe(video),
+            hydrate
+          };
+        }
+
+        return {
+          observe: hydrate,
+          hydrate
+        };
+      })();
+
+      const attachFallback = (video) => {
+        const container = video.closest('[data-video-player]');
+        const source = video.querySelector('source');
+        const href = source?.src || video.currentSrc || video.getAttribute('src');
+        if (!container || !href) return;
+
+        if (container.querySelector('.video-fallback')) return;
+
+        const copy = getFallbackCopy();
+        const fallback = document.createElement('div');
+        fallback.className = 'video-fallback';
+        fallback.innerHTML = `<p>${copy.text}</p><a href="${href}" target="_blank" rel="noopener">${copy.cta}</a>`;
+        container.appendChild(fallback);
+
+        const showFallback = () => fallback.classList.add('visible');
+        const hideFallback = () => fallback.classList.remove('visible');
+
+        video.addEventListener('error', showFallback);
+        video.addEventListener('stalled', showFallback);
+        video.addEventListener('loadeddata', hideFallback);
+        video.addEventListener('canplay', hideFallback);
+        video.addEventListener('play', hideFallback);
+
+        setTimeout(() => {
+          if (video.readyState === 0) {
+            videoHydrator.hydrate(video);
+            showFallback();
+          }
+        }, 3800);
+      };
+
       videos.forEach((video) => {
+        videoHydrator.observe(video);
+        attachFallback(video);
         new Plyr(video, options);
       });
     })();
@@ -994,12 +1024,15 @@
       const srToggleText = toggle.querySelector('.sr-only');
       const navLinks = Array.from(nav.querySelectorAll('a'));
       const mobileQuery = window.matchMedia('(max-width: 768px)');
+      const labels = document.documentElement.lang === 'fr'
+        ? { open: 'Ouvrir le menu', close: 'Fermer le menu' }
+        : { open: 'Open menu', close: 'Close menu' };
 
       const isOverlayMode = () => mobileQuery.matches || header.classList.contains('compact');
 
       const setAriaState = (expanded) => {
         toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        const label = expanded ? 'Fermer le menu' : 'Ouvrir le menu';
+        const label = expanded ? labels.close : labels.open;
         toggle.setAttribute('aria-label', label);
         if (srToggleText) {
           srToggleText.textContent = label;
