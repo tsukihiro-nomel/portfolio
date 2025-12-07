@@ -1066,9 +1066,9 @@ body.nav-open {
 
 .project-media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: 1fr;
   gap: clamp(32px, 5vw, 56px);
-  max-width: 1780px;
+  max-width: min(96vw, 1380px);
   margin: 0 auto;
 }
 
@@ -1262,7 +1262,7 @@ body.nav-open {
 
 @media (max-width: 640px) {
   .project-media-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr;
     gap: 18px;
   }
 
