@@ -401,33 +401,29 @@
       </div>
       <div class="project-media-grid">
         <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/trainMarche.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+            <source src="media/trainMarche.mp4" type="video/mp4">
+          </video>
           <figcaption>Wagon / train — all aspects</figcaption>
         </figure>
         <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video
-              preload="metadata"
-              playsinline
-              webkit-playsinline
-              controls
-              poster="media/SDS__Masque_Hopital__w005_1_0001.png"
-            >
-              <source src="media/hopital_1.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video
+            class="video-player"
+            data-video-player
+            preload="metadata"
+            playsinline
+            webkit-playsinline
+            controls
+            poster="media/SDS__Masque_Hopital__w005_1_0001.png"
+          >
+            <source src="media/hopital_1.mp4" type="video/mp4">
+          </video>
           <figcaption>Hopital — all aspects</figcaption>
         </figure>
         <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/COSMETIQUE.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+            <source src="media/COSMETIQUE.mp4" type="video/mp4">
+          </video>
           <figcaption>Cosmétique — all aspects</figcaption>
         </figure>
       </div>
@@ -442,19 +438,15 @@
         <h4>All aspects</h4>
         <div class="project-media-grid">
           <figure class="project-tile">
-            <div class="video-player" data-video-player>
-              <video preload="metadata" playsinline webkit-playsinline controls>
-                <source src="media/fusil.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/fusil.mp4" type="video/mp4">
+            </video>
             <figcaption>Fusil — modelage, textures et rendu</figcaption>
           </figure>
           <figure class="project-tile">
-            <div class="video-player" data-video-player>
-              <video preload="metadata" playsinline webkit-playsinline controls>
-                <source src="media/base_tryccicle.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/base_tryccicle.mp4" type="video/mp4">
+            </video>
             <figcaption>Tricycle — all aspects</figcaption>
           </figure>
         </div>
@@ -463,11 +455,9 @@
         <h4>Uniquement texture</h4>
         <div class="project-media-grid">
           <figure class="project-tile">
-            <div class="video-player" data-video-player>
-              <video preload="metadata" playsinline webkit-playsinline controls>
-                <source src="media/chevalier.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/chevalier.mp4" type="video/mp4">
+            </video>
             <figcaption>Chevalier — texturing &amp; lookdev</figcaption>
           </figure>
         </div>
@@ -481,11 +471,9 @@
       </div>
       <div class="project-media-grid">
         <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/bill.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+            <source src="media/bill.mp4" type="video/mp4">
+          </video>
           <figcaption>Bill — texturing uniquement</figcaption>
         </figure>
       </div>
@@ -498,27 +486,21 @@
       </div>
       <div class="project-media-grid">
         <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/fly.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+            <source src="media/fly.mp4" type="video/mp4">
+          </video>
           <figcaption>Insecte fly</figcaption>
         </figure>
         <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+            <source src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
+          </video>
           <figcaption>B2_ESMEL_Nomel_anime_maya</figcaption>
         </figure>
         <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/acting.mp4" type="video/mp4">
-            </video>
-          </div>
+          <video class="video-player" data-video-player preload="metadata" playsinline webkit-playsinline controls>
+            <source src="media/acting.mp4" type="video/mp4">
+          </video>
           <figcaption>Acting</figcaption>
         </figure>
       </div>
@@ -882,7 +864,12 @@
         settings: ['quality', 'speed']
       };
 
-      const videos = document.querySelectorAll('[data-video-player] video');
+      const playerNodes = Array.from(document.querySelectorAll('[data-video-player]'))
+        .map((node) => ({
+          container: node,
+          video: node.tagName === 'VIDEO' ? node : node.querySelector('video')
+        }))
+        .filter(({ video }) => Boolean(video));
       const isFrench = document.documentElement.lang === 'fr';
 
       const getFallbackCopy = () =>
@@ -941,8 +928,7 @@
         };
       })();
 
-      const attachFallback = (video) => {
-        const container = video.closest('[data-video-player]');
+      const attachFallback = (video, container) => {
         const source = video.querySelector('source');
         const href = source?.src || video.currentSrc || video.getAttribute('src');
         if (!container || !href) return;
@@ -972,9 +958,10 @@
         }, 3800);
       };
 
-      videos.forEach((video) => {
+      playerNodes.forEach(({ video, container }) => {
+        videoHydrator.hydrate(video);
         videoHydrator.observe(video);
-        attachFallback(video);
+        attachFallback(video, container);
         new Plyr(video, options);
       });
     })();
