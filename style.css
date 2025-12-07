@@ -2449,3 +2449,117 @@ body.nav-open {
     padding-top: calc(90px + env(safe-area-inset-top, 0px));
   }
 }
+
+/* Correctifs de présentation pour la Demo Reel et la section À propos */
+.showreel {
+  padding: clamp(60px, 10vw, 96px) 20px clamp(42px, 7vw, 80px);
+  border-top: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(10, 14, 30, 0.7) 0%, rgba(5, 6, 18, 0.45) 100%);
+}
+
+.showreel-inner {
+  max-width: min(1560px, 98.5vw);
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  gap: clamp(24px, 5vw, 40px);
+}
+
+.showreel .video-player {
+  width: min(100%, 1760px);
+  margin-inline: auto;
+}
+
+.showreel h2 {
+  font-size: clamp(2.1rem, 1.4rem + 2.2vw, 3rem);
+  margin: 0;
+}
+
+.showreel-intro {
+  margin: 0 auto;
+  max-width: clamp(420px, 60vw, 680px);
+  font-size: clamp(0.95rem, 0.85rem + 0.28vw, 1.1rem);
+  opacity: 0.8;
+}
+
+.showreel-hint {
+  margin: 0.5rem auto 0;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.showreel-links {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.showreel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, rgba(255, 77, 0, 0.18), rgba(255, 140, 0, 0.1));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.showreel-link::after {
+  content: '\2197';
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.showreel-link:hover,
+.showreel-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 12px 24px rgba(255, 77, 0, 0.3);
+}
+
+.about.recruiter-layout {
+  padding: clamp(60px, 9vw, 100px) 20px;
+  border-top: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: minmax(420px, 1.1fr) minmax(320px, 0.9fr);
+  gap: clamp(22px, 5vw, 34px);
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.about.recruiter-layout .about-text {
+  min-width: 0;
+}
+
+.about.recruiter-layout .about-image {
+  min-width: 320px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.about.recruiter-layout .about-image img {
+  max-width: 540px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+@media (max-width: 900px) {
+  .about.recruiter-layout {
+    grid-template-columns: 1fr;
+    max-width: min(1040px, 96vw);
+  }
+
+  .about.recruiter-layout .about-image {
+    justify-content: flex-start;
+  }
+}
