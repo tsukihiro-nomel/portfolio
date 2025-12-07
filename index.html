@@ -954,9 +954,19 @@ que la Demo Reel.</p>
       };
 
       const videoHydrator = (() => {
+        const hydratedVideos = new WeakSet();
+
+        const notifyHydrated = (video) => {
+          try {
+            video.dispatchEvent(new Event('videohydrated'));
+          } catch (error) {
+            /* noop */
+          }
+        };
+
         const hydrate = (video) => {
-          if (video.dataset.hydrated === 'true') {
-            return;
+          if (hydratedVideos.has(video)) {
+            return false;
           }
 
           ensurePreload(video);
@@ -969,7 +979,10 @@ que la Demo Reel.</p>
             }
           }
 
+          hydratedVideos.add(video);
           video.dataset.hydrated = 'true';
+          notifyHydrated(video);
+          return true;
         };
 
         if ('IntersectionObserver' in window) {
@@ -977,14 +990,16 @@ que la Demo Reel.</p>
             (entries) => {
               entries.forEach(({ isIntersecting, target }) => {
                 if (isIntersecting) {
-                  hydrate(target);
-                  observer.unobserve(target);
+                  const didHydrate = hydrate(target);
+                  if (didHydrate) {
+                    observer.unobserve(target);
+                  }
                 }
               });
             },
             {
-              rootMargin: '120px',
-              threshold: 0.25
+              rootMargin: '200px',
+              threshold: 0.1
             }
           );
 
@@ -1025,28 +1040,44 @@ que la Demo Reel.</p>
         };
 
         const retryLoad = () => {
+          if (video.dataset.hydrated !== 'true') {
+            return;
+          }
+
           gentleReload(video);
           showFallback();
         };
 
+        const startFallbackTimer = () => {
+          if (retryTimer || video.dataset.hydrated !== 'true') {
+            return;
+          }
+
+          retryTimer = setTimeout(() => {
+            if (video.readyState <= 2) {
+              retryLoad();
+            }
+          }, 3200);
+        };
+
+        const handleHydration = () => {
+          startFallbackTimer();
+          video.removeEventListener('videohydrated', handleHydration);
+        };
+
         video.addEventListener('error', showFallback);
         video.addEventListener('stalled', retryLoad);
-        video.addEventListener('suspend', retryLoad);
-        video.addEventListener('waiting', retryLoad);
         video.addEventListener('loadeddata', hideFallback);
         video.addEventListener('canplay', hideFallback);
         video.addEventListener('play', hideFallback);
+        video.addEventListener('videohydrated', handleHydration);
 
-        retryTimer = setTimeout(() => {
-          if (video.readyState <= 2) {
-            videoHydrator.hydrate(video);
-            retryLoad();
-          }
-        }, 3200);
+        if (video.dataset.hydrated === 'true') {
+          startFallbackTimer();
+        }
       };
 
       playerNodes.forEach(({ video, container }) => {
-        videoHydrator.hydrate(video);
         videoHydrator.observe(video);
         attachFallback(video, container);
         new Plyr(video, options);
