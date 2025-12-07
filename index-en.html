@@ -913,6 +913,13 @@
         settings: ['quality', 'speed']
       };
 
+      const ensurePreload = (video) => {
+        if (video.getAttribute('preload') !== 'auto') {
+          video.setAttribute('preload', 'auto');
+          video.preload = 'auto';
+        }
+      };
+
       const playerNodes = Array.from(document.querySelectorAll('[data-video-player]'))
         .map((node) => ({
           container: node,
@@ -950,6 +957,8 @@
           if (video.dataset.hydrated === 'true') {
             return;
           }
+
+          ensurePreload(video);
 
           if (video.readyState === 0) {
             try {
@@ -1022,6 +1031,7 @@
         video.addEventListener('error', showFallback);
         video.addEventListener('stalled', retryLoad);
         video.addEventListener('suspend', retryLoad);
+        video.addEventListener('waiting', retryLoad);
         video.addEventListener('loadeddata', hideFallback);
         video.addEventListener('canplay', hideFallback);
         video.addEventListener('play', hideFallback);

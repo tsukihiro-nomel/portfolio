@@ -974,7 +974,7 @@ body.nav-open {
 .project-showcase {
   padding: clamp(72px, 9vw, 120px) clamp(18px, 5vw, 48px);
   border-top: 1px solid var(--border-color);
-  max-width: min(1760px, 98vw);
+  max-width: min(1880px, 98.5vw);
   margin: 0 auto;
   display: grid;
   gap: clamp(40px, 6vw, 64px);
@@ -1038,17 +1038,17 @@ body.nav-open {
 .project-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(640px, 1.55fr);
+  grid-template-columns: minmax(280px, 1fr) minmax(720px, 1.7fr);
   align-items: center;
   gap: clamp(18px, 3vw, 32px);
-  padding: clamp(18px, 3vw, 28px);
+  padding: clamp(20px, 3.2vw, 32px);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 22px;
   background:
-    linear-gradient(135deg, rgba(30, 24, 20, 0.9), rgba(16, 13, 11, 0.82)),
-    radial-gradient(circle at 15% 20%, rgba(225, 194, 138, 0.14), transparent 40%);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 22px 52px rgba(6, 4, 3, 0.55);
+    linear-gradient(135deg, rgba(30, 24, 20, 0.94), rgba(16, 13, 11, 0.85)),
+    radial-gradient(circle at 15% 20%, rgba(225, 194, 138, 0.14), transparent 42%);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 26px 58px rgba(6, 4, 3, 0.6);
 }
 
 .project-card::after {
@@ -1073,9 +1073,10 @@ body.nav-open {
   position: absolute;
   inset: -12px -14px -12px auto;
   width: 6px;
-  background: linear-gradient(180deg, rgba(225, 194, 138, 0.42), rgba(193, 135, 59, 0.1));
+  background: linear-gradient(180deg, rgba(225, 194, 138, 0.5), rgba(193, 135, 59, 0.14));
   border-radius: 999px;
-  opacity: 0.8;
+  opacity: 0.9;
+  box-shadow: 0 0 24px rgba(225, 194, 138, 0.16);
 }
 
 .project-card:hover .project-meta::before,
@@ -1092,14 +1093,14 @@ body.nav-open {
   margin: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 0.28rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  gap: 4px;
+  padding: 0.22rem 0.52rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(225, 194, 138, 0.08);
-  border: 1px solid rgba(225, 194, 138, 0.4);
+  background: rgba(225, 194, 138, 0.07);
+  border: 1px solid rgba(225, 194, 138, 0.32);
 }
 
 .project-copy {
@@ -1111,9 +1112,19 @@ body.nav-open {
 .project-visual {
   margin: 0;
   display: grid;
-  gap: 12px;
+  gap: 14px;
   position: relative;
   z-index: 1;
+}
+
+.project-visual::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 26px;
+  background: radial-gradient(circle at 20% 30%, rgba(225, 194, 138, 0.12), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .project-visual figcaption {
@@ -1124,13 +1135,13 @@ body.nav-open {
 
 .video-frame {
   width: 100%;
-  max-width: min(100%, 1540px);
+  max-width: min(100%, 1680px);
   aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  border: 1px solid rgba(225, 194, 138, 0.24);
-  background: radial-gradient(circle at 30% 20%, rgba(225, 194, 138, 0.18), transparent 65%),
-    linear-gradient(180deg, rgba(24, 18, 14, 0.95), rgba(24, 18, 14, 0.7));
-  box-shadow: 0 20px 50px rgba(6, 4, 3, 0.55);
+  border-radius: 22px;
+  border: 1px solid rgba(225, 194, 138, 0.26);
+  background: radial-gradient(circle at 30% 20%, rgba(225, 194, 138, 0.2), transparent 65%),
+    linear-gradient(180deg, rgba(24, 18, 14, 0.96), rgba(24, 18, 14, 0.72));
+  box-shadow: 0 24px 56px rgba(6, 4, 3, 0.6);
   overflow: hidden;
 }
 
@@ -1174,8 +1185,8 @@ body.nav-open {
   }
 
   .project-tag {
-    font-size: 0.7rem;
-    padding: 0.24rem 0.58rem;
+    font-size: 0.66rem;
+    padding: 0.2rem 0.48rem;
   }
 }
 
@@ -1197,7 +1208,7 @@ body.nav-open {
 }
 
 .showreel-inner {
-  max-width: min(1440px, 98vw);
+  max-width: min(1560px, 98.5vw);
   margin: 0 auto;
   text-align: center;
   display: grid;
@@ -1205,7 +1216,7 @@ body.nav-open {
 }
 
 .showreel .video-player {
-  width: min(100%, 1560px);
+  width: min(100%, 1760px);
   margin-inline: auto;
 }
 
@@ -1886,7 +1897,7 @@ body.nav-open {
 .video-player {
   position: relative;
   width: 100%;
-  max-width: min(100%, 1580px);
+  max-width: min(100%, 1720px);
   aspect-ratio: 16 / 9;
   border-radius: 20px;
   overflow: hidden;
