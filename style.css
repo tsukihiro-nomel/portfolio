@@ -974,7 +974,7 @@ body.nav-open {
 .project-showcase {
   padding: clamp(72px, 9vw, 120px) clamp(18px, 5vw, 48px);
   border-top: 1px solid var(--border-color);
-  max-width: min(1680px, 98vw);
+  max-width: min(1760px, 98vw);
   margin: 0 auto;
   display: grid;
   gap: clamp(40px, 6vw, 64px);
@@ -1038,14 +1038,15 @@ body.nav-open {
 .project-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(260px, 0.95fr) minmax(540px, 1.5fr);
+  grid-template-columns: minmax(280px, 1fr) minmax(640px, 1.55fr);
   align-items: center;
-  gap: clamp(18px, 3vw, 28px);
-  padding: clamp(18px, 3vw, 26px);
+  gap: clamp(18px, 3vw, 32px);
+  padding: clamp(18px, 3vw, 28px);
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  background: radial-gradient(circle at 15% 20%, rgba(225, 194, 138, 0.14), transparent 38%),
-    rgba(21, 16, 12, 0.75);
+  background:
+    linear-gradient(135deg, rgba(30, 24, 20, 0.9), rgba(16, 13, 11, 0.82)),
+    radial-gradient(circle at 15% 20%, rgba(225, 194, 138, 0.14), transparent 40%);
   backdrop-filter: blur(10px);
   box-shadow: 0 22px 52px rgba(6, 4, 3, 0.55);
 }
@@ -1061,10 +1062,25 @@ body.nav-open {
 
 .project-meta {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   align-self: stretch;
   position: relative;
   z-index: 1;
+}
+
+.project-meta::before {
+  content: '';
+  position: absolute;
+  inset: -12px -14px -12px auto;
+  width: 6px;
+  background: linear-gradient(180deg, rgba(225, 194, 138, 0.42), rgba(193, 135, 59, 0.1));
+  border-radius: 999px;
+  opacity: 0.8;
+}
+
+.project-card:hover .project-meta::before,
+.project-card:focus-within .project-meta::before {
+  box-shadow: 0 0 16px rgba(225, 194, 138, 0.35);
 }
 
 .project-meta h3 {
@@ -1076,13 +1092,13 @@ body.nav-open {
   margin: 0;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0.35rem 0.7rem;
+  gap: 6px;
+  padding: 0.28rem 0.65rem;
   border-radius: 999px;
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: rgba(225, 194, 138, 0.12);
+  background: rgba(225, 194, 138, 0.08);
   border: 1px solid rgba(225, 194, 138, 0.4);
 }
 
@@ -1095,7 +1111,7 @@ body.nav-open {
 .project-visual {
   margin: 0;
   display: grid;
-  gap: 10px;
+  gap: 12px;
   position: relative;
   z-index: 1;
 }
@@ -1108,9 +1124,9 @@ body.nav-open {
 
 .video-frame {
   width: 100%;
-  max-width: min(100%, 1480px);
+  max-width: min(100%, 1540px);
   aspect-ratio: 16 / 9;
-  border-radius: 18px;
+  border-radius: 20px;
   border: 1px solid rgba(225, 194, 138, 0.24);
   background: radial-gradient(circle at 30% 20%, rgba(225, 194, 138, 0.18), transparent 65%),
     linear-gradient(180deg, rgba(24, 18, 14, 0.95), rgba(24, 18, 14, 0.7));
@@ -1129,6 +1145,11 @@ body.nav-open {
 
   .project-meta {
     order: 2;
+  }
+
+  .project-meta::before {
+    inset: -8px auto -8px -10px;
+    height: auto;
   }
 }
 
@@ -1153,7 +1174,8 @@ body.nav-open {
   }
 
   .project-tag {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
+    padding: 0.24rem 0.58rem;
   }
 }
 
@@ -1183,7 +1205,7 @@ body.nav-open {
 }
 
 .showreel .video-player {
-  width: min(100%, 1440px);
+  width: min(100%, 1560px);
   margin-inline: auto;
 }
 
@@ -1864,9 +1886,9 @@ body.nav-open {
 .video-player {
   position: relative;
   width: 100%;
-  max-width: min(100%, 1500px);
+  max-width: min(100%, 1580px);
   aspect-ratio: 16 / 9;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(225, 194, 138, 0.24);
   background: radial-gradient(circle at 30% 20%, rgba(225, 194, 138, 0.18), transparent 65%),

@@ -933,6 +933,19 @@ que la Demo Reel.</p>
               cta: 'Open video'
             };
 
+      const gentleReload = (video) => {
+        try {
+          const { currentTime } = video;
+          video.pause();
+          video.load();
+          if (currentTime > 0) {
+            video.currentTime = currentTime;
+          }
+        } catch (error) {
+          /* noop */
+        }
+      };
+
       const videoHydrator = (() => {
         const hydrate = (video) => {
           if (video.dataset.hydrated === 'true') {
@@ -991,21 +1004,35 @@ que la Demo Reel.</p>
         fallback.innerHTML = `<p>${copy.text}</p><a href="${href}" target="_blank" rel="noopener">${copy.cta}</a>`;
         container.appendChild(fallback);
 
+        let retryTimer = null;
+
         const showFallback = () => fallback.classList.add('visible');
-        const hideFallback = () => fallback.classList.remove('visible');
+        const hideFallback = () => {
+          fallback.classList.remove('visible');
+          if (retryTimer) {
+            clearTimeout(retryTimer);
+            retryTimer = null;
+          }
+        };
+
+        const retryLoad = () => {
+          gentleReload(video);
+          showFallback();
+        };
 
         video.addEventListener('error', showFallback);
-        video.addEventListener('stalled', showFallback);
+        video.addEventListener('stalled', retryLoad);
+        video.addEventListener('suspend', retryLoad);
         video.addEventListener('loadeddata', hideFallback);
         video.addEventListener('canplay', hideFallback);
         video.addEventListener('play', hideFallback);
 
-        setTimeout(() => {
-          if (video.readyState === 0) {
+        retryTimer = setTimeout(() => {
+          if (video.readyState <= 2) {
             videoHydrator.hydrate(video);
-            showFallback();
+            retryLoad();
           }
-        }, 3800);
+        }, 3200);
       };
 
       playerNodes.forEach(({ video, container }) => {
