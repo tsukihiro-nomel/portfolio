@@ -381,12 +381,13 @@
     </div>
   </section>
 
-  <section id="projects" class="project-groups">
+  <section id="projects" class="project-showcase">
     <div class="section-heading">
       <p class="eyebrow">Sélection de travaux</p>
       <div class="section-heading-text">
         <h2>Projets</h2>
-        <p class="categories-intro">Classement rapide par typologie pour identifier mes forces sur les environnements, props et animations.</p>
+        <p class="categories-intro">Une galerie plus large où chaque vidéo occupe tout l'espace disponible, juste un peu plus petit
+que la Demo Reel.</p>
       </div>
       <div class="project-actions">
         <a class="ghost-btn" href="sketchfab.html">Visionneuse 3D (Sketchfab)</a>
@@ -394,137 +395,168 @@
       </div>
     </div>
 
-    <div class="project-group">
-      <div class="group-heading">
-        <h3>Environnements</h3>
-        <p>Scènes complètes, modeling à rendu final.</p>
-      </div>
-      <div class="project-media-grid">
-        <figure class="project-tile">
-          <div class="video-player" data-video-player>
+    <div class="project-collection">
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Environnements</p>
+          <h3>Wagon / train</h3>
+          <p class="project-copy">All aspects : modélisation, shading et rendu stylisé.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/trainMarche.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Wagon / train — all aspects</figcaption>
         </figure>
-        <figure class="project-tile">
-          <div class="video-player" data-video-player>
-            <video
-              preload="metadata"
-              playsinline
-              webkit-playsinline
-              controls
-              poster="media/SDS__Masque_Hopital__w005_1_0001.png"
-            >
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Environnements</p>
+          <h3>Hôpital</h3>
+          <p class="project-copy">All aspects intérieur : composition, textures et éclairage.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
+            <video preload="metadata" playsinline webkit-playsinline controls poster="media/SDS__Masque_Hopital__w005_1_0001.png">
               <source src="media/hopital_1.mp4" type="video/mp4">
             </video>
           </div>
-          <figcaption>Hopital — all aspects</figcaption>
+          <figcaption>Hôpital — all aspects</figcaption>
         </figure>
-        <figure class="project-tile">
-          <div class="video-player" data-video-player>
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Environnements</p>
+          <h3>Cosmétique</h3>
+          <p class="project-copy">All aspects de produit : studio clean et reflets contrôlés.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/COSMETIQUE.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Cosmétique — all aspects</figcaption>
         </figure>
-      </div>
-    </div>
+      </article>
 
-    <div class="project-group">
-      <div class="group-heading">
-        <h3>Props</h3>
-        <p>Accessoires détaillés, prêts à intégrer un décor ou une cinématique.</p>
-      </div>
-      <div class="project-subgroup">
-        <h4>All aspects</h4>
-        <div class="project-media-grid">
-          <figure class="project-tile">
-            <div class="video-player" data-video-player>
-              <video preload="metadata" playsinline webkit-playsinline controls>
-                <source src="media/fusil.mp4" type="video/mp4">
-              </video>
-            </div>
-            <figcaption>Fusil — modelage, textures et rendu</figcaption>
-          </figure>
-          <figure class="project-tile">
-            <div class="video-player" data-video-player>
-              <video preload="metadata" playsinline webkit-playsinline controls>
-                <source src="media/base_tryccicle.mp4" type="video/mp4">
-              </video>
-            </div>
-            <figcaption>Tricycle — all aspects</figcaption>
-          </figure>
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Props</p>
+          <h3>Fusil</h3>
+          <p class="project-copy">All aspects : modélisation hard-surface, shaders métalliques et rendu.</p>
         </div>
-      </div>
-      <div class="project-subgroup">
-        <h4>Uniquement texture</h4>
-        <div class="project-media-grid">
-          <figure class="project-tile">
-            <div class="video-player" data-video-player>
-              <video preload="metadata" playsinline webkit-playsinline controls>
-                <source src="media/chevalier.mp4" type="video/mp4">
-              </video>
-            </div>
-            <figcaption>Chevalier — texturing &amp; lookdev</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/fusil.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption>Fusil — modelage, textures et rendu</figcaption>
+        </figure>
+      </article>
 
-    <div class="project-group">
-      <div class="group-heading">
-        <h3>Personnages &amp; portraits</h3>
-        <p>Traitement matière et rendu sur personnages stylisés.</p>
-      </div>
-      <div class="project-media-grid">
-        <figure class="project-tile">
-          <div class="video-player" data-video-player>
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Props</p>
+          <h3>Tricycle</h3>
+          <p class="project-copy">All aspects : prop stylisé avec textures peintes et éclairage doux.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/base_tryccicle.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption>Tricycle — all aspects</figcaption>
+        </figure>
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Textures</p>
+          <h3>Chevalier</h3>
+          <p class="project-copy">Texturing &amp; lookdev complet sur une armure stylisée.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
+            <video preload="metadata" playsinline webkit-playsinline controls>
+              <source src="media/chevalier.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption>Chevalier — texturing &amp; lookdev</figcaption>
+        </figure>
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Personnages</p>
+          <h3>Bill</h3>
+          <p class="project-copy">Texturing et lighting sur personnage stylisé.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/bill.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Bill — texturing uniquement</figcaption>
         </figure>
-      </div>
-    </div>
+      </article>
 
-    <div class="project-group">
-      <div class="group-heading">
-        <h3>Animations</h3>
-        <p>Jeux d'actings et créatures stylisées.</p>
-      </div>
-      <div class="project-media-grid">
-        <figure class="project-tile">
-          <div class="video-player" data-video-player>
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Animations</p>
+          <h3>Insecte fly</h3>
+          <p class="project-copy">Animation de créature stylisée avec cycles aériens.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/fly.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Insecte fly</figcaption>
         </figure>
-        <figure class="project-tile">
-          <div class="video-player" data-video-player>
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Animations</p>
+          <h3>Acting Maya</h3>
+          <p class="project-copy">Rythme et acting stylisé réalisé sous Maya.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>B2_ESMEL_Nomel_anime_maya</figcaption>
         </figure>
-        <figure class="project-tile">
-          <div class="video-player" data-video-player>
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <p class="project-tag">Animations</p>
+          <h3>Acting</h3>
+          <p class="project-copy">Jeu d'acteur cartoon avec poses clés dynamiques.</p>
+        </div>
+        <figure class="project-visual">
+          <div class="video-frame video-player" data-video-player>
             <video preload="metadata" playsinline webkit-playsinline controls>
               <source src="media/acting.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Acting</figcaption>
         </figure>
-      </div>
+      </article>
     </div>
   </section>
-
   <section id="residential" class="carousel-gallery" aria-labelledby="gallery-title">
     <h2 id="gallery-title">Galerie du projet résidentiel</h2>
     <p class="gallery-intro">Découvrez une sélection d'ambiances intérieures et extérieures pour un projet de résidence.</p>
@@ -882,7 +914,12 @@
         settings: ['quality', 'speed']
       };
 
-      const videos = document.querySelectorAll('[data-video-player] video');
+      const playerNodes = Array.from(document.querySelectorAll('[data-video-player]'))
+        .map((node) => ({
+          container: node,
+          video: node.tagName === 'VIDEO' ? node : node.querySelector('video')
+        }))
+        .filter(({ video }) => Boolean(video));
       const isFrench = document.documentElement.lang === 'fr';
 
       const getFallbackCopy = () =>
@@ -941,8 +978,7 @@
         };
       })();
 
-      const attachFallback = (video) => {
-        const container = video.closest('[data-video-player]');
+      const attachFallback = (video, container) => {
         const source = video.querySelector('source');
         const href = source?.src || video.currentSrc || video.getAttribute('src');
         if (!container || !href) return;
@@ -972,9 +1008,10 @@
         }, 3800);
       };
 
-      videos.forEach((video) => {
+      playerNodes.forEach(({ video, container }) => {
+        videoHydrator.hydrate(video);
         videoHydrator.observe(video);
-        attachFallback(video);
+        attachFallback(video, container);
         new Plyr(video, options);
       });
     })();
