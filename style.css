@@ -1068,7 +1068,7 @@ body.nav-open {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(32px, 5vw, 56px);
-  max-width: min(96vw, 1380px);
+  max-width: min(98vw, 1450px);
   margin: 0 auto;
 }
 
@@ -1189,7 +1189,7 @@ body.nav-open {
 }
 
 .showreel .video-player {
-  width: min(100%, 1320px);
+  width: min(100%, 1440px);
   margin-inline: auto;
 }
 
@@ -1274,7 +1274,7 @@ body.nav-open {
 /* Contrainte de la taille de la vidéo : largeur maximale et ratio 16:9 */
 .video-placeholder {
   width: 100%;
-  max-width: clamp(1040px, 82vw, 1240px);
+  max-width: clamp(1200px, 88vw, 1380px);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   background-color: #222;
@@ -1870,7 +1870,7 @@ body.nav-open {
 .video-player {
   position: relative;
   width: 100%;
-  max-width: min(100%, 1260px);
+  max-width: min(100%, 1360px);
   aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
