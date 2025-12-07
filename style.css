@@ -1066,9 +1066,9 @@ body.nav-open {
 
 .project-media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: 1fr;
   gap: clamp(32px, 5vw, 56px);
-  max-width: 1780px;
+  max-width: min(98vw, 1450px);
   margin: 0 auto;
 }
 
@@ -1181,7 +1181,7 @@ body.nav-open {
 }
 
 .showreel-inner {
-  max-width: min(1260px, 96vw);
+  max-width: min(1440px, 98vw);
   margin: 0 auto;
   text-align: center;
   display: grid;
@@ -1189,7 +1189,7 @@ body.nav-open {
 }
 
 .showreel .video-player {
-  width: min(100%, 1320px);
+  width: min(100%, 1440px);
   margin-inline: auto;
 }
 
@@ -1262,7 +1262,7 @@ body.nav-open {
 
 @media (max-width: 640px) {
   .project-media-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr;
     gap: 18px;
   }
 
@@ -1274,7 +1274,7 @@ body.nav-open {
 /* Contrainte de la taille de la vidéo : largeur maximale et ratio 16:9 */
 .video-placeholder {
   width: 100%;
-  max-width: clamp(860px, 70vw, 1040px);
+  max-width: clamp(1200px, 88vw, 1380px);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   background-color: #222;
@@ -1870,6 +1870,7 @@ body.nav-open {
 .video-player {
   position: relative;
   width: 100%;
+  max-width: min(100%, 1360px);
   aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
