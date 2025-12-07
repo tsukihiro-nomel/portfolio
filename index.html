@@ -973,6 +973,7 @@
       };
 
       videos.forEach((video) => {
+        videoHydrator.hydrate(video);
         videoHydrator.observe(video);
         attachFallback(video);
         new Plyr(video, options);
