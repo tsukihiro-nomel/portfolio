@@ -1169,6 +1169,19 @@ body.nav-open {
     gap: 10px;
   }
 
+  .assist-button {
+    justify-self: start;
+  }
+
+  .assist-left {
+    width: 100%;
+  }
+
+@media (max-width: 640px) {
+  .section-heading {
+    gap: 10px;
+  }
+
   .project-actions {
     width: 100%;
     justify-content: flex-start;
