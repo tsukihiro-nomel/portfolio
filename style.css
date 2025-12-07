@@ -403,7 +403,10 @@ body::-webkit-scrollbar-thumb:hover {
   width: 48px;
   height: 48px;
   border-radius: 18px;
-  background: radial-gradient(circle at 28% 32%, rgba(255, 231, 200, 0.6), rgba(193, 135, 59, 0.1));
+  background:
+    radial-gradient(circle at 28% 32%, rgba(255, 231, 200, 0.6), rgba(193, 135, 59, 0.1)),
+    url('media/icon_portfolio.png') center/70% no-repeat,
+    linear-gradient(150deg, rgba(193, 135, 59, 0.18), rgba(12, 9, 7, 0.92));
   box-shadow: 0 12px 32px rgba(193, 135, 59, 0.32), inset 0 0 0 1px rgba(225, 194, 138, 0.35);
   display: grid;
   place-items: center;
@@ -518,6 +521,12 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #site-navigation a.nav-contact {
+  color: #0f0c0a;
+  background: linear-gradient(115deg, #f1ddc3, #c2873b);
+  box-shadow: 0 14px 30px rgba(193, 135, 59, 0.4);
+}
+
+.nova-header #site-navigation a.nav-contact {
   color: #0f0c0a;
   background: linear-gradient(115deg, #f1ddc3, #c2873b);
   box-shadow: 0 14px 30px rgba(193, 135, 59, 0.4);
@@ -795,8 +804,8 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 body.nav-open {
-  overflow: hidden;
-  touch-action: none;
+  overflow: auto;
+  touch-action: auto;
 }
 
 /* Section Héro */
@@ -1057,7 +1066,7 @@ body.nav-open {
 
 .project-media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: clamp(32px, 5vw, 56px);
   max-width: 1780px;
   margin: 0 auto;
@@ -1097,7 +1106,7 @@ body.nav-open {
   }
 
   .project-media-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
   }
 
@@ -1120,6 +1129,47 @@ body.nav-open {
   .project-actions {
     width: 100%;
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .nova-header .header-inner {
+    gap: 6px;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .brand-orb {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    background-size: 72%;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-shell {
+    order: 3;
+    width: 100%;
+  }
+
+  .nova-header #site-navigation {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-group {
+    padding: 14px;
+  }
+
+  .project-media-grid {
+    gap: 16px;
   }
 }
 

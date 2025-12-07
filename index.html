@@ -362,6 +362,7 @@
       <div class="video-player" data-video-player>
         <video
           playsinline
+          webkit-playsinline
           controls
           preload="metadata"
         >
@@ -965,6 +966,7 @@
 
         setTimeout(() => {
           if (video.readyState === 0) {
+            videoHydrator.hydrate(video);
             showFallback();
           }
         }, 3800);
