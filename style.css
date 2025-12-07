@@ -1077,11 +1077,12 @@ body.nav-open {
 
 .project-meta {
   display: grid;
-  gap: 12px;
+  gap: clamp(12px, 1.2vw, 16px);
   align-self: center;
   position: relative;
   z-index: 1;
-  padding: clamp(6px, 1vw, 12px) clamp(8px, 1.6vw, 14px);
+  padding: clamp(12px, 1.6vw, 18px) clamp(14px, 2vw, 22px);
+  min-height: clamp(164px, 18vh, 220px);
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(24, 18, 14, 0.6), rgba(17, 13, 11, 0.2));
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
@@ -1229,6 +1230,9 @@ body.nav-open {
 
   .project-meta {
     order: 2;
+    min-height: unset;
+    padding: 14px;
+    gap: 12px;
   }
 
   .project-meta::before {
