@@ -1043,16 +1043,15 @@
         };
 
         const retryLoad = () => {
-          if (video.dataset.hydrated !== 'true') {
-            return;
+          if (video.dataset.hydrated === 'true') {
+            gentleReload(video);
           }
 
-          gentleReload(video);
           showFallback();
         };
 
         const startFallbackTimer = () => {
-          if (retryTimer || video.dataset.hydrated !== 'true') {
+          if (retryTimer) {
             return;
           }
 
@@ -1075,9 +1074,7 @@
         video.addEventListener('play', hideFallback);
         video.addEventListener('videohydrated', handleHydration);
 
-        if (video.dataset.hydrated === 'true') {
-          startFallbackTimer();
-        }
+        startFallbackTimer();
       };
 
       playerNodes.forEach(({ video, container }) => {
