@@ -326,7 +326,7 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 1000;
   backdrop-filter: blur(14px) saturate(160%);
   transition: top 0.35s ease, width 0.45s ease, padding 0.3s ease, border-radius 0.35s ease,
-    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2), overflow 0.2s ease;
 }
 
 .nova-header::before,
@@ -638,6 +638,10 @@ body::-webkit-scrollbar-thumb:hover {
   display: contents;
 }
 
+.nova-header.menu-open {
+  overflow: visible;
+}
+
 .nova-header.compact .header-inner {
   padding-inline: 0.65rem;
   gap: 10px;
@@ -760,6 +764,21 @@ body::-webkit-scrollbar-thumb:hover {
   .nova-header {
     padding: 0.55rem;
     top: 14px;
+  }
+
+  .nova-header .header-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 8px;
+  }
+
+  .nav-shell {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  #site-navigation {
+    width: 100%;
   }
 
   .brand .logo {
@@ -1066,6 +1085,42 @@ body.nav-open {
   margin: 0;
   aspect-ratio: 16 / 9;
   border-radius: 16px;
+}
+
+@media (max-width: 780px) {
+  .project-group {
+    padding: 18px;
+  }
+
+  .section-heading {
+    gap: 10px;
+  }
+
+  .project-media-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .project-tile {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .project-media-grid .video-player {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 540px) {
+  .project-media-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .project-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 /* Demo Reel */
