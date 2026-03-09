@@ -324,11 +324,12 @@
         </div>
       </div>
     </header>
-    <section class="hero">
+    <section class="hero reveal">
       <p class="subtitle">3D Portfolio</p>
       <h1>Nomel ESMEL</h1>
       <p class="tagline">3D Generalist – Environments &amp; Props • M2 IIM student, available for a 4–6 month internship from February 2026</p>
-      <div class="stack-tags" aria-label="Software I use">
+      <div class="tools-marquee" aria-label="Software I use">
+        <div class="tools-track">
         <span>
           <img src="/media/tools/blender.png" alt="Blender logo" loading="lazy" decoding="async">
           Blender
@@ -351,15 +352,23 @@
         </span>
         <span>
           <img src="/media/tools/Unreal_Engine_Logo.png" alt="Unreal Engine logo" loading="lazy" decoding="async">
-          Unreal Engine
+          Unreal Engine
         </span>
+        <!-- Duplicated for seamless marquee -->
+        <span aria-hidden="true"><img src="/media/tools/blender.png" alt="" loading="lazy" decoding="async"> Blender</span>
+        <span aria-hidden="true"><img src="/media/tools/Painter.png" alt="" loading="lazy" decoding="async"> Substance 3D Painter</span>
+        <span aria-hidden="true"><img src="/media/tools/maya.png" alt="" loading="lazy" decoding="async"> Maya</span>
+        <span aria-hidden="true"><img src="/media/tools/zbrush.png" alt="" loading="lazy" decoding="async"> ZBrush</span>
+        <span aria-hidden="true"><img src="/media/tools/3ds-max.png" alt="" loading="lazy" decoding="async"> 3ds Max</span>
+        <span aria-hidden="true"><img src="/media/tools/Unreal_Engine_Logo.png" alt="" loading="lazy" decoding="async"> Unreal Engine</span>
+        </div>
       </div>
       <div class="buttons">
         <a href="#demoreel" class="primary shimmer pulse">▶ Watch the Demo Reel</a>
         <a href="/media/CV Janvier 2026_compressed.pdf" class="secondary shimmer pulse" download>↓ Download the resume</a>
       </div>
     </section>
-  <section id="demoreel" class="showreel">
+  <section id="demoreel" class="showreel reveal">
     <div class="showreel-inner">
       <h2>Demo Reel</h2>
       <p class="showreel-intro">A glimpse at my latest 3D work and the skills I bring to a production.</p>
@@ -385,7 +394,7 @@
     </div>
   </section>
 
-  <section id="projects" class="project-showcase">
+  <section id="projects" class="project-showcase reveal">
     <div class="section-heading">
         <p class="eyebrow">Selected work</p>
         <div class="section-heading-text">
@@ -399,7 +408,7 @@
     </div>
 
     <div class="project-collection">
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Environments</p>
           <h3>Train car</h3>
@@ -415,7 +424,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Environments</p>
           <h3>Hospital</h3>
@@ -431,7 +440,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Environments</p>
           <h3>Cosmetics</h3>
@@ -447,7 +456,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Props</p>
           <h3>Rifle</h3>
@@ -463,7 +472,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Props</p>
           <h3>Tricycle</h3>
@@ -479,7 +488,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Textures</p>
           <h3>Knight</h3>
@@ -495,7 +504,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Characters</p>
           <h3>Bill</h3>
@@ -511,7 +520,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Animation</p>
           <h3>Stylized fly</h3>
@@ -527,7 +536,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Animation</p>
           <h3>Maya animation</h3>
@@ -543,7 +552,7 @@
         </figure>
       </article>
 
-      <article class="project-card">
+      <article class="project-card reveal">
         <div class="project-meta">
           <p class="project-tag">Animation</p>
           <h3>Acting</h3>
@@ -560,7 +569,7 @@
       </article>
     </div>
   </section>
-  <section id="residential" class="carousel-gallery" aria-labelledby="gallery-title">
+  <section id="residential" class="carousel-gallery reveal" aria-labelledby="gallery-title">
     <h2 id="gallery-title">Residential project gallery</h2>
     <p class="gallery-intro">A curated series of interior and exterior moods for a housing project.</p>
     <div class="glide gallery-glide" data-gallery-glide aria-label="Residential project gallery">
@@ -661,7 +670,7 @@
       </div>
     </div>
   </section>
-  <section id="about" class="about recruiter-layout">
+  <section id="about" class="about recruiter-layout reveal">
     <div class="about-text">
       <p class="eyebrow">Quick overview</p>
       <h2>About</h2>
@@ -691,7 +700,7 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="contact contact-panel">
+  <section id="contact" class="contact contact-panel reveal">
     <div class="contact-text">
       <p class="eyebrow">Contact</p>
       <h2>Contact</h2>
@@ -709,7 +718,7 @@
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer reveal">
     <p>© 2026 Nomel ESMEL · Legal notice · Credits</p>
   </footer>
   </div>
@@ -1281,6 +1290,102 @@
   </script>
 
   </div>
+
+
+  <!-- Scroll reveal -->
+  <script>
+    (function () {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var revealElements = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealElements.forEach(function (el) { el.classList.add('revealed'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
+
+      revealElements.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+  <!-- Custom cursor, scroll progress & 3D card tilt -->
+  <script>
+    (function () {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isCoarse = window.matchMedia('(pointer: coarse)').matches;
+
+      var progressBar = document.querySelector('.scroll-progress-bar');
+      if (progressBar) {
+        window.addEventListener('scroll', function () {
+          var scrollTop = window.scrollY;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          progressBar.style.width = pct + '%';
+        }, { passive: true });
+      }
+
+      if (!isCoarse && !prefersReducedMotion) {
+        var dot = document.querySelector('.cursor-dot');
+        var ring = document.querySelector('.cursor-ring');
+
+        if (dot && ring) {
+          var mx = 0, my = 0, rx = 0, ry = 0;
+
+          document.addEventListener('mousemove', function (e) {
+            mx = e.clientX; my = e.clientY;
+            dot.style.left = mx + 'px';
+            dot.style.top = my + 'px';
+          });
+
+          (function followRing() {
+            rx += (mx - rx) * 0.15;
+            ry += (my - ry) * 0.15;
+            ring.style.left = rx + 'px';
+            ring.style.top = ry + 'px';
+            requestAnimationFrame(followRing);
+          })();
+
+          document.body.classList.add('cursor-ready');
+
+          var hoverTargets = document.querySelectorAll('a, button, .project-card, .gallery-media');
+          hoverTargets.forEach(function (el) {
+            el.addEventListener('mouseenter', function () { ring.classList.add('hover'); });
+            el.addEventListener('mouseleave', function () { ring.classList.remove('hover'); });
+          });
+
+          document.addEventListener('mousedown', function () { ring.classList.add('click'); });
+          document.addEventListener('mouseup', function () { ring.classList.remove('click'); });
+        }
+      }
+
+      if (!isCoarse && !prefersReducedMotion) {
+        var cards = document.querySelectorAll('.project-card');
+        cards.forEach(function (card) {
+          card.addEventListener('mousemove', function (e) {
+            var rect = card.getBoundingClientRect();
+            var x = ((e.clientX - rect.left) / rect.width) * 100;
+            var y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', x + '%');
+            card.style.setProperty('--mouse-y', y + '%');
+            var rotateY = ((x - 50) / 50) * 3;
+            var rotateX = ((50 - y) / 50) * 3;
+            card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.01,1.01,1.01)';
+          });
+          card.addEventListener('mouseleave', function () {
+            card.style.transform = '';
+          });
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
