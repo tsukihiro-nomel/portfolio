@@ -328,7 +328,8 @@
       <p class="subtitle">Portfolio 3D</p>
       <h1>Nomel ESMEL</h1>
       <p class="tagline">Generalist 3D – Environnements &amp; Props • Étudiant M2 IIM, dispo stage 4–6 mois à partir de février 2026</p>
-      <div class="stack-tags" aria-label="Logiciels maîtrisés">
+      <div class="tools-marquee" aria-label="Logiciels maîtrisés">
+        <div class="tools-track">
         <span>
           <img src="media/tools/blender.png" alt="Logo Blender" loading="lazy" decoding="async">
           Blender
@@ -353,6 +354,14 @@
           <img src="media/tools/Unreal_Engine_Logo.png" alt="Logo Unreal Engine" loading="lazy" decoding="async">
           Unreal Engine
         </span>
+        <!-- Duplicated for seamless marquee -->
+        <span aria-hidden="true"><img src="media/tools/blender.png" alt="" loading="lazy" decoding="async"> Blender</span>
+        <span aria-hidden="true"><img src="media/tools/Painter.png" alt="" loading="lazy" decoding="async"> Substance 3D Painter</span>
+        <span aria-hidden="true"><img src="media/tools/maya.png" alt="" loading="lazy" decoding="async"> Maya</span>
+        <span aria-hidden="true"><img src="media/tools/zbrush.png" alt="" loading="lazy" decoding="async"> ZBrush</span>
+        <span aria-hidden="true"><img src="media/tools/3ds-max.png" alt="" loading="lazy" decoding="async"> 3ds Max</span>
+        <span aria-hidden="true"><img src="media/tools/Unreal_Engine_Logo.png" alt="" loading="lazy" decoding="async"> Unreal Engine</span>
+        </div>
       </div>
       <div class="buttons">
         <a href="#demoreel" class="primary shimmer pulse">▶ Voir la Demo Reel</a>
@@ -1307,6 +1316,80 @@
       }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
 
       revealElements.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+  <!-- Custom cursor, scroll progress & 3D card tilt -->
+  <script>
+    (function () {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isCoarse = window.matchMedia('(pointer: coarse)').matches;
+
+      /* ── Scroll progress bar ─────────────────────────────── */
+      var progressBar = document.querySelector('.scroll-progress-bar');
+      if (progressBar) {
+        window.addEventListener('scroll', function () {
+          var scrollTop = window.scrollY;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          progressBar.style.width = pct + '%';
+        }, { passive: true });
+      }
+
+      /* ── Custom cursor ───────────────────────────────────── */
+      if (!isCoarse && !prefersReducedMotion) {
+        var dot = document.querySelector('.cursor-dot');
+        var ring = document.querySelector('.cursor-ring');
+
+        if (dot && ring) {
+          var mx = 0, my = 0, rx = 0, ry = 0;
+
+          document.addEventListener('mousemove', function (e) {
+            mx = e.clientX; my = e.clientY;
+            dot.style.left = mx + 'px';
+            dot.style.top = my + 'px';
+          });
+
+          (function followRing() {
+            rx += (mx - rx) * 0.15;
+            ry += (my - ry) * 0.15;
+            ring.style.left = rx + 'px';
+            ring.style.top = ry + 'px';
+            requestAnimationFrame(followRing);
+          })();
+
+          document.body.classList.add('cursor-ready');
+
+          var hoverTargets = document.querySelectorAll('a, button, .project-card, .gallery-media');
+          hoverTargets.forEach(function (el) {
+            el.addEventListener('mouseenter', function () { ring.classList.add('hover'); });
+            el.addEventListener('mouseleave', function () { ring.classList.remove('hover'); });
+          });
+
+          document.addEventListener('mousedown', function () { ring.classList.add('click'); });
+          document.addEventListener('mouseup', function () { ring.classList.remove('click'); });
+        }
+      }
+
+      /* ── 3D Card tilt on hover ───────────────────────────── */
+      if (!isCoarse && !prefersReducedMotion) {
+        var cards = document.querySelectorAll('.project-card');
+        cards.forEach(function (card) {
+          card.addEventListener('mousemove', function (e) {
+            var rect = card.getBoundingClientRect();
+            var x = ((e.clientX - rect.left) / rect.width) * 100;
+            var y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', x + '%');
+            card.style.setProperty('--mouse-y', y + '%');
+            var rotateY = ((x - 50) / 50) * 3;
+            var rotateX = ((50 - y) / 50) * 3;
+            card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.01,1.01,1.01)';
+          });
+          card.addEventListener('mouseleave', function () {
+            card.style.transform = '';
+          });
+        });
+      }
     })();
   </script>
 
