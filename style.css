@@ -6,6 +6,7 @@
 /* ── Reset & Custom Properties ───────────────────────────── */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
   scrollbar-color: rgba(193,135,59,.7) rgba(15,12,10,.9);
   scrollbar-width: thin;
 }

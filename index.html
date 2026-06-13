@@ -67,6 +67,8 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.plyr.io">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -79,7 +81,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
   >
-  <link rel="stylesheet" href="/style.css?v=2025-12-07-2">
+  <link rel="stylesheet" href="/style.css?v=2026-06-13">
   <style>
     :root {
       --plyr-color-main: #c2873b;
@@ -682,7 +684,7 @@
     </div>
     <div class="about-side">
       <div class="about-image">
-        <img src="media/6A3A4101.png" alt="Nomel ESMEL">
+        <img src="media/6A3A4101.png" loading="lazy" decoding="async" alt="Nomel ESMEL">
       </div>
       <div class="about-summary">
         <h3>Mini fiche</h3>
@@ -922,20 +924,13 @@
     })();
   </script>
 
-  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
   <script>
     (function () {
       const options = {
         ratio: '16:9',
         settings: ['quality', 'speed']
-      };
-
-      const ensurePreload = (video) => {
-        if (video.getAttribute('preload') !== 'auto') {
-          video.setAttribute('preload', 'auto');
-          video.preload = 'auto';
-        }
       };
 
       const playerNodes = Array.from(document.querySelectorAll('[data-video-player]'))
@@ -957,81 +952,6 @@
               cta: 'Open video'
             };
 
-      const gentleReload = (video) => {
-        try {
-          const { currentTime } = video;
-          video.pause();
-          video.load();
-          if (currentTime > 0) {
-            video.currentTime = currentTime;
-          }
-        } catch (error) {
-          /* noop */
-        }
-      };
-
-      const videoHydrator = (() => {
-        const hydratedVideos = new WeakSet();
-
-        const notifyHydrated = (video) => {
-          try {
-            video.dispatchEvent(new Event('videohydrated'));
-          } catch (error) {
-            /* noop */
-          }
-        };
-
-        const hydrate = (video) => {
-          if (hydratedVideos.has(video)) {
-            return false;
-          }
-
-          ensurePreload(video);
-
-          if (video.readyState === 0) {
-            try {
-              video.load();
-            } catch (error) {
-              // graceful degradation: let browser load naturally
-            }
-          }
-
-          hydratedVideos.add(video);
-          video.dataset.hydrated = 'true';
-          notifyHydrated(video);
-          return true;
-        };
-
-        if ('IntersectionObserver' in window) {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach(({ isIntersecting, target }) => {
-                if (isIntersecting) {
-                  const didHydrate = hydrate(target);
-                  if (didHydrate) {
-                    observer.unobserve(target);
-                  }
-                }
-              });
-            },
-            {
-              rootMargin: '200px',
-              threshold: 0.1
-            }
-          );
-
-          return {
-            observe: (video) => observer.observe(video),
-            hydrate
-          };
-        }
-
-        return {
-          observe: hydrate,
-          hydrate
-        };
-      })();
-
       const attachFallback = (video, container) => {
         const source = video.querySelector('source');
         const href = source?.src || video.currentSrc || video.getAttribute('src');
@@ -1045,54 +965,18 @@
         fallback.innerHTML = `<p>${copy.text}</p><a href="${href}" target="_blank" rel="noopener">${copy.cta}</a>`;
         container.appendChild(fallback);
 
-        let retryTimer = null;
-
         const showFallback = () => fallback.classList.add('visible');
-        const hideFallback = () => {
-          fallback.classList.remove('visible');
-          if (retryTimer) {
-            clearTimeout(retryTimer);
-            retryTimer = null;
-          }
-        };
+        const hideFallback = () => fallback.classList.remove('visible');
 
-        const retryLoad = () => {
-          if (video.dataset.hydrated === 'true') {
-            gentleReload(video);
-          }
-
-          showFallback();
-        };
-
-        const startFallbackTimer = () => {
-          if (retryTimer) {
-            return;
-          }
-
-          retryTimer = setTimeout(() => {
-            if (video.readyState <= 2) {
-              retryLoad();
-            }
-          }, 3200);
-        };
-
-        const handleHydration = () => {
-          startFallbackTimer();
-          video.removeEventListener('videohydrated', handleHydration);
-        };
-
+        // Show the "open directly" link only on a genuine load error; the
+        // video streams lazily on play, so there is no aggressive preloading.
         video.addEventListener('error', showFallback);
-        video.addEventListener('stalled', retryLoad);
         video.addEventListener('loadeddata', hideFallback);
         video.addEventListener('canplay', hideFallback);
-        video.addEventListener('play', hideFallback);
-        video.addEventListener('videohydrated', handleHydration);
-
-        startFallbackTimer();
+        video.addEventListener('playing', hideFallback);
       };
 
       playerNodes.forEach(({ video, container }) => {
-        videoHydrator.observe(video);
         attachFallback(video, container);
         new Plyr(video, options);
       });
