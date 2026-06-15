@@ -6,6 +6,7 @@
 /* ── Reset & Custom Properties ───────────────────────────── */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
   scrollbar-color: rgba(193,135,59,.7) rgba(15,12,10,.9);
   scrollbar-width: thin;
 }
@@ -44,6 +45,17 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+button,
+a {
+  touch-action: manipulation;
 }
 
 /* Custom scrollbar */
@@ -99,6 +111,8 @@ body.cursor-ready .cursor-ring { opacity: 1; }
   z-index: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
   min-height: 100vh;
 }
 
@@ -405,6 +419,10 @@ body.cursor-ready .cursor-ring { opacity: 1; }
   letter-spacing: .1em;
   font-size: .72rem;
   transition: color .25s, border-color .25s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .language-toggle:hover { color: var(--text); border-color: var(--accent); }
 
@@ -537,11 +555,13 @@ body.cursor-ready .cursor-ring { opacity: 1; }
   .brand .logo { font-size: .84rem; }
 }
 
-body.nav-open { overflow: auto; touch-action: auto; }
+body.nav-open { overflow: hidden; touch-action: none; }
 
 /* ── Hero ────────────────────────────────────────────────── */
 .hero {
   position: relative;
+  width: 100%;
+  min-width: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -588,6 +608,8 @@ body.nav-open { overflow: auto; touch-action: auto; }
 /* Tools marquee */
 .tools-marquee {
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
   margin: 24px 0 36px;
   mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
@@ -642,6 +664,7 @@ body.nav-open { overflow: auto; touch-action: auto; }
   text-decoration: none;
   transition: all .3s var(--ease-out);
   cursor: pointer;
+  min-height: 48px;
 }
 
 .buttons .primary {
@@ -693,9 +716,14 @@ body.nav-open { overflow: auto; touch-action: auto; }
 @media (max-width: 640px) {
   .hero {
     min-height: auto;
-    padding: clamp(120px,22vw,160px) clamp(18px,5vw,28px) clamp(60px,12vw,90px);
+    padding: 11rem clamp(18px,5vw,28px) clamp(60px,12vw,90px);
   }
   .hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+  .hero .tagline {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .tools-track { gap: 24px; }
 }
 
 @media (max-width: 480px) {
@@ -800,6 +828,8 @@ body.nav-open { overflow: auto; touch-action: auto; }
 
 /* ── Project Showcase ────────────────────────────────────── */
 .project-showcase {
+  width: 100%;
+  min-width: 0;
   padding: clamp(80px,10vw,140px) clamp(20px,5vw,48px);
   border-top: 1px solid var(--border);
   max-width: 1600px;
@@ -858,6 +888,7 @@ body.nav-open { overflow: auto; touch-action: auto; }
   transition: transform .5s var(--ease-out), box-shadow .5s ease, border-color .4s;
   transform-style: preserve-3d;
   perspective: 1000px;
+  min-width: 0;
 }
 
 .project-card:hover {
@@ -1065,6 +1096,7 @@ body.nav-open { overflow: auto; touch-action: auto; }
   max-width: min(1000px, 92vw);
   margin: 0 auto;
   padding-inline: clamp(12px,4vw,36px);
+  min-width: 0;
 }
 
 .gallery-glide .glide__track { overflow: visible; }
@@ -1147,17 +1179,16 @@ body.nav-open { overflow: auto; touch-action: auto; }
   gap: clamp(6px,1.5vw,10px);
 }
 .gallery-glide .glide__bullet {
-  width: 10px; height: 10px;
+  width: 44px; height: 44px;
   border-radius: 99px;
   border: none;
-  background: rgba(255,255,255,.2);
+  background: radial-gradient(circle, rgba(255,255,255,.3) 0 5px, transparent 6px);
   cursor: pointer;
   transition: all .3s;
 }
 .gallery-glide .glide__bullet:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .gallery-glide .glide__bullet.glide__bullet--active {
-  width: 28px;
-  background: var(--accent);
+  background: radial-gradient(circle, var(--accent) 0 10px, transparent 11px);
 }
 
 @media (max-width: 560px) {
@@ -1228,6 +1259,7 @@ body.nav-open { overflow: auto; touch-action: auto; }
   text-decoration: none;
   font-weight: 600;
   transition: all .3s;
+  min-height: 44px;
 }
 .cv-buttons .btn-download {
   background: var(--accent);
@@ -1326,6 +1358,9 @@ body.nav-open { overflow: auto; touch-action: auto; }
   border-radius: 10px;
   font-size: .88rem;
   transition: all .3s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 .social-links a:hover {
   border-color: var(--accent);
@@ -1429,40 +1464,6 @@ body.nav-open { overflow: auto; touch-action: auto; }
   border: none;
 }
 .viewer-links { display: flex; flex-wrap: wrap; gap: 10px; }
-
-/* liquidGlass compat */
-.liquidGlass-wrapper {
-  position: fixed; top: 18px; left: 50%;
-  transform: translateX(-50%);
-  width: min(1100px, calc(100% - 28px));
-  padding: .5rem;
-  border-radius: 99px;
-  background: rgba(15,12,10,.7);
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 60px rgba(0,0,0,.5);
-  backdrop-filter: blur(20px) saturate(150%);
-  z-index: 1000;
-}
-.liquidGlass-effect, .liquidGlass-tint, .liquidGlass-shine {
-  position: absolute; inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-}
-.liquidGlass-effect { background: rgba(10,8,7,.4); z-index: 0; }
-.liquidGlass-tint { background: linear-gradient(150deg, rgba(212,165,74,.06), rgba(122,88,58,.1)); mix-blend-mode: screen; z-index: 1; }
-.liquidGlass-shine { background: radial-gradient(circle at 20% 40%, rgba(255,255,200,.08), transparent 40%); z-index: 2; }
-.liquidGlass-text {
-  position: relative; z-index: 3;
-  display: flex; align-items: center;
-  gap: clamp(14px,2vw,24px);
-  padding: .4rem clamp(.8rem,2vw,1.2rem);
-}
-.liquidGlass-text .logo { font-weight: 700; font-size: .88rem; text-decoration: none; color: var(--text); text-transform: uppercase; letter-spacing: .06em; }
-.liquidGlass-text nav { display: flex; align-items: center; gap: clamp(8px,1.5vw,16px); flex: 1; }
-.liquidGlass-text nav a { color: var(--text-dim); text-decoration: none; font-weight: 500; font-size: .82rem; padding: .4rem .7rem; border-radius: 99px; transition: color .25s; }
-.liquidGlass-text nav a:hover { color: var(--text); }
-.liquidGlass-text nav a.nav-contact { color: var(--bg); background: var(--accent); }
-.liquidGlass-text .language-toggle { margin-left: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }

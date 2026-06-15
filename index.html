@@ -10,7 +10,7 @@
   <title>Nomel ESMEL - Portfolio 3D</title>
   <meta
     name="description"
-    content="Portfolio 3D de Nomel ESMEL, généraliste 3D et étudiant M2 IIM, présentant des projets d'animation, All Aspects et de textures."
+    content="Portfolio de Nomel ESMEL, généraliste 3D junior spécialisé en environnements, props et textures, disponible dès le 1er septembre 2026."
   >
   <meta property="og:title" content="Nomel ESMEL - Portfolio 3D">
   <meta
@@ -21,14 +21,14 @@
   <meta property="og:url" content="https://portfolio.esmel-production.fr/">
   <meta
     property="og:image"
-    content="https://portfolio.esmel-production.fr/media/SDS__Masque_Hopital__w005_1_0001.png"
+    content="https://portfolio.esmel-production.fr/media/social-preview.jpg"
   >
   <meta property="og:image:alt" content="Masque médical stylisé en 3D signé Nomel ESMEL">
-  <meta property="og:image:secure_url" content="https://portfolio.esmel-production.fr/media/SDS__Masque_Hopital__w005_1_0001.png">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:secure_url" content="https://portfolio.esmel-production.fr/media/social-preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta
     property="og:image"
-    content="https://portfolio.esmel-production.fr/media/6A3A4101.png"
+    content="https://portfolio.esmel-production.fr/media/social-preview.jpg"
   >
   <meta property="og:image:alt" content="Vue de scène 3D nocturne colorée par Nomel ESMEL">
   <meta property="twitter:card" content="summary_large_image">
@@ -37,7 +37,7 @@
     name="twitter:description"
     content="Portfolio 3D immersif : projets All Aspects, Textures et Animations par Nomel ESMEL."
   >
-  <meta name="twitter:image" content="https://portfolio.esmel-production.fr/media/SDS__Masque_Hopital__w005_1_0001.png">
+  <meta name="twitter:image" content="https://portfolio.esmel-production.fr/media/social-preview.jpg">
   <meta name="twitter:image:alt" content="Masque médical stylisé en 3D signé Nomel ESMEL">
   <meta name="twitter:url" content="https://portfolio.esmel-production.fr/">
   <link rel="icon" type="image/png" href="media/icon_portfolio.png">
@@ -54,19 +54,21 @@
       "creator": {
         "@type": "Person",
         "name": "Nomel ESMEL",
-        "jobTitle": "Généraliste 3D",
-        "affiliation": "IIM - M2"
+        "jobTitle": "Généraliste 3D junior",
+        "alumniOf": "IIM Digital School"
       },
       "description": "Portfolio 3D de Nomel ESMEL : projets All Aspects, Textures et Animations.",
-      "thumbnailUrl": "https://portfolio.esmel-production.fr/media/SDS__Masque_Hopital__w005_1_0001.png",
+      "thumbnailUrl": "https://portfolio.esmel-production.fr/media/social-preview.jpg",
       "image": [
-        "https://portfolio.esmel-production.fr/media/SDS__Masque_Hopital__w005_1_0001.png",
-        "https://portfolio.esmel-production.fr/media/6A3A4101.png"
+        "https://portfolio.esmel-production.fr/media/social-preview.jpg",
+        "https://portfolio.esmel-production.fr/media/social-preview.jpg"
       ]
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.plyr.io">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -79,7 +81,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
   >
-  <link rel="stylesheet" href="/style.css?v=2025-12-07-2">
+  <link rel="stylesheet" href="/style.css?v=2026-06-15">
   <style>
     :root {
       --plyr-color-main: #c2873b;
@@ -128,110 +130,12 @@
   </style>
 </head>
 <body id="top">
-  <script>
-    (function () {
-      const REFRESH_PARAM = 'refresh';
-
-      if ('URLSearchParams' in window && 'history' in window && typeof history.replaceState === 'function') {
-        try {
-          const currentUrl = new URL(window.location.href);
-          if (currentUrl.searchParams.has(REFRESH_PARAM)) {
-            currentUrl.searchParams.delete(REFRESH_PARAM);
-            history.replaceState(null, '', currentUrl.pathname + currentUrl.search + currentUrl.hash);
-          }
-        } catch (error) {
-          /* noop */
-        }
-      }
-
-      const getStorage = () => {
-        const factories = [
-          () => window.localStorage,
-          () => window.sessionStorage
-        ];
-        for (const factory of factories) {
-          try {
-            const store = factory();
-            const probeKey = '__portfolio-probe__';
-            store.setItem(probeKey, '1');
-            store.removeItem(probeKey);
-            return store;
-          } catch (error) {
-            // continue to next storage option
-          }
-        }
-        return null;
-      };
-
-      const storage = getStorage();
-      const VERSION_KEY = 'portfolio-version';
-      const CHECK_INTERVAL = 5 * 60 * 1000;
-
-      const refreshWithBypass = () => {
-        try {
-          if ('URL' in window) {
-            const nextUrl = new URL(window.location.href);
-            nextUrl.searchParams.set(REFRESH_PARAM, Date.now().toString(36));
-            window.location.replace(nextUrl.toString());
-          } else {
-            window.location.reload();
-          }
-        } catch (error) {
-          window.location.reload();
-        }
-      };
-
-      const handleLatestVersion = (latestVersion) => {
-        if (!latestVersion || !storage) {
-          return;
-        }
-
-        try {
-          const storedVersion = storage.getItem(VERSION_KEY);
-          if (!storedVersion) {
-            storage.setItem(VERSION_KEY, latestVersion);
-            return;
-          }
-
-          if (storedVersion !== latestVersion) {
-            storage.setItem(VERSION_KEY, latestVersion);
-            refreshWithBypass();
-          }
-        } catch (error) {
-          refreshWithBypass();
-        }
-      };
-
-      if (typeof fetch !== 'function') {
-        return;
-      }
-
-      const fetchLatestVersion = () => {
-        return fetch('/version.json', { cache: 'no-store' })
-          .then((response) => (response.ok ? response.json() : null))
-          .then((payload) => {
-            if (payload && typeof payload.version === 'string') {
-              handleLatestVersion(payload.version);
-            }
-          })
-          .catch(() => {
-
-          });
-      };
-
-      fetchLatestVersion();
-
-      if (storage) {
-        window.setInterval(fetchLatestVersion, CHECK_INTERVAL);
-      }
-    })();
-  </script>
   <div class="background-scene" aria-hidden="true">
     <img
-      src="media/SDS__Masque_Hopital__w005_1_0001.png"
+      src="media/hospital-mask.webp"
       alt=""
       class="background-sky"
-      loading="lazy"
+      fetchpriority="high"
       decoding="async"
     >
     <div
@@ -300,7 +204,7 @@
           </div>
         </div>
         <div class="header-actions">
-          <span class="status-pill">Dispo pour le 1er Sept.</span>
+          <span class="status-pill">Disponible le 1er sept. 2026</span>
           <a
             class="language-toggle"
             href="/en/"
@@ -327,7 +231,7 @@
     <section class="hero reveal">
       <p class="subtitle">Portfolio 3D</p>
       <h1>Nomel ESMEL</h1>
-      <p class="tagline">Generalist 3D – Environnements &amp; Props • Étudiant M2 IIM, dispo stage 4–6 mois à partir de février 2026</p>
+      <p class="tagline">Généraliste 3D junior – Environnements, props et textures • Disponible dès le 1er septembre 2026</p>
       <div class="tools-marquee" aria-label="Logiciels maîtrisés">
         <div class="tools-track">
         <span>
@@ -377,9 +281,9 @@
           playsinline
           webkit-playsinline
           controls
-          preload="metadata"
-        >
-          <source src="media/demoreel_112025_light.mp4" type="video/mp4">
+          preload="none"
+         poster="media/poster-demoreel_112025_light.webp">
+          <source data-src="media/demoreel_112025_light.mp4" type="video/mp4">
         </video>
       </div>
       <p class="showreel-hint">Si la vidéo ci-dessus ne se lance pas, utilisez ce lien YouTube :</p>
@@ -416,8 +320,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/trainMarche.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-trainMarche.webp">
+          <source data-src="media/trainMarche.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Wagon — all aspects</figcaption>
@@ -432,8 +336,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls poster="media/SDS__Masque_Hopital__w005_1_0001.png">
-              <source src="media/hopital_1.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-hopital_1.webp">
+          <source data-src="media/hopital_1.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Hôpital — all aspects</figcaption>
@@ -448,8 +352,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/COSMETIQUE.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-COSMETIQUE.webp">
+          <source data-src="media/COSMETIQUE.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Cosmétique — all aspects</figcaption>
@@ -464,8 +368,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/fusil.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-fusil.webp">
+          <source data-src="media/fusil.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Fusil — modelage, textures et rendu</figcaption>
@@ -480,8 +384,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/base_tryccicle.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-base_tryccicle.webp">
+          <source data-src="media/base_tryccicle.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Tricycle — all aspects</figcaption>
@@ -496,8 +400,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/chevalier.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-chevalier.webp">
+          <source data-src="media/chevalier.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Chevalier — texturing &amp; lookdev</figcaption>
@@ -512,8 +416,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/bill.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-bill.webp">
+          <source data-src="media/bill.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Bill — texturing uniquement</figcaption>
@@ -528,8 +432,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/fly.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-fly.webp">
+          <source data-src="media/fly.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Insect fly</figcaption>
@@ -544,8 +448,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-B2_ESMEL_Nomel_anime_maya.webp">
+          <source data-src="media/B2_ESMEL_Nomel_anime_maya.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Cycles d'animation Maya</figcaption>
@@ -560,8 +464,8 @@
         </div>
         <figure class="project-visual">
           <div class="video-frame video-player" data-video-player>
-            <video preload="metadata" playsinline webkit-playsinline controls>
-              <source src="media/acting.mp4" type="video/mp4">
+            <video preload="none" playsinline webkit-playsinline controls poster="media/poster-acting.webp">
+          <source data-src="media/acting.mp4" type="video/mp4">
             </video>
           </div>
           <figcaption>Acting</figcaption>
@@ -578,7 +482,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/residence-01-exterieur.png" alt="Vue extérieure de la résidence" loading="lazy" decoding="async">
+                <img src="media/residence-01-exterieur.webp" alt="Vue extérieure de la résidence" loading="lazy" decoding="async">
               </div>
               <figcaption>Vue extérieure</figcaption>
             </figure>
@@ -586,7 +490,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/residence-04-salon.png" alt="Salon open space baigné de lumière" loading="lazy" decoding="async">
+                <img src="media/residence-04-salon.webp" alt="Salon open space baigné de lumière" loading="lazy" decoding="async">
               </div>
               <figcaption>Salon open space baigné de lumière</figcaption>
             </figure>
@@ -594,7 +498,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/residence-06-salle-a-manger.png" alt="Salle à manger conviviale" loading="lazy" decoding="async">
+                <img src="media/residence-06-salle-a-manger.webp" alt="Salle à manger conviviale" loading="lazy" decoding="async">
               </div>
               <figcaption>Salle à manger conviviale</figcaption>
             </figure>
@@ -602,7 +506,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/5.png" alt="Salle à manger conviviale" loading="lazy" decoding="async">
+                <img src="media/residence-03-salle-a-manger.webp" alt="Salle à manger conviviale" loading="lazy" decoding="async">
               </div>
               <figcaption>Salle à manger conviviale</figcaption>
             </figure>
@@ -610,7 +514,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/6.png" alt="Cuisine contemporaine avec îlot central" loading="lazy" decoding="async">
+                <img src="media/residence-04-cuisine.webp" alt="Cuisine contemporaine avec îlot central" loading="lazy" decoding="async">
               </div>
               <figcaption>Cuisine contemporaine avec îlot central</figcaption>
             </figure>
@@ -618,7 +522,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/residence-05-cuisine.png" alt="Cuisine contemporaine avec îlot central" loading="lazy" decoding="async">
+                <img src="media/residence-05-cuisine.webp" alt="Cuisine contemporaine avec îlot central" loading="lazy" decoding="async">
               </div>
               <figcaption>Cuisine contemporaine avec îlot central</figcaption>
             </figure>
@@ -626,7 +530,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/residence-07-suite-parentale.png" alt="Suite parentale avec éclairage doux" loading="lazy" decoding="async">
+                <img src="media/residence-07-suite-parentale.webp" alt="Suite parentale avec éclairage doux" loading="lazy" decoding="async">
               </div>
               <figcaption>Suite parentale avec éclairage doux</figcaption>
             </figure>
@@ -634,7 +538,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/9.png" alt="Suite parentale avec grand dressing" loading="lazy" decoding="async">
+                <img src="media/residence-08-dressing.webp" alt="Suite parentale avec grand dressing" loading="lazy" decoding="async">
               </div>
               <figcaption>Suite parentale armoire</figcaption>
             </figure>
@@ -642,7 +546,7 @@
           <li class="glide__slide">
             <figure class="gallery-slide">
               <div class="gallery-media">
-                <img src="media/10.png" alt="Deuxième chambre lumineuse" loading="lazy" decoding="async">
+                <img src="media/residence-09-chambre.webp" alt="Deuxième chambre lumineuse" loading="lazy" decoding="async">
               </div>
               <figcaption>Deuxième chambre lumineuse</figcaption>
             </figure>
@@ -674,15 +578,13 @@
     <div class="about-text">
       <p class="eyebrow">Présentation rapide</p>
       <h2>À propos</h2>
-      <p>Je m’appelle Nomel ESMEL, Généraliste 3D en Mastère 2 à l’IIM Digital School (La Défense). Je me spécialise dans les textures, environnements et modélisation props.</p>
-
-      <p>Je recherche actuellement un stage de fin d’études de 4 à 6 mois à partir du 23 février 2026, en studio d’animation ou de 3D. Mon objectif : rejoindre une équipe où je peux contribuer sur la production tout en continuant à monter en niveau sur la mise en scène, le lighting et la narration visuelle.</p>
-
-      <p>J’aime les pipelines propres, le travail en équipe et la recherche de solutions techniques. En dehors des études, je développe un projet personnel d’univers narratif (“Imaginarium”) et j’explore les workflows Blender / Unreal / Substance pour optimiser la prod.</p>
+      <p>Je m’appelle Nomel ESMEL, généraliste 3D diplômé de l’IIM Digital School. Je développe des environnements, des props et des textures, de la modélisation au rendu final.</p>
+      <p>Je recherche un premier poste de généraliste 3D junior à partir du 1er septembre 2026, en studio d’animation, de jeu vidéo ou de production 3D. Je souhaite contribuer à des images fortes tout en progressant en mise en scène, lighting et narration visuelle.</p>
+      <p>J’apprécie les pipelines propres, le travail en équipe et la recherche de solutions techniques. Je développe aussi Imaginarium, un univers narratif personnel, et j’explore les workflows Blender, Unreal Engine et Substance 3D Painter.</p>
     </div>
     <div class="about-side">
       <div class="about-image">
-        <img src="media/6A3A4101.png" alt="Nomel ESMEL">
+        <img src="media/nomel-esmel.webp" alt="Nomel ESMEL" loading="lazy" decoding="async">
       </div>
       <div class="about-summary">
         <h3>Mini fiche</h3>
@@ -690,7 +592,7 @@
           <li><span class="label">🎯</span> Spécialités : Textures, environnements, props</li>
           <li><span class="label">🛠</span> Logiciels : Blender, Substance 3D Painter, Unreal Engine, Photoshop…</li>
           <li><span class="label">🌍</span> Basé à : Paris / Île-de-France</li>
-          <li><span class="label">📅</span> Dispo : stage mars–juil 2026</li>
+          <li><span class="label">📅</span> Disponibilité : dès le 1er septembre 2026</li>
           <li><span class="label">🌐</span> Langues : français, anglais</li>
         </ul>
         <div class="cv-buttons">
@@ -704,9 +606,9 @@
     <div class="contact-text">
       <p class="eyebrow">Contact</p>
       <h2>Contact</h2>
-      <p>Un projet, une opportunité de stage ou une question ?</p>
+      <p>Un projet, un poste junior ou une collaboration ?</p>
       <p>N’hésite pas à m’écrire, je réponds rapidement.</p>
-      <p>Je suis ouvert aux opportunités de stage et collaborations. Vous pouvez me joindre facilement via e-mail ou LinkedIn.</p>
+      <p>Je suis disponible pour un premier poste de généraliste 3D à partir du 1er septembre 2026. Vous pouvez me joindre par e-mail ou LinkedIn.</p>
       <div class="contact-actions">
         <a class="primary shimmer" href="mailto:Nomel.ESMEL.3d@gmail.com">Me contacter par mail</a>
         <a class="secondary shimmer" href="media/CV_Nomel_ESMEL.pdf" download>Voir mon CV</a>
@@ -728,670 +630,8 @@
   </footer>
   </div>
 
-  <script>
-    (function () {
-      const starfield = document.getElementById('starfield');
-      const particlesContainer = document.getElementById('interactive-particles');
-      const spheres = Array.from(document.querySelectorAll('.gradient-sphere'));
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const getMediaQuery = (query) =>
-        typeof window.matchMedia === 'function' ? window.matchMedia(query) : null;
-
-      const LARGE_VIEWPORT_MIN_WIDTH = 992;
-      const coarsePointerMedia = getMediaQuery('(pointer: coarse)');
-      const finePointerMedia = getMediaQuery('(any-pointer: fine)');
-      const hoverCapableMedia = getMediaQuery('(any-hover: hover)');
-      const largeViewportMedia = getMediaQuery(`(min-width: ${LARGE_VIEWPORT_MIN_WIDTH}px)`);
-
-      const shouldUseNativeControls = () => {
-        const hasFinePointer = finePointerMedia ? finePointerMedia.matches : false;
-        const canHover = hoverCapableMedia ? hoverCapableMedia.matches : false;
-        const hasCoarsePointer = coarsePointerMedia ? coarsePointerMedia.matches : false;
-        const hasTouchInput =
-          ('maxTouchPoints' in navigator && navigator.maxTouchPoints > 0) ||
-          ('msMaxTouchPoints' in navigator && navigator.msMaxTouchPoints > 0) ||
-          'ontouchstart' in window;
-        const isLargeViewport = largeViewportMedia
-          ? largeViewportMedia.matches
-          : window.innerWidth >= LARGE_VIEWPORT_MIN_WIDTH;
-        const pointerInfoAvailable = Boolean(finePointerMedia || hoverCapableMedia || coarsePointerMedia);
-
-        const isLikelyDesktop = pointerInfoAvailable
-          ? isLargeViewport && (hasFinePointer || canHover) && !hasCoarsePointer && !hasTouchInput
-          : isLargeViewport && !hasTouchInput;
-
-        return !isLikelyDesktop;
-      };
-      const isCoarsePointer = coarsePointerMedia ? coarsePointerMedia.matches : false;
-      const enableDynamicAnimation = !prefersReducedMotion && !isCoarsePointer;
-
-      const randomRange = (min, max) => Math.random() * (max - min) + min;
-
-      if (starfield) {
-        const starCount = enableDynamicAnimation ? 120 : 60;
-        for (let i = 0; i < starCount; i += 1) {
-          const star = document.createElement('span');
-          star.className = 'star';
-          star.style.left = `${Math.random() * 100}%`;
-          star.style.setProperty('--star-size', randomRange(0.6, 1.8).toFixed(2));
-          star.style.setProperty('--star-duration', `${randomRange(26, 52).toFixed(2)}s`);
-          star.style.setProperty('--star-delay', `${randomRange(-60, 0).toFixed(2)}s`);
-          starfield.appendChild(star);
-        }
-      }
-
-      if (particlesContainer) {
-        const ambientCount = enableDynamicAnimation ? 42 : 20;
-
-        const spawnAmbientParticle = () => {
-          if (!particlesContainer) return;
-          const particle = document.createElement('span');
-          particle.className = 'floating-particle';
-          particle.style.left = `${Math.random() * 100}%`;
-          particle.style.top = `${Math.random() * 100}%`;
-          particle.style.setProperty('--particle-size', randomRange(2.4, 6).toFixed(2));
-          particle.style.setProperty('--particle-duration', `${randomRange(10, 16).toFixed(2)}s`);
-          particle.style.setProperty('--particle-delay', `${randomRange(-16, 0).toFixed(2)}s`);
-          particle.style.setProperty('--particle-drift-x', `${randomRange(-6, 6).toFixed(2)}%`);
-          particle.style.setProperty('--particle-drift-y', `${randomRange(-24, -10).toFixed(2)}%`);
-          particlesContainer.appendChild(particle);
-
-          particle.addEventListener(
-            'animationend',
-            () => {
-              particle.remove();
-              if (enableDynamicAnimation) {
-                spawnAmbientParticle();
-              }
-            },
-            { once: true }
-          );
-        };
-
-        for (let i = 0; i < ambientCount; i += 1) {
-          spawnAmbientParticle();
-        }
-      }
-
-      if (!spheres.length) {
-        return;
-      }
-
-      let pointerX = 0.5;
-      let pointerY = 0.5;
-      let lastPointerParticle = 0;
-
-      const updatePointer = (event) => {
-        pointerX = event.clientX / window.innerWidth;
-        pointerY = event.clientY / window.innerHeight;
-
-        if (!particlesContainer || !enableDynamicAnimation) {
-          return;
-        }
-
-        const now = performance.now();
-        if (now - lastPointerParticle < 80) {
-          return;
-        }
-
-        lastPointerParticle = now;
-
-        const particle = document.createElement('span');
-        particle.className = 'floating-particle pointer-trail';
-        particle.style.left = `${pointerX * 100}%`;
-        particle.style.top = `${pointerY * 100}%`;
-        particle.style.setProperty('--particle-size', randomRange(5.2, 8.4).toFixed(2));
-        particle.style.setProperty('--particle-distance', `${randomRange(10, 22).toFixed(2)}%`);
-        particlesContainer.appendChild(particle);
-
-        particle.addEventListener('animationend', () => {
-          particle.remove();
-        });
-      };
-
-      if (enableDynamicAnimation) {
-        document.addEventListener('pointermove', updatePointer);
-      }
-
-      if (!enableDynamicAnimation) {
-        spheres.forEach((sphere) => {
-          const baseX = parseFloat(sphere.dataset.baseX || '0');
-          const baseY = parseFloat(sphere.dataset.baseY || '0');
-          const scale = parseFloat(sphere.dataset.scale || '1');
-          sphere.style.transform = `translate3d(${baseX}%, ${baseY}%, 0) scale(${scale})`;
-        });
-        return;
-      }
-
-      let animationFrameId = null;
-
-      const animate = (time) => {
-        const t = time * 0.001;
-
-        spheres.forEach((sphere, index) => {
-          const baseX = parseFloat(sphere.dataset.baseX || '0');
-          const baseY = parseFloat(sphere.dataset.baseY || '0');
-          const amplitudeX = parseFloat(sphere.dataset.amplitudeX || '0');
-          const amplitudeY = parseFloat(sphere.dataset.amplitudeY || '0');
-          const speed = parseFloat(sphere.dataset.speed || '0.08');
-          const scale = parseFloat(sphere.dataset.scale || '1');
-          const depth = parseFloat(sphere.dataset.depth || '6');
-          const phase = parseFloat(sphere.dataset.phase || index);
-
-          const offsetX = Math.sin((t + phase) * (speed * 6)) * amplitudeX;
-          const offsetY = Math.cos((t + phase) * (speed * 6)) * amplitudeY;
-          const pointerOffsetX = (pointerX - 0.5) * (12 / depth);
-          const pointerOffsetY = (pointerY - 0.5) * (10 / depth);
-
-          sphere.style.transform = `translate3d(${baseX + offsetX + pointerOffsetX}%, ${baseY + offsetY + pointerOffsetY}%, 0) scale(${scale})`;
-        });
-
-        if (starfield) {
-          const starParallaxX = (pointerX - 0.5) * 10;
-          const starParallaxY = (pointerY - 0.5) * 8;
-          starfield.style.transform = `translate3d(${starParallaxX}px, ${starParallaxY}px, 0)`;
-        }
-
-        animationFrameId = requestAnimationFrame(animate);
-      };
-
-      animationFrameId = requestAnimationFrame(animate);
-
-      const handleVisibility = () => {
-        if (!animationFrameId) {
-          return;
-        }
-
-        if (document.hidden) {
-          cancelAnimationFrame(animationFrameId);
-          animationFrameId = null;
-        } else {
-          animationFrameId = requestAnimationFrame(animate);
-        }
-      };
-
-      document.addEventListener('visibilitychange', handleVisibility);
-
-      window.addEventListener('pagehide', () => {
-        document.removeEventListener('pointermove', updatePointer);
-        document.removeEventListener('visibilitychange', handleVisibility);
-        if (animationFrameId) {
-          cancelAnimationFrame(animationFrameId);
-        }
-      });
-    })();
-  </script>
-
-  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
-  <script>
-    (function () {
-      const options = {
-        ratio: '16:9',
-        settings: ['quality', 'speed']
-      };
-
-      const ensurePreload = (video) => {
-        if (video.getAttribute('preload') !== 'auto') {
-          video.setAttribute('preload', 'auto');
-          video.preload = 'auto';
-        }
-      };
-
-      const playerNodes = Array.from(document.querySelectorAll('[data-video-player]'))
-        .map((node) => ({
-          container: node,
-          video: node.tagName === 'VIDEO' ? node : node.querySelector('video')
-        }))
-        .filter(({ video }) => Boolean(video));
-      const isFrench = document.documentElement.lang === 'fr';
-
-      const getFallbackCopy = () =>
-        isFrench
-          ? {
-              text: 'La vidéo tarde à charger ? Ouvrez-la directement.',
-              cta: 'Ouvrir la vidéo'
-            }
-          : {
-              text: 'Video not loading? Open it directly.',
-              cta: 'Open video'
-            };
-
-      const gentleReload = (video) => {
-        try {
-          const { currentTime } = video;
-          video.pause();
-          video.load();
-          if (currentTime > 0) {
-            video.currentTime = currentTime;
-          }
-        } catch (error) {
-          /* noop */
-        }
-      };
-
-      const videoHydrator = (() => {
-        const hydratedVideos = new WeakSet();
-
-        const notifyHydrated = (video) => {
-          try {
-            video.dispatchEvent(new Event('videohydrated'));
-          } catch (error) {
-            /* noop */
-          }
-        };
-
-        const hydrate = (video) => {
-          if (hydratedVideos.has(video)) {
-            return false;
-          }
-
-          ensurePreload(video);
-
-          if (video.readyState === 0) {
-            try {
-              video.load();
-            } catch (error) {
-              // graceful degradation: let browser load naturally
-            }
-          }
-
-          hydratedVideos.add(video);
-          video.dataset.hydrated = 'true';
-          notifyHydrated(video);
-          return true;
-        };
-
-        if ('IntersectionObserver' in window) {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach(({ isIntersecting, target }) => {
-                if (isIntersecting) {
-                  const didHydrate = hydrate(target);
-                  if (didHydrate) {
-                    observer.unobserve(target);
-                  }
-                }
-              });
-            },
-            {
-              rootMargin: '200px',
-              threshold: 0.1
-            }
-          );
-
-          return {
-            observe: (video) => observer.observe(video),
-            hydrate
-          };
-        }
-
-        return {
-          observe: hydrate,
-          hydrate
-        };
-      })();
-
-      const attachFallback = (video, container) => {
-        const source = video.querySelector('source');
-        const href = source?.src || video.currentSrc || video.getAttribute('src');
-        if (!container || !href) return;
-
-        if (container.querySelector('.video-fallback')) return;
-
-        const copy = getFallbackCopy();
-        const fallback = document.createElement('div');
-        fallback.className = 'video-fallback';
-        fallback.innerHTML = `<p>${copy.text}</p><a href="${href}" target="_blank" rel="noopener">${copy.cta}</a>`;
-        container.appendChild(fallback);
-
-        let retryTimer = null;
-
-        const showFallback = () => fallback.classList.add('visible');
-        const hideFallback = () => {
-          fallback.classList.remove('visible');
-          if (retryTimer) {
-            clearTimeout(retryTimer);
-            retryTimer = null;
-          }
-        };
-
-        const retryLoad = () => {
-          if (video.dataset.hydrated === 'true') {
-            gentleReload(video);
-          }
-
-          showFallback();
-        };
-
-        const startFallbackTimer = () => {
-          if (retryTimer) {
-            return;
-          }
-
-          retryTimer = setTimeout(() => {
-            if (video.readyState <= 2) {
-              retryLoad();
-            }
-          }, 3200);
-        };
-
-        const handleHydration = () => {
-          startFallbackTimer();
-          video.removeEventListener('videohydrated', handleHydration);
-        };
-
-        video.addEventListener('error', showFallback);
-        video.addEventListener('stalled', retryLoad);
-        video.addEventListener('loadeddata', hideFallback);
-        video.addEventListener('canplay', hideFallback);
-        video.addEventListener('play', hideFallback);
-        video.addEventListener('videohydrated', handleHydration);
-
-        startFallbackTimer();
-      };
-
-      playerNodes.forEach(({ video, container }) => {
-        videoHydrator.observe(video);
-        attachFallback(video, container);
-        new Plyr(video, options);
-      });
-    })();
-  </script>
-
-  <script>
-    (function () {
-      if (typeof Glide !== 'function') {
-        return;
-      }
-
-      const gallery = document.querySelector('[data-gallery-glide]');
-      if (!gallery) {
-        return;
-      }
-
-      const glide = new Glide(gallery, {
-        type: 'carousel',
-        focusAt: 'center',
-        perView: 1,
-        gap: 32,
-        autoplay: 5200,
-        hoverpause: true,
-        animationDuration: 600,
-        animationTimingFunc: 'cubic-bezier(0.33, 1, 0.68, 1)',
-        keyboard: true,
-        breakpoints: {
-          1024: { gap: 24 },
-          768: { gap: 20 },
-          560: { gap: 16 }
-        }
-      });
-
-      glide.mount();
-    })();
-  </script>
-
-  <script>
-    (function () {
-      const header = document.getElementById('site-header');
-      const nav = document.getElementById('site-navigation');
-      const toggle = document.getElementById('openmenu');
-      if (!header || !nav || !toggle) return;
-
-      const body = document.body;
-      body.classList.add('js-nav-ready');
-      const srToggleText = toggle.querySelector('.sr-only');
-      const navLinks = Array.from(nav.querySelectorAll('a'));
-      const mobileQuery = window.matchMedia('(max-width: 768px)');
-      const labels = document.documentElement.lang === 'fr'
-        ? { open: 'Ouvrir le menu', close: 'Fermer le menu' }
-        : { open: 'Open menu', close: 'Close menu' };
-
-      const isOverlayMode = () => mobileQuery.matches || header.classList.contains('compact');
-
-      const setAriaState = (expanded) => {
-        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        const label = expanded ? labels.close : labels.open;
-        toggle.setAttribute('aria-label', label);
-        if (srToggleText) {
-          srToggleText.textContent = label;
-        }
-
-        if (expanded || !isOverlayMode()) {
-          nav.removeAttribute('aria-hidden');
-        } else {
-          nav.setAttribute('aria-hidden', 'true');
-        }
-      };
-
-      const closeMenu = ({ focusToggle = false } = {}) => {
-        header.classList.remove('menu-open');
-        body.classList.remove('nav-open');
-        setAriaState(false);
-        nav.scrollTop = 0;
-        if (focusToggle) {
-          try {
-            toggle.focus({ preventScroll: true });
-          } catch (error) {
-            toggle.focus();
-          }
-        }
-      };
-
-      const openMenu = () => {
-        header.classList.add('menu-open');
-        body.classList.add('nav-open');
-        setAriaState(true);
-      };
-
-      const handleToggleClick = (event) => {
-        event.preventDefault();
-        if (!isOverlayMode()) {
-          return;
-        }
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        if (expanded) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
-      };
-
-      const handleLinkClick = () => {
-        if (isOverlayMode()) {
-          closeMenu();
-        }
-      };
-
-      const handleDocumentPointerDown = (event) => {
-        if (!header.contains(event.target) && isOverlayMode() && header.classList.contains('menu-open')) {
-          closeMenu();
-        }
-      };
-
-      const handleKeydown = (event) => {
-        if (event.key === 'Escape' && isOverlayMode() && toggle.getAttribute('aria-expanded') === 'true') {
-          event.preventDefault();
-          closeMenu({ focusToggle: true });
-        }
-      };
-
-      const syncForViewport = () => {
-        if (!mobileQuery.matches) {
-          header.classList.remove('sticky');
-        }
-
-        if (mobileQuery.matches) {
-          if (header.classList.contains('compact')) {
-            header.classList.remove('compact');
-          }
-
-          closeMenu();
-          return;
-        }
-
-        if (!isOverlayMode()) {
-          header.classList.remove('menu-open');
-          body.classList.remove('nav-open');
-          setAriaState(false);
-          nav.scrollTop = 0;
-        } else if (!header.classList.contains('menu-open')) {
-          setAriaState(false);
-          nav.scrollTop = 0;
-        }
-      };
-
-      const handleScroll = () => {
-        const isMobileViewport = mobileQuery.matches;
-
-        if (isMobileViewport) {
-          const shouldStick = window.scrollY > 30;
-          header.classList.toggle('sticky', shouldStick);
-
-          if (header.classList.contains('compact')) {
-            header.classList.remove('compact');
-            closeMenu();
-          }
-
-          return;
-        }
-
-        header.classList.remove('sticky');
-
-        const shouldCompact = window.scrollY > 120;
-        const isCompact = header.classList.contains('compact');
-
-        if (shouldCompact && !isCompact) {
-          header.classList.add('compact');
-          closeMenu();
-        } else if (!shouldCompact && isCompact) {
-          header.classList.remove('compact');
-          closeMenu();
-        }
-      };
-
-      toggle.addEventListener('click', handleToggleClick);
-      navLinks.forEach((link) => link.addEventListener('click', handleLinkClick));
-      document.addEventListener('keydown', handleKeydown);
-      document.addEventListener('pointerdown', handleDocumentPointerDown);
-      window.addEventListener('resize', syncForViewport);
-      window.addEventListener('orientationchange', syncForViewport);
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      window.addEventListener('hashchange', () => {
-        if (isOverlayMode()) {
-          closeMenu();
-        }
-      });
-
-      if (typeof mobileQuery.addEventListener === 'function') {
-        mobileQuery.addEventListener('change', syncForViewport);
-      } else if (typeof mobileQuery.addListener === 'function') {
-        mobileQuery.addListener(syncForViewport);
-      }
-
-      syncForViewport();
-      handleScroll();
-    })();
-  </script>
-
-  </div>
-
-  <script>
-    (function () {
-      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var revealElements = document.querySelectorAll('.reveal');
-
-      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-        revealElements.forEach(function (el) { el.classList.add('revealed'); });
-        return;
-      }
-
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
-
-      revealElements.forEach(function (el) { observer.observe(el); });
-    })();
-  </script>
-
-  <!-- Custom cursor, scroll progress & 3D card tilt -->
-  <script>
-    (function () {
-      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var isCoarse = window.matchMedia('(pointer: coarse)').matches;
-
-      /* ── Scroll progress bar ─────────────────────────────── */
-      var progressBar = document.querySelector('.scroll-progress-bar');
-      if (progressBar) {
-        window.addEventListener('scroll', function () {
-          var scrollTop = window.scrollY;
-          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-          progressBar.style.width = pct + '%';
-        }, { passive: true });
-      }
-
-      /* ── Custom cursor ───────────────────────────────────── */
-      if (!isCoarse && !prefersReducedMotion) {
-        var dot = document.querySelector('.cursor-dot');
-        var ring = document.querySelector('.cursor-ring');
-
-        if (dot && ring) {
-          var mx = 0, my = 0, rx = 0, ry = 0;
-
-          document.addEventListener('mousemove', function (e) {
-            mx = e.clientX; my = e.clientY;
-            dot.style.left = mx + 'px';
-            dot.style.top = my + 'px';
-          });
-
-          (function followRing() {
-            rx += (mx - rx) * 0.15;
-            ry += (my - ry) * 0.15;
-            ring.style.left = rx + 'px';
-            ring.style.top = ry + 'px';
-            requestAnimationFrame(followRing);
-          })();
-
-          document.body.classList.add('cursor-ready');
-
-          var hoverTargets = document.querySelectorAll('a, button, .project-card, .gallery-media');
-          hoverTargets.forEach(function (el) {
-            el.addEventListener('mouseenter', function () { ring.classList.add('hover'); });
-            el.addEventListener('mouseleave', function () { ring.classList.remove('hover'); });
-          });
-
-          document.addEventListener('mousedown', function () { ring.classList.add('click'); });
-          document.addEventListener('mouseup', function () { ring.classList.remove('click'); });
-        }
-      }
-
-      /* ── 3D Card tilt on hover ───────────────────────────── */
-      if (!isCoarse && !prefersReducedMotion) {
-        var cards = document.querySelectorAll('.project-card');
-        cards.forEach(function (card) {
-          card.addEventListener('mousemove', function (e) {
-            var rect = card.getBoundingClientRect();
-            var x = ((e.clientX - rect.left) / rect.width) * 100;
-            var y = ((e.clientY - rect.top) / rect.height) * 100;
-            card.style.setProperty('--mouse-x', x + '%');
-            card.style.setProperty('--mouse-y', y + '%');
-            var rotateY = ((x - 50) / 50) * 3;
-            var rotateX = ((50 - y) / 50) * 3;
-            card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.01,1.01,1.01)';
-          });
-          card.addEventListener('mouseleave', function () {
-            card.style.transform = '';
-          });
-        });
-      }
-    })();
-  </script>
-
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js" defer></script>
+  <script src="/scripts/site.js" defer></script>
 </body>
 </html>
