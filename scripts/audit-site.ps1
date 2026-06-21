@@ -102,6 +102,20 @@ if ($css -notmatch 'scroll-padding-top') {
 if ($css -notmatch '(?s)\.hero\s*\{[^}]*width:\s*100%') {
   Add-Failure 'style.css does not explicitly constrain the hero to the viewport'
 }
+if ($css -notmatch '\.nova-header\.is-condensed') {
+  Add-Failure 'style.css is missing the mobile dynamic-island header state'
+}
+if ($css -notmatch '\.video-frame\.is-hydrated::after' -or $css -notmatch '\.video-frame\.is-playing::after') {
+  Add-Failure 'style.css does not hide the custom video play overlay after activation'
+}
+
+$siteScript = Get-Content -Raw -LiteralPath (Join-Path $Root 'scripts/site.js')
+if ($siteScript -notmatch 'is-condensed') {
+  Add-Failure 'site.js does not toggle the dynamic-island header state'
+}
+if ($siteScript -notmatch 'is-hydrated' -or $siteScript -notmatch 'is-playing') {
+  Add-Failure 'site.js does not maintain video hydration/playback classes'
+}
 
 if (-not $SkipMediaBudget) {
   $mediaBytes = (Get-ChildItem (Join-Path $Root 'media') -Recurse -File |

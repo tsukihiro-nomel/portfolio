@@ -3,6 +3,7 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const coarsePointer = window.matchMedia('(pointer: coarse)');
+  const narrowViewport = window.matchMedia('(max-width: 768px)');
   const isFrench = document.documentElement.lang === 'fr';
 
   function initVersionCheck() {
@@ -35,12 +36,13 @@
     const starfield = document.getElementById('starfield');
     const particles = document.getElementById('interactive-particles');
     const spheres = Array.from(document.querySelectorAll('.gradient-sphere'));
-    const animate = !reducedMotion.matches && !coarsePointer.matches;
+    const lowMotionSurface = coarsePointer.matches || narrowViewport.matches;
+    const animate = !reducedMotion.matches && !lowMotionSurface;
     const random = (min, max) => Math.random() * (max - min) + min;
 
     if (starfield) {
       const fragment = document.createDocumentFragment();
-      const count = animate ? 72 : 30;
+      const count = animate ? 72 : lowMotionSurface ? 0 : 24;
       for (let index = 0; index < count; index += 1) {
         const star = document.createElement('span');
         star.className = 'star';
@@ -118,6 +120,18 @@
 
     document.body.classList.add('js-nav-ready');
 
+    let scrollFrame = 0;
+
+    const updateCondensed = () => {
+      scrollFrame = 0;
+      header.classList.toggle('is-condensed', mobile.matches && window.scrollY > 72);
+    };
+
+    const requestCondensedUpdate = () => {
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(updateCondensed);
+    };
+
     const setOpen = (open, focusToggle) => {
       header.classList.toggle('menu-open', open);
       document.body.classList.toggle('nav-open', open);
@@ -143,8 +157,15 @@
         setOpen(false, true);
       }
     });
+    window.addEventListener('scroll', requestCondensedUpdate, { passive: true });
+    window.addEventListener('pagehide', () => {
+      if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
+    }, { once: true });
 
-    const sync = () => setOpen(false);
+    const sync = () => {
+      setOpen(false);
+      updateCondensed();
+    };
     if (typeof mobile.addEventListener === 'function') {
       mobile.addEventListener('change', sync);
     } else {
@@ -167,32 +188,91 @@
       if (!video || !source) return;
 
       let hydrated = false;
-      const hydrate = () => {
-        if (hydrated) return;
-        hydrated = true;
-        source.src = source.dataset.src;
-        video.load();
+      let player = null;
+      let pendingPlayback = false;
+      const useNativePlayer = coarsePointer.matches || narrowViewport.matches;
+
+      const ensurePlyr = () => {
+        if (useNativePlayer || player || typeof window.Plyr !== 'function') return;
+        try {
+          player = new window.Plyr(video, {
+            ratio: '16:9',
+            settings: ['quality', 'speed']
+          });
+        } catch (error) {
+          player = null;
+        }
+      };
+
+      const playVideo = () => {
+        const target = player && typeof player.play === 'function' ? player : video;
+        try {
+          const playback = target.play();
+          if (playback && typeof playback.catch === 'function') {
+            playback.catch(() => {});
+          }
+        } catch (error) {
+          // Native players can reject while the source is still settling.
+        }
+      };
+
+      const requestPlayback = () => {
+        pendingPlayback = true;
+        playVideo();
+      };
+
+      const hydrate = (options = {}) => {
+        if (!hydrated) {
+          hydrated = true;
+          container.classList.add('is-hydrated', 'is-loading');
+          source.src = source.dataset.src;
+          video.load();
+          ensurePlyr();
+        }
+        if (options.play) requestPlayback();
       };
 
       const fallback = document.createElement('div');
       fallback.className = 'video-fallback';
+      fallback.setAttribute('aria-hidden', 'true');
       fallback.innerHTML =
         `<p>${copy.text}</p><a href="${source.dataset.src}" target="_blank" rel="noopener">${copy.cta}</a>`;
       container.appendChild(fallback);
 
-      video.addEventListener('error', () => fallback.classList.add('visible'));
-      video.addEventListener('canplay', () => fallback.classList.remove('visible'));
-      container.addEventListener('pointerdown', hydrate, { capture: true, once: true });
-      container.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') hydrate();
-      }, { capture: true });
+      video.addEventListener('error', () => {
+        pendingPlayback = false;
+        container.classList.remove('is-loading', 'is-playing');
+        fallback.classList.add('visible');
+        fallback.removeAttribute('aria-hidden');
+      });
+      video.addEventListener('canplay', () => {
+        container.classList.remove('is-loading');
+        fallback.classList.remove('visible');
+        fallback.setAttribute('aria-hidden', 'true');
+        if (pendingPlayback) playVideo();
+      });
+      video.addEventListener('play', () => container.classList.add('is-playing'));
+      video.addEventListener('playing', () => {
+        pendingPlayback = false;
+        container.classList.add('is-playing');
+        container.classList.remove('is-loading');
+        fallback.classList.remove('visible');
+      });
+      video.addEventListener('pause', () => {
+        pendingPlayback = false;
+        container.classList.remove('is-playing');
+      });
+      video.addEventListener('ended', () => {
+        pendingPlayback = false;
+        container.classList.remove('is-playing');
+      });
 
-      if (typeof window.Plyr === 'function') {
-        new window.Plyr(video, {
-          ratio: '16:9',
-          settings: ['quality', 'speed']
-        });
-      }
+      container.addEventListener('pointerdown', () => hydrate({ play: true }), { capture: true, once: true });
+      container.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        if (!hydrated) event.preventDefault();
+        hydrate({ play: true });
+      }, { capture: true });
     });
   }
 
@@ -235,17 +315,27 @@
   }
 
   function initEnhancements() {
+    const lowMotionSurface = coarsePointer.matches || narrowViewport.matches;
     const progress = document.querySelector('.scroll-progress-bar');
-    if (progress) {
+    if (progress && !lowMotionSurface) {
+      let progressFrame = 0;
       const updateProgress = () => {
+        progressFrame = 0;
         const height = document.documentElement.scrollHeight - window.innerHeight;
         progress.style.width = `${height > 0 ? (window.scrollY / height) * 100 : 0}%`;
       };
-      window.addEventListener('scroll', updateProgress, { passive: true });
+      const requestProgressUpdate = () => {
+        if (progressFrame) return;
+        progressFrame = window.requestAnimationFrame(updateProgress);
+      };
+      window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+      window.addEventListener('pagehide', () => {
+        if (progressFrame) window.cancelAnimationFrame(progressFrame);
+      }, { once: true });
       updateProgress();
     }
 
-    if (coarsePointer.matches || reducedMotion.matches) return;
+    if (lowMotionSurface || reducedMotion.matches) return;
 
     const dot = document.querySelector('.cursor-dot');
     const ring = document.querySelector('.cursor-ring');
